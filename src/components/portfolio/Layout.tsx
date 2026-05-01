@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Code2 } from "lucide-react";
+import { Smartphone } from "lucide-react";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -16,10 +16,10 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-2 group">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent shadow-glow transition-spring group-hover:scale-110">
-            <Code2 className="h-5 w-5 text-primary-foreground" />
+            <Smartphone className="h-5 w-5 text-primary-foreground" />
           </div>
           <span className="font-display text-lg font-bold tracking-tight">
-            alex<span className="text-primary">.dev</span>
+            nurujjaman<span className="text-primary">.dev</span>
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-1">
@@ -50,7 +50,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border/50 mt-24">
       <div className="mx-auto max-w-6xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} Alex Carter — Senior Software Engineer.</p>
+        <p>© {new Date().getFullYear()} MD. Nurujjaman — Flutter Developer.</p>
         <p className="font-mono text-xs">Built with React · TypeScript · TanStack</p>
       </div>
     </footer>

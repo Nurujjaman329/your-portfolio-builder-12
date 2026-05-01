@@ -1,55 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
-import { Award, Coffee, Code2, Users } from "lucide-react";
+import { Smartphone, Code2, Award, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Alex Carter" },
-      { name: "description", content: "Senior software engineer with 10+ years of experience leading teams and shipping products used by millions." },
-      { property: "og:title", content: "About Alex Carter" },
-      { property: "og:description", content: "Senior engineer, team lead, and lifelong learner." },
+      { title: "About — MD. Nurujjaman" },
+      { name: "description", content: "Flutter Developer based in Dhaka with 2+ years of experience in clean architecture and cross-platform mobile development." },
+      { property: "og:title", content: "About MD. Nurujjaman" },
+      { property: "og:description", content: "Flutter Developer based in Dhaka, Bangladesh." },
     ],
   }),
   component: About,
 });
 
 const skills = [
-  { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion", "Vite"] },
-  { group: "Backend", items: ["Node.js", "Go", "Rust", "GraphQL", "REST", "tRPC"] },
-  { group: "Data", items: ["PostgreSQL", "Redis", "Kafka", "ClickHouse", "Elasticsearch"] },
-  { group: "Cloud / DevOps", items: ["AWS", "GCP", "Kubernetes", "Terraform", "Docker", "GitHub Actions"] },
+  { group: "Languages", items: ["Dart", "C", "C++"] },
+  { group: "Framework", items: ["Flutter"] },
+  { group: "Mobile Development", items: ["Clean Architecture", "State Management", "REST API", "Push Notifications", "Deep Linking"] },
+  { group: "Integrations", items: ["Google Maps", "Location Services", "Socket.IO", "ShurjoPay", "bKash", "Nagad"] },
+  { group: "Tools", items: ["Git", "GitHub", "VS Code", "Figma"] },
 ];
 
 const facts = [
-  { icon: Code2, label: "Years coding", value: "10+" },
-  { icon: Users, label: "Engineers mentored", value: "40+" },
-  { icon: Award, label: "Talks given", value: "12" },
-  { icon: Coffee, label: "Cups of coffee", value: "∞" },
+  { icon: Code2, label: "Years coding", value: "2+" },
+  { icon: Smartphone, label: "Apps shipped", value: "6+" },
+  { icon: Award, label: "Certifications", value: "3" },
+  { icon: MapPin, label: "Based in", value: "Dhaka" },
 ];
 
 function About() {
   return (
     <Section
       eyebrow="About"
-      title="Engineer, mentor, builder."
-      description="I've spent the last decade building products at startups and scale-ups — from pre-seed prototypes to platforms serving millions. I care about craft, clarity, and shipping."
+      title="Flutter developer & mobile craftsman."
+      description="Experienced Flutter Developer with 2+ years building high-performance, cross-platform mobile applications. Passionate about clean architecture, responsive UI and shipping scalable, user-friendly products."
     >
       <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6 text-foreground/90 leading-relaxed">
           <p>
-            I started writing code at 14, dropped out of a CS PhD to join an early-stage startup,
-            and never really stopped. Today I split my time between hands-on engineering, system
-            design, and coaching the next generation of senior engineers.
+            I'm <span className="text-primary font-semibold">MD. Nurujjaman</span>, a Flutter Developer based in
+            Mohakhali, Dhaka. I specialize in building cross-platform mobile applications with clean architecture,
+            responsive UI, and integrations like push notifications, Google Maps, Socket.IO, deep linking and
+            secure payment gateways.
           </p>
           <p>
-            Outside of work, you'll find me contributing to open source, writing about distributed
-            systems on my blog, or training for the next marathon. I believe the best engineers
-            are curious humans first.
+            Over the past 2+ years I've shipped 6+ production-grade apps for enterprise and government clients —
+            from agriculture investment platforms to insurance and education products. I love collaborating with
+            innovative teams to deliver scalable, user-friendly solutions while continuously sharpening my craft.
           </p>
           <p>
-            I'm based in <span className="text-primary font-semibold">Berlin</span>, work
-            remote-first, and collaborate across time zones with global teams.
+            I hold a B.Sc. in Computer Science & Engineering from <span className="text-primary font-semibold">Dhaka City College</span> (National University, Bangladesh) and have completed
+            professional courses in Flutter from BASIS-SEIP and CSE Fundamentals from Phitron.
           </p>
 
           <div className="grid grid-cols-2 gap-4 pt-4 sm:grid-cols-4">
