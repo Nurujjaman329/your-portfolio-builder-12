@@ -4,10 +4,10 @@ import { Section } from "@/components/portfolio/Section";
 export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
-      { title: "Experience — Alex Carter" },
-      { name: "description", content: "10+ years of senior engineering experience across startups, scale-ups, and open source." },
-      { property: "og:title", content: "Experience — Alex Carter" },
-      { property: "og:description", content: "Career timeline of a senior software engineer." },
+      { title: "Experience — MD. Nurujjaman" },
+      { name: "description", content: "Flutter developer experience at Sparktech Agency and Synergy Interface Ltd., plus academic and professional courses." },
+      { property: "og:title", content: "Experience — MD. Nurujjaman" },
+      { property: "og:description", content: "Career timeline of MD. Nurujjaman, Flutter Developer." },
     ],
   }),
   component: Experience,
@@ -15,61 +15,56 @@ export const Route = createFileRoute("/experience")({
 
 const roles = [
   {
-    company: "Lumen Analytics",
-    role: "Staff Software Engineer",
-    period: "2023 — Present",
-    location: "Berlin · Remote",
+    company: "Sparktech Agency – Betopia Group",
+    role: "Software Engineer (Flutter)",
+    period: "Dec 2025 — Present",
+    location: "Dhaka, Bangladesh",
     bullets: [
-      "Lead a platform team of 8 engineers building real-time analytics infrastructure.",
-      "Re-architected the query engine in Rust, reducing p99 latency by 70% and infra cost by 40%.",
-      "Drove the company's adoption of feature flags, trunk-based development and CI/CD.",
+      "Developing scalable Flutter applications with real-time data synchronization using Socket.IO.",
+      "Integrating Google Maps APIs for advanced tracking and location-based services.",
+      "Collaborating with distributed teams to ensure code quality, maintainability and performance.",
     ],
   },
   {
-    company: "Northwind Cloud",
-    role: "Senior Software Engineer",
-    period: "2020 — 2023",
-    location: "Amsterdam",
+    company: "Synergy Interface Ltd.",
+    role: "Software Developer (Flutter)",
+    period: "Oct 2023 — Nov 2025",
+    location: "Dhaka, Bangladesh",
     bullets: [
-      "Migrated a 6-year-old Rails monolith to a Go microservices platform on Kubernetes.",
-      "Built the internal developer platform used by 50+ engineers daily.",
-      "Mentored 12 engineers, 4 of whom were promoted to senior under my guidance.",
-    ],
-  },
-  {
-    company: "Specter Labs",
-    role: "Software Engineer",
-    period: "2017 — 2020",
-    location: "London",
-    bullets: [
-      "Joined as employee #5; helped grow eng team from 3 to 25 over three years.",
-      "Owned the entire frontend stack and shipped the first paying-customer product.",
-      "Open-sourced internal tooling that became the company's flagship SDK.",
-    ],
-  },
-  {
-    company: "Freelance & Indie",
-    role: "Full-Stack Developer",
-    period: "2014 — 2017",
-    location: "Remote",
-    bullets: [
-      "Built MVPs and production apps for 20+ early-stage startups across Europe.",
-      "Specialized in real-time apps with WebSockets, React, and Node.js.",
+      "Developed and maintained 6+ production-grade Flutter applications for enterprise and government clients.",
+      "Applied clean architecture principles to ensure modular, testable and maintainable codebases.",
+      "Optimized application performance through efficient state management and API handling.",
     ],
   },
 ];
 
 const education = [
   {
-    school: "TU Munich",
-    degree: "M.Sc. Computer Science",
-    period: "2012 — 2014",
-    note: "Distributed Systems · Thesis on consensus algorithms.",
+    school: "Dhaka City College (National University, Bangladesh)",
+    degree: "B.Sc. in Computer Science and Engineering",
+    period: "2018 — 2021 (Held in 2023)",
+    note: "CGPA 3.18 / 4.00",
+  },
+];
+
+const courses = [
+  {
+    school: "BASIS SEIP",
+    degree: "Mobile Application Development — Flutter",
+    period: "Sep 2022 — Dec 2022",
+    note: "Certificate",
   },
   {
-    school: "University of Edinburgh",
-    degree: "B.Sc. Software Engineering, First Class",
-    period: "2009 — 2012",
+    school: "WSDA New Zealand",
+    degree: "Professional English Communication Skill",
+    period: "Nov 2022",
+    note: "Certificate",
+  },
+  {
+    school: "Phitron",
+    degree: "CSE Fundamentals",
+    period: "—",
+    note: "Certificate",
   },
 ];
 
@@ -77,8 +72,8 @@ function Experience() {
   return (
     <Section
       eyebrow="Experience"
-      title="A decade in the trenches."
-      description="From freelance hacker to staff engineer leading platform teams. Here's the path."
+      title="My professional journey."
+      description="Two years of shipping Flutter apps for enterprise, government and agency clients — and counting."
     >
       <div className="relative">
         <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-accent to-transparent md:left-1/2" />
@@ -117,7 +112,7 @@ function Experience() {
       {/* Education */}
       <div className="mt-20">
         <h2 className="font-display text-2xl font-semibold mb-6">Education</h2>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4">
           {education.map((e) => (
             <div key={e.school} className="rounded-xl border border-border/60 bg-card-gradient p-6">
               <p className="font-mono text-xs uppercase tracking-widest text-primary">{e.period}</p>
@@ -127,6 +122,30 @@ function Experience() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Professional Courses */}
+      <div className="mt-12">
+        <h2 className="font-display text-2xl font-semibold mb-6">Professional Courses</h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {courses.map((e) => (
+            <div key={e.school} className="rounded-xl border border-border/60 bg-card-gradient p-6">
+              <p className="font-mono text-xs uppercase tracking-widest text-primary">{e.period}</p>
+              <h3 className="mt-1 font-display text-base font-semibold">{e.degree}</h3>
+              <p className="text-sm text-muted-foreground">{e.school}</p>
+              {e.note && <p className="mt-2 text-xs text-foreground/70">{e.note}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Extra Curricular */}
+      <div className="mt-12">
+        <h2 className="font-display text-2xl font-semibold mb-6">Extra-Curricular</h2>
+        <ul className="space-y-2 text-foreground/85">
+          <li className="flex gap-2"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /> Participation in DCC CSE Digital Week 2020</li>
+          <li className="flex gap-2"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /> Participation in DCC Inter Dept. Programming Contest 2019</li>
+        </ul>
       </div>
     </Section>
   );

@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Alex Carter" },
-      { name: "description", content: "Selected work from the past few years: SaaS platforms, developer tools, and open-source." },
-      { property: "og:title", content: "Projects — Alex Carter" },
-      { property: "og:description", content: "Selected work: SaaS platforms, developer tools, open source." },
+      { title: "Projects — MD. Nurujjaman" },
+      { name: "description", content: "Selected Flutter projects: agriculture investment, distributor management, life insurance and education apps." },
+      { property: "og:title", content: "Projects — MD. Nurujjaman" },
+      { property: "og:description", content: "Flutter projects across fintech, govtech and edtech." },
     ],
   }),
   component: Projects,
@@ -16,51 +16,51 @@ export const Route = createFileRoute("/projects")({
 
 const projects = [
   {
-    name: "Lumen Analytics",
-    tag: "SaaS · Lead Engineer",
-    desc: "Real-time product analytics platform processing 4B events/month. Designed the ingestion pipeline and rebuilt the query engine in Rust, cutting p99 latency by 70%.",
-    stack: ["Rust", "ClickHouse", "Kafka", "React", "AWS"],
-    year: "2025",
+    name: "MyKrishi",
+    tag: "Smart Agriculture · Flutter",
+    desc: "Smart agriculture investment platform with role-based interfaces for investors and agents. Implemented deep linking, real-time chat and secure payment integration using ShurjoPay.",
+    stack: ["Flutter", "Dart", "ShurjoPay", "Socket.IO", "Deep Linking"],
+    company: "Synergy Interface Ltd.",
     accent: "from-primary to-accent",
   },
   {
-    name: "Forge UI",
-    tag: "Open Source",
-    desc: "A headless React component library focused on accessibility and composition. 12k stars on GitHub, used by teams at Vercel, Linear, and Notion.",
-    stack: ["TypeScript", "React", "Radix", "Tailwind"],
-    year: "2024",
+    name: "Distributor Management System",
+    tag: "Enterprise · Logistics",
+    desc: "Built role-based dashboards with real-time logistics tracking using Google Maps. Optimized state management and API handling for high performance across the field force.",
+    stack: ["Flutter", "Google Maps", "REST API", "State Management"],
+    company: "Synergy Interface Ltd.",
     accent: "from-accent to-primary",
   },
   {
-    name: "Pulse DevTools",
-    tag: "Developer Tools",
-    desc: "Browser extension giving engineers x-ray vision into their app's network, state, and rendering pipeline. Acquired by a YC startup in 2024.",
-    stack: ["TypeScript", "WebExtensions", "Vite"],
-    year: "2024",
+    name: "Meghna Life Insurance",
+    tag: "Fintech · Customer & Advisor Apps",
+    desc: "Developed policy management, reporting and payment modules for both customers and advisors. Integrated secure digital payments via bKash and Nagad.",
+    stack: ["Flutter", "bKash", "Nagad", "Clean Architecture"],
+    company: "Synergy Interface Ltd.",
     accent: "from-primary to-accent",
   },
   {
-    name: "Northwind Cloud",
-    tag: "Platform · Architect",
-    desc: "Multi-tenant logistics platform serving 200+ enterprise customers. Led migration from monolith to event-driven microservices on Kubernetes.",
-    stack: ["Go", "Kubernetes", "PostgreSQL", "gRPC"],
-    year: "2023",
+    name: "Edex-365",
+    tag: "EdTech · Education Platform",
+    desc: "Engineered an educational application with notification systems and tight backend API synchronization for students and educators.",
+    stack: ["Flutter", "Push Notifications", "REST API"],
+    company: "Synergy Interface Ltd.",
     accent: "from-accent to-primary",
   },
   {
-    name: "Echo Mail",
-    tag: "Side Project",
-    desc: "Privacy-first email client with end-to-end encryption and beautiful keyboard-first UI. 40k active users.",
-    stack: ["Next.js", "Postgres", "WebCrypto"],
-    year: "2023",
+    name: "Nursery Management System",
+    tag: "GovTech · Operations",
+    desc: "Government nursery management application with notification systems and backend synchronization, focused on reliability and accessibility.",
+    stack: ["Flutter", "Notifications", "API Sync"],
+    company: "Synergy Interface Ltd.",
     accent: "from-primary to-accent",
   },
   {
-    name: "Specter SDK",
-    tag: "Open Source",
-    desc: "Type-safe schema-first API framework for TypeScript. Powers internal tooling at several Fortune 500 companies.",
-    stack: ["TypeScript", "Zod", "OpenAPI"],
-    year: "2022",
+    name: "Real-Time Tracking App",
+    tag: "Current · Sparktech Agency",
+    desc: "Building scalable Flutter applications with real-time data synchronization using Socket.IO and advanced Google Maps tracking and location-based services.",
+    stack: ["Flutter", "Socket.IO", "Google Maps"],
+    company: "Sparktech Agency – Betopia Group",
     accent: "from-accent to-primary",
   },
 ];
@@ -69,8 +69,8 @@ function Projects() {
   return (
     <Section
       eyebrow="Selected work"
-      title="Things I've built."
-      description="A handful of projects from the last few years — products I shipped, platforms I architected, and open source I'm proud of."
+      title="Apps I've built."
+      description="A handful of Flutter projects I've shipped — from smart agriculture and logistics to insurance, education and government applications."
     >
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((p) => (
@@ -84,7 +84,6 @@ function Projects() {
                 <p className="font-mono text-xs uppercase tracking-widest text-primary">{p.tag}</p>
                 <h3 className="mt-1 font-display text-2xl font-semibold">{p.name}</h3>
               </div>
-              <span className="font-mono text-xs text-muted-foreground">{p.year}</span>
             </div>
             <p className="mt-4 text-muted-foreground leading-relaxed">{p.desc}</p>
             <div className="mt-5 flex flex-wrap gap-2">
@@ -94,12 +93,10 @@ function Projects() {
                 </span>
               ))}
             </div>
-            <div className="mt-6 flex items-center gap-4 text-sm">
-              <a href="#" className="inline-flex items-center gap-1.5 text-primary transition-smooth hover:gap-2.5">
-                <ExternalLink className="h-4 w-4" /> Live
-              </a>
-              <a href="#" className="inline-flex items-center gap-1.5 text-muted-foreground transition-smooth hover:text-foreground">
-                <Github className="h-4 w-4" /> Code
+            <div className="mt-6 flex items-center justify-between text-sm">
+              <span className="text-xs text-muted-foreground">{p.company}</span>
+              <a href="https://github.com/Nurujjaman329" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-primary transition-smooth hover:gap-2.5">
+                <ExternalLink className="h-4 w-4" /> GitHub
               </a>
             </div>
           </article>

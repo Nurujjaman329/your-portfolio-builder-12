@@ -1,43 +1,43 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
-import heroImage from "@/assets/hero.jpg";
+import portrait from "@/assets/portrait.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alex Carter — Senior Software Engineer" },
-      { name: "description", content: "Senior full-stack engineer specializing in scalable React, TypeScript and cloud architectures. 10+ years shipping production software." },
-      { property: "og:title", content: "Alex Carter — Senior Software Engineer" },
-      { property: "og:description", content: "Senior full-stack engineer. 10+ years shipping production software." },
+      { title: "MD. Nurujjaman — Flutter Developer" },
+      { name: "description", content: "Flutter Developer with 2+ years of experience building cross-platform mobile apps with clean architecture, Socket.IO, Google Maps and secure payments." },
+      { property: "og:title", content: "MD. Nurujjaman — Flutter Developer" },
+      { property: "og:description", content: "Flutter Developer · 2+ years · Cross-platform mobile apps." },
     ],
   }),
   component: Index,
 });
 
 const stats = [
-  { value: "10+", label: "Years building" },
-  { value: "60+", label: "Projects shipped" },
-  { value: "20+", label: "Teams led" },
-  { value: "4M+", label: "Users impacted" },
+  { value: "2+", label: "Years experience" },
+  { value: "6+", label: "Production apps" },
+  { value: "2", label: "Companies" },
+  { value: "100%", label: "Cross-platform" },
 ];
 
 const stack = [
-  "TypeScript", "React", "Next.js", "Node.js", "GraphQL",
-  "PostgreSQL", "AWS", "Kubernetes", "Terraform", "Rust",
+  "Flutter", "Dart", "C", "C++", "REST APIs",
+  "Socket.IO", "Google Maps", "Firebase", "Git", "Figma",
 ];
 
 const highlights = [
   {
-    title: "Architecture",
-    desc: "Designing distributed systems that scale to millions of users without breaking the bank.",
+    title: "Cross-Platform Apps",
+    desc: "Building high-performance Flutter apps for both Android and iOS from a single, clean codebase.",
   },
   {
-    title: "Product Engineering",
-    desc: "Shipping pixel-perfect, accessible interfaces that users actually love.",
+    title: "Real-Time & Maps",
+    desc: "Socket.IO chat, Google Maps tracking, deep linking and push notifications integrated end-to-end.",
   },
   {
-    title: "Team Leadership",
-    desc: "Mentoring engineers, running design reviews, and raising the bar on craft.",
+    title: "Secure Payments",
+    desc: "Production payment integrations with ShurjoPay, bKash, and Nagad for fintech-grade reliability.",
   },
 ];
 
@@ -51,14 +51,14 @@ function Index() {
           <div className="animate-fade-up">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-primary">
               <Sparkles className="h-3 w-3" />
-              Available for senior roles · Q3 2026
+              Flutter Developer · Dhaka, Bangladesh
             </p>
             <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
-              Building software <br />
-              that <span className="text-gradient">scales beautifully</span>.
+              Crafting mobile apps <br />
+              that <span className="text-gradient">just feel right</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              I'm <span className="text-foreground font-semibold">Alex Carter</span>, a senior software engineer with a decade of experience designing distributed systems, leading platform teams, and shipping products used by millions.
+              I'm <span className="text-foreground font-semibold">MD. Nurujjaman</span>, a Flutter Developer with 2+ years of experience building scalable, cross-platform mobile applications with clean architecture, real-time features and secure payments.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -77,9 +77,9 @@ function Index() {
             </div>
 
             <div className="mt-8 flex items-center gap-4 text-muted-foreground">
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="transition-smooth hover:text-primary"><Github className="h-5 w-5" /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="transition-smooth hover:text-primary"><Linkedin className="h-5 w-5" /></a>
-              <a href="mailto:hello@alex.dev" className="transition-smooth hover:text-primary"><Mail className="h-5 w-5" /></a>
+              <a href="https://github.com/Nurujjaman329" target="_blank" rel="noreferrer" className="transition-smooth hover:text-primary"><Github className="h-5 w-5" /></a>
+              <a href="https://www.linkedin.com/in/nurujjaman329/" target="_blank" rel="noreferrer" className="transition-smooth hover:text-primary"><Linkedin className="h-5 w-5" /></a>
+              <a href="mailto:mdnurujjaman329@gmail.com" className="transition-smooth hover:text-primary"><Mail className="h-5 w-5" /></a>
             </div>
           </div>
 
@@ -87,15 +87,15 @@ function Index() {
             <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-primary/30 to-accent/20 blur-3xl" />
             <div className="relative overflow-hidden rounded-2xl border border-border shadow-elegant animate-float">
               <img
-                src={heroImage}
-                alt="Senior developer working at night on a laptop with glowing code"
-                width={1920}
-                height={1080}
+                src={portrait}
+                alt="MD. Nurujjaman, Flutter Developer"
+                width={1200}
+                height={1500}
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent p-6">
-                <p className="font-mono text-xs text-primary">$ deploying to production...</p>
-                <p className="font-mono text-xs text-muted-foreground mt-1">✓ build complete · 0 errors</p>
+                <p className="font-mono text-xs text-primary">$ flutter run --release</p>
+                <p className="font-mono text-xs text-muted-foreground mt-1">✓ build complete · 0 issues</p>
               </div>
             </div>
           </div>
@@ -118,14 +118,13 @@ function Index() {
       <section className="mx-auto max-w-6xl px-6 py-24">
         <div className="mb-12 max-w-2xl">
           <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">What I do</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">A senior engineer's toolkit.</h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">A Flutter developer's toolkit.</h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {highlights.map((h, i) => (
             <div
               key={h.title}
               className="group relative rounded-2xl bg-card-gradient p-7 shadow-card border border-border/60 transition-spring hover:-translate-y-1 hover:shadow-glow"
-              style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="absolute top-0 left-7 -translate-y-1/2 rounded-md bg-gradient-to-r from-primary to-accent px-2 py-0.5 font-mono text-xs font-bold text-primary-foreground">
                 0{i + 1}
@@ -142,8 +141,8 @@ function Index() {
         <div className="rounded-2xl border border-border/60 bg-card-gradient p-10 shadow-card">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">Tech I love</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold">My daily stack</h2>
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">Tech I use daily</p>
+              <h2 className="font-display text-3xl md:text-4xl font-bold">My stack</h2>
             </div>
             <Link to="/about" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
               More about me <ArrowRight className="h-4 w-4" />
@@ -167,9 +166,9 @@ function Index() {
         <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-surface to-accent/10 p-12 text-center shadow-elegant">
           <div className="absolute inset-0 grid-bg opacity-30" />
           <div className="relative">
-            <h2 className="font-display text-3xl md:text-5xl font-bold">Have a project in mind?</h2>
+            <h2 className="font-display text-3xl md:text-5xl font-bold">Have a Flutter project in mind?</h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              I'm currently taking on a small number of senior contracts and full-time roles. Let's talk.
+              Open to collaborating on innovative mobile products. Let's build something great together.
             </p>
             <Link
               to="/contact"

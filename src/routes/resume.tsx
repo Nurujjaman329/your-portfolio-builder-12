@@ -5,10 +5,10 @@ import { Download, Mail, MapPin, Phone, Globe } from "lucide-react";
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Resume / CV — Alex Carter" },
-      { name: "description", content: "Full resume of Alex Carter, senior software engineer. Skills, experience, education and certifications." },
-      { property: "og:title", content: "Resume — Alex Carter" },
-      { property: "og:description", content: "Full CV of a senior software engineer." },
+      { title: "Resume / CV — MD. Nurujjaman" },
+      { name: "description", content: "Full resume of MD. Nurujjaman, Flutter Developer. Skills, experience, education and certifications." },
+      { property: "og:title", content: "Resume — MD. Nurujjaman" },
+      { property: "og:description", content: "Full CV of a Flutter Developer." },
     ],
   }),
   component: Resume,
@@ -19,7 +19,7 @@ function Resume() {
     <Section
       eyebrow="Curriculum Vitae"
       title="Resume."
-      description="Here's the full picture — print-friendly and ready to share."
+      description="The full picture — print-friendly and ready to share."
     >
       <div className="mb-6 flex justify-end">
         <a
@@ -31,82 +31,88 @@ function Resume() {
       </div>
 
       <article className="rounded-2xl border border-border/60 bg-card-gradient p-10 shadow-elegant">
-        {/* Header */}
         <header className="border-b border-border/60 pb-8">
-          <h1 className="font-display text-4xl font-bold text-gradient">Alex Carter</h1>
-          <p className="mt-1 text-lg text-foreground/80">Senior Software Engineer · Berlin, Germany</p>
+          <h1 className="font-display text-4xl font-bold text-gradient">MD. Nurujjaman</h1>
+          <p className="mt-1 text-lg text-foreground/80">Flutter Developer · Dhaka, Bangladesh</p>
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5"><Mail className="h-4 w-4 text-primary" /> hello@alex.dev</span>
-            <span className="inline-flex items-center gap-1.5"><Phone className="h-4 w-4 text-primary" /> +49 30 1234 5678</span>
-            <span className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4 text-primary" /> Berlin, DE</span>
-            <span className="inline-flex items-center gap-1.5"><Globe className="h-4 w-4 text-primary" /> alex.dev</span>
+            <span className="inline-flex items-center gap-1.5"><Mail className="h-4 w-4 text-primary" /> mdnurujjaman329@gmail.com</span>
+            <span className="inline-flex items-center gap-1.5"><Phone className="h-4 w-4 text-primary" /> +880 1957 073942</span>
+            <span className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4 text-primary" /> Mohakhali, Dhaka</span>
+            <a className="inline-flex items-center gap-1.5 hover:text-primary" href="https://www.linkedin.com/in/nurujjaman329/" target="_blank" rel="noreferrer"><Globe className="h-4 w-4 text-primary" /> linkedin.com/in/nurujjaman329</a>
           </div>
         </header>
 
-        {/* Summary */}
-        <Block title="Profile">
+        <Block title="Career Objective">
           <p className="text-foreground/85 leading-relaxed">
-            Senior full-stack engineer with 10+ years of experience designing and shipping
-            scalable web platforms. Strong background in distributed systems, developer tooling,
-            and product engineering. Proven leader who mentors teams and drives engineering
-            culture. Comfortable owning systems end-to-end from architecture to production.
+            Experienced Flutter Developer with 2+ years of expertise in building high-performance, cross-platform
+            mobile applications. Skilled in clean architecture, responsive UI, and integrating key features like
+            push notifications, Google Maps, Socket.IO, deep linking, location and secure payments. Passionate
+            about collaborating with innovative teams to deliver scalable, user-friendly solutions while
+            continuously advancing my technical skills.
           </p>
         </Block>
 
-        {/* Experience */}
         <Block title="Experience">
-          <Job role="Staff Software Engineer" company="Lumen Analytics, Berlin" period="2023 — Present"
+          <Job role="Software Engineer (Flutter)" company="Sparktech Agency – Betopia Group" period="Dec 2025 — Present"
             bullets={[
-              "Lead an 8-person platform team building real-time analytics for 4B events/month.",
-              "Re-architected query engine in Rust → 70% lower p99 latency, 40% infra savings.",
-              "Drove adoption of feature flags, trunk-based development and progressive delivery.",
+              "Developing scalable Flutter applications with real-time data synchronization using Socket.IO.",
+              "Integrating Google Maps APIs for advanced tracking and location-based services.",
+              "Collaborating with distributed teams to ensure code quality, maintainability and performance.",
             ]}
           />
-          <Job role="Senior Software Engineer" company="Northwind Cloud, Amsterdam" period="2020 — 2023"
+          <Job role="Software Developer (Flutter)" company="Synergy Interface Ltd." period="Oct 2023 — Nov 2025"
             bullets={[
-              "Migrated 6-year monolith to event-driven Go microservices on Kubernetes.",
-              "Built the internal developer platform used by 50+ engineers daily.",
-              "Mentored 12 engineers; 4 promoted to senior level.",
-            ]}
-          />
-          <Job role="Software Engineer" company="Specter Labs, London" period="2017 — 2020"
-            bullets={[
-              "Employee #5 — helped grow eng team from 3 to 25.",
-              "Owned the entire frontend stack and shipped first paying product.",
-              "Open-sourced the company's flagship SDK (8k+ GitHub stars).",
-            ]}
-          />
-          <Job role="Full-Stack Developer (Freelance)" company="Remote" period="2014 — 2017"
-            bullets={[
-              "Built MVPs and production apps for 20+ early-stage startups.",
+              "Developed and maintained 6+ production-grade Flutter applications for enterprise and government clients.",
+              "Applied clean architecture principles to ensure modular, testable and maintainable codebases.",
+              "Optimized application performance through efficient state management and API handling.",
             ]}
           />
         </Block>
 
-        {/* Skills */}
+        <Block title="Key Projects">
+          <Job role="MyKrishi — Smart Agriculture Investment Platform" company="Role-based investor & agent app" period=""
+            bullets={[
+              "Developed role-based Flutter interfaces for investors and agents.",
+              "Implemented deep linking, real-time chat and secure payment integration using ShurjoPay.",
+            ]} />
+          <Job role="Distributor Management System (DMS)" company="Enterprise logistics" period=""
+            bullets={["Built role-based dashboards with real-time logistics tracking using Google Maps."]} />
+          <Job role="Meghna Life Insurance — Customer & Advisor Apps" company="Fintech / Insurance" period=""
+            bullets={[
+              "Developed policy management, reporting and payment modules.",
+              "Integrated secure digital payments via bKash and Nagad.",
+            ]} />
+          <Job role="Edex-365 & Nursery Management System" company="Education & Government" period=""
+            bullets={["Engineered educational and government applications with notification systems and backend API synchronization."]} />
+        </Block>
+
         <Block title="Skills">
           <div className="grid gap-3 sm:grid-cols-2">
-            <SkillRow label="Languages" items={["TypeScript", "Go", "Rust", "Python", "SQL"]} />
-            <SkillRow label="Frontend" items={["React", "Next.js", "Tailwind", "Vite"]} />
-            <SkillRow label="Backend" items={["Node.js", "GraphQL", "gRPC", "REST", "Kafka"]} />
-            <SkillRow label="Cloud" items={["AWS", "GCP", "Kubernetes", "Terraform", "Docker"]} />
+            <SkillRow label="Languages" items={["Dart", "C", "C++"]} />
+            <SkillRow label="Framework" items={["Flutter"]} />
+            <SkillRow label="Mobile" items={["Clean Architecture", "State Management", "REST API", "Push Notifications", "Deep Linking"]} />
+            <SkillRow label="Integrations" items={["Google Maps", "Socket.IO", "ShurjoPay", "bKash", "Nagad"]} />
+            <SkillRow label="Tools" items={["Git", "GitHub", "VS Code", "Figma"]} />
           </div>
         </Block>
 
-        {/* Education */}
         <Block title="Education">
-          <Job role="M.Sc. Computer Science" company="TU Munich" period="2012 — 2014"
-            bullets={["Specialization in Distributed Systems · Thesis on consensus algorithms."]} />
-          <Job role="B.Sc. Software Engineering, First Class" company="University of Edinburgh" period="2009 — 2012"
-            bullets={[]} />
+          <Job role="B.Sc. in Computer Science and Engineering" company="Dhaka City College (National University, Bangladesh)" period="2018 — 2021 (Held in 2023)"
+            bullets={["CGPA 3.18 / 4.00"]} />
         </Block>
 
-        {/* Certs & Languages */}
-        <Block title="Certifications & Languages">
+        <Block title="Professional Courses">
           <ul className="space-y-2 text-foreground/85">
-            <li>• AWS Certified Solutions Architect — Professional (2024)</li>
-            <li>• CKA — Certified Kubernetes Administrator (2022)</li>
-            <li>• English (native) · German (C1) · Spanish (B1)</li>
+            <li>• Mobile Application Development — Flutter · BASIS SEIP (Sep 2022 – Dec 2022)</li>
+            <li>• Professional English Communication Skill · WSDA New Zealand (Nov 2022)</li>
+            <li>• CSE Fundamentals · Phitron</li>
+          </ul>
+        </Block>
+
+        <Block title="Extra-Curricular Activities">
+          <ul className="space-y-2 text-foreground/85">
+            <li>• Participation in DCC CSE Digital Week 2020</li>
+            <li>• Participation in DCC Inter Dept. Programming Contest 2019</li>
           </ul>
         </Block>
       </article>
@@ -128,7 +134,7 @@ function Job({ role, company, period, bullets }: { role: string; company: string
     <div className="mb-6 last:mb-0">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h3 className="font-display text-lg font-semibold">{role}</h3>
-        <span className="font-mono text-xs text-muted-foreground">{period}</span>
+        {period && <span className="font-mono text-xs text-muted-foreground">{period}</span>}
       </div>
       <p className="text-sm text-muted-foreground">{company}</p>
       {bullets.length > 0 && (
