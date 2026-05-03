@@ -1,7 +1,13 @@
 {
-  "outputDirectory": "dist",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/client",
+  "functions": {
+    "api/index.ts": {
+      "runtime": "nodejs"
+    }
+  },
   "routes": [
     { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/.*", "dest": "/index.html" }
+    { "src": "/.*", "dest": "/api" }
   ]
 }
