@@ -159,3 +159,25 @@
   }
   .animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) both; }
 }
+
+@media print {
+  header, footer, nav { display: none !important; }
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    background-image: none !important;
+  }
+  .shadow-elegant, .shadow-card, .shadow-glow { box-shadow: none !important; }
+  .bg-card-gradient { background: white !important; }
+  .text-gradient {
+    background: none !important;
+    color: black !important;
+    -webkit-text-fill-color: black !important;
+  }
+  .text-primary { color: #059669 !important; }
+  .text-muted-foreground { color: #6b7280 !important; }
+  .text-foreground\/85, .text-foreground\/90 { color: #111827 !important; }
+  article { border: none !important; padding: 0 !important; }
+  @page { margin: 1.5cm; }
+}

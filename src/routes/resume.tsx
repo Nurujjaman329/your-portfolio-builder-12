@@ -21,13 +21,13 @@ function Resume() {
       title="Resume."
       description="The full picture — print-friendly and ready to share."
     >
-      <div className="mb-6 flex justify-end">
-        <a
-          href="#"
+      <div className="mb-6 flex justify-end print:hidden">
+        <button
+          onClick={() => window.print()}
           className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-primary to-accent px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-spring hover:scale-105"
         >
           <Download className="h-4 w-4" /> Download PDF
-        </a>
+        </button>
       </div>
 
       <article className="rounded-2xl border border-border/60 bg-card-gradient p-10 shadow-elegant">

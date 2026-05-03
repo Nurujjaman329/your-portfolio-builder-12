@@ -1,22 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Section } from "@/components/portfolio/Section";
 import { Mail, MapPin, Phone, Github, Linkedin, Send } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — MD. Nurujjaman" },
-      { name: "description", content: "Get in touch with MD. Nurujjaman for Flutter development roles, contracts and collaborations." },
-      { property: "og:title", content: "Contact — MD. Nurujjaman" },
-      { property: "og:description", content: "Open to Flutter roles and collaborations." },
-    ],
-  }),
   component: Contact,
 });
 
 function Contact() {
-  const [sent, setSent] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!formRef.current) return;
+    setStatus("sending");
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
+      );
+      setStatus("sent");
+      formRef.current.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <Section
@@ -45,30 +57,38 @@ function Contact() {
         </div>
 
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          ref={formRef}
+          onSubmit={handleSubmit}
           className="rounded-2xl border border-border/60 bg-card-gradient p-8 shadow-card space-y-5"
         >
           <Field label="Name">
-            <input required type="text" className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30" placeholder="Your name" />
+            <input required name="name" type="text" className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30" placeholder="Your name" />
           </Field>
           <Field label="Email">
-            <input required type="email" className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30" placeholder="you@company.com" />
+            <input required name="email" type="email" className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30" placeholder="you@company.com" />
           </Field>
           <Field label="Subject">
-            <input type="text" className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30" placeholder="Flutter project enquiry" />
+            <input name="title" type="text" className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30" placeholder="Flutter project enquiry" />
           </Field>
           <Field label="Message">
-            <textarea required rows={5} className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30" placeholder="Tell me about your project or role..." />
+            <textarea required name="message" rows={5} className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30" placeholder="Tell me about your project or role..." />
           </Field>
-          <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-spring hover:scale-[1.02]">
-            <Send className="h-4 w-4" /> Send message
+          <button
+            type="submit"
+            disabled={status === "sending" || status === "sent"}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-spring hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+          >
+            <Send className="h-4 w-4" />
+            {status === "sending" ? "Sending…" : status === "sent" ? "Sent!" : "Send message"}
           </button>
-          {sent && (
+          {status === "sent" && (
             <p className="text-sm text-primary text-center animate-fade-up">
               ✓ Thanks — I'll get back to you within 48 hours.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-sm text-destructive text-center">
+              Something went wrong. Please email me directly at mdnurujjaman329@gmail.com
             </p>
           )}
         </form>
