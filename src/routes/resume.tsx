@@ -44,55 +44,71 @@ function Resume() {
 
         <Block title="Career Objective">
           <p className="text-foreground/85 leading-relaxed">
-            Experienced Flutter Developer with 2+ years of expertise in building high-performance, cross-platform
-            mobile applications. Skilled in clean architecture, responsive UI, and integrating key features like
-            push notifications, Google Maps, Socket.IO, deep linking, location and secure payments. Passionate
-            about collaborating with innovative teams to deliver scalable, user-friendly solutions while
-            continuously advancing my technical skills.
+            Flutter Developer with 2+ years of experience building scalable cross-platform applications across social
+            commerce, beauty, ride-sharing, agri-tech and enterprise sectors. Experienced in clean architecture,
+            real-time systems (Socket.IO), map-based services and secure payment integrations (Stripe, bKash, Nagad,
+            ShurjoPay). Proven track record of delivering 13+ production apps on the App Store and Google Play.
           </p>
         </Block>
 
         <Block title="Experience">
           <Job role="Software Engineer (Flutter)" company="Sparktech Agency – Betopia Group" period="Dec 2025 — Present"
             bullets={[
-              "Developing scalable Flutter applications with real-time data synchronization using Socket.IO.",
-              "Integrating Google Maps APIs for advanced tracking and location-based services.",
-              "Collaborating with distributed teams to ensure code quality, maintainability and performance.",
+              "Delivered 7 production apps across social, beauty, transport and utility sectors, published on both App Store and Google Play.",
+              "Architected real-time data sync using Socket.IO, enabling seamless multi-role communication across user bases.",
+              "Integrated Google Maps APIs for live location tracking and geo-based service discovery.",
+              "Collaborated across distributed teams on performance optimisation, code reviews and scalable module design.",
             ]}
           />
           <Job role="Software Developer (Flutter)" company="Synergy Interface Ltd." period="Oct 2023 — Nov 2025"
             bullets={[
-              "Developed and maintained 6+ production-grade Flutter applications for enterprise and government clients.",
-              "Applied clean architecture principles to ensure modular, testable and maintainable codebases.",
-              "Optimized application performance through efficient state management and API handling.",
+              "Developed 6+ production-grade Flutter apps for enterprise and government clients, including insurance and agriculture sectors.",
+              "Applied Clean Architecture (MVVM) to produce modular, testable codebases, reducing onboarding time for new developers.",
+              "Optimised state management and API handling, reducing load times and improving app responsiveness.",
+              "Integrated bKash, Nagad and ShurjoPay gateways, enabling secure digital transactions for government insurance clients.",
             ]}
           />
         </Block>
 
         <Block title="Key Projects">
-          <Job role="MyKrishi — Smart Agriculture Investment Platform" company="Role-based investor & agent app" period=""
+          <Job role="Fouta App — Social Commerce Platform" company="Sparktech Agency · Live on App Store" period=""
             bullets={[
-              "Developed role-based Flutter interfaces for investors and agents.",
-              "Implemented deep linking, real-time chat and secure payment integration using ShurjoPay.",
+              "Engineered a 4-role system (user, seller, driver, admin) with separate onboarding flows and permission-based access control.",
+              "Built real-time messaging, feeds and stories using Socket.IO, powering a live social marketplace.",
+              "Implemented end-to-end checkout, payment processing and delivery management pipeline.",
             ]} />
-          <Job role="Distributor Management System (DMS)" company="Enterprise logistics" period=""
-            bullets={["Built role-based dashboards with real-time logistics tracking using Google Maps."]} />
-          <Job role="Meghna Life Insurance — Customer & Advisor Apps" company="Fintech / Insurance" period=""
+          <Job role="TNP Beauty — Multi-role Beauty Marketplace" company="Sparktech Agency · App Store & Play Store" period=""
             bullets={[
-              "Developed policy management, reporting and payment modules.",
-              "Integrated secure digital payments via bKash and Nagad.",
+              "Designed a 3-role platform (Customer, Vendor, Beautician) with location-based discovery and appointment booking.",
+              "Integrated Stripe payments, vendor earnings dashboards and a business verification system.",
             ]} />
-          <Job role="Edex-365 & Nursery Management System" company="Education & Government" period=""
-            bullets={["Engineered educational and government applications with notification systems and backend API synchronization."]} />
+          <Job role="Ride Sharing App — Dual-role Ride Platform" company="Sparktech Agency" period=""
+            bullets={[
+              "Built Passenger and Driver onboarding with OTP auth, wallet management and auto-pricing via Google Directions API.",
+              "Implemented real-time driver-passenger chat via Socket.IO for in-trip coordination.",
+            ]} />
+          <Job role="MyKrishi — Smart Agriculture Investment Platform" company="Synergy Interface Ltd." period=""
+            bullets={[
+              "Developed a role-based platform for farmers, investors and agents with tailored dashboards per role.",
+              "Implemented deep linking for campaign sharing and ShurjoPay integration for investment payments.",
+            ]} />
+          <Job role="Meghna Life Insurance — Customer & Advisor Apps" company="Synergy Interface Ltd." period=""
+            bullets={[
+              "Delivered dual-app suite for a government-linked insurance provider.",
+              "Integrated bKash and Nagad for secure digital premium payments, replacing manual collection workflows.",
+            ]} />
         </Block>
 
         <Block title="Skills">
           <div className="grid gap-3 sm:grid-cols-2">
             <SkillRow label="Languages" items={["Dart", "C", "C++"]} />
             <SkillRow label="Framework" items={["Flutter"]} />
-            <SkillRow label="Mobile" items={["Clean Architecture", "State Management", "REST API", "Push Notifications", "Deep Linking"]} />
-            <SkillRow label="Integrations" items={["Google Maps", "Socket.IO", "ShurjoPay", "bKash", "Nagad"]} />
-            <SkillRow label="Tools" items={["Git", "GitHub", "VS Code", "Figma"]} />
+            <SkillRow label="State Management" items={["Bloc", "Provider", "Riverpod"]} />
+            <SkillRow label="Architecture" items={["Clean Architecture (MVVM)"]} />
+            <SkillRow label="Backend & APIs" items={["REST API", "Firebase", "Socket.IO"]} />
+            <SkillRow label="Payments" items={["Stripe", "bKash", "Nagad", "ShurjoPay"]} />
+            <SkillRow label="Core Features" items={["Google Maps", "Push Notifications", "Deep Linking", "Biometric Auth"]} />
+            <SkillRow label="Tools" items={["Git", "GitHub", "VS Code", "Figma", "Postman"]} />
           </div>
         </Block>
 

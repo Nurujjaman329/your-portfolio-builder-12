@@ -16,28 +16,29 @@ export const Route = createFileRoute("/")({
 
 const stats = [
   { value: "2+", label: "Years experience" },
-  { value: "6+", label: "Production apps" },
+  { value: "13+", label: "Production apps" },
   { value: "2", label: "Companies" },
-  { value: "100%", label: "Cross-platform" },
+  { value: "5+", label: "Payment gateways" },
 ];
 
 const stack = [
-  "Flutter", "Dart", "C", "C++", "REST APIs",
-  "Socket.IO", "Google Maps", "Firebase", "Git", "Figma",
+  "Flutter", "Dart", "Bloc", "Riverpod", "Provider",
+  "Socket.IO", "Google Maps", "Firebase", "Stripe", "REST APIs",
+  "Clean Architecture", "Git", "Figma", "Postman",
 ];
 
 const highlights = [
   {
     title: "Cross-Platform Apps",
-    desc: "Building high-performance Flutter apps for both Android and iOS from a single, clean codebase.",
+    desc: "Shipped 13+ Flutter apps on both App Store and Google Play — from social commerce and beauty marketplaces to ride-sharing and government platforms.",
   },
   {
     title: "Real-Time & Maps",
-    desc: "Socket.IO chat, Google Maps tracking, deep linking and push notifications integrated end-to-end.",
+    desc: "Socket.IO for live chat and feeds, Google Directions API for routing and auto-pricing, deep linking and push notifications integrated end-to-end.",
   },
   {
     title: "Secure Payments",
-    desc: "Production payment integrations with ShurjoPay, bKash, and Nagad for fintech-grade reliability.",
+    desc: "Production payment integrations with Stripe, ShurjoPay, bKash and Nagad across fintech, insurance and e-commerce products.",
   },
 ];
 

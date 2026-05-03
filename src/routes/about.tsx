@@ -17,14 +17,17 @@ export const Route = createFileRoute("/about")({
 const skills = [
   { group: "Languages", items: ["Dart", "C", "C++"] },
   { group: "Framework", items: ["Flutter"] },
-  { group: "Mobile Development", items: ["Clean Architecture", "State Management", "REST API", "Push Notifications", "Deep Linking"] },
-  { group: "Integrations", items: ["Google Maps", "Location Services", "Socket.IO", "ShurjoPay", "bKash", "Nagad"] },
-  { group: "Tools", items: ["Git", "GitHub", "VS Code", "Figma"] },
+  { group: "State Management", items: ["Bloc", "Provider", "Riverpod"] },
+  { group: "Architecture", items: ["Clean Architecture (MVVM)"] },
+  { group: "Backend & APIs", items: ["REST API", "Firebase", "Socket.IO"] },
+  { group: "Payments", items: ["Stripe", "bKash", "Nagad", "ShurjoPay"] },
+  { group: "Core Features", items: ["Google Maps", "Push Notifications", "Deep Linking", "Multi-role Auth", "Biometric Auth"] },
+  { group: "Tools", items: ["Git", "GitHub", "VS Code", "Figma", "Postman"] },
 ];
 
 const facts = [
-  { icon: Code2, label: "Years coding", value: "2+" },
-  { icon: Smartphone, label: "Apps shipped", value: "6+" },
+  { icon: Code2, label: "Years experience", value: "2+" },
+  { icon: Smartphone, label: "Apps shipped", value: "13+" },
   { icon: Award, label: "Certifications", value: "3" },
   { icon: MapPin, label: "Based in", value: "Dhaka" },
 ];
@@ -45,9 +48,10 @@ function About() {
             secure payment gateways.
           </p>
           <p>
-            Over the past 2+ years I've shipped 6+ production-grade apps for enterprise and government clients —
-            from agriculture investment platforms to insurance and education products. I love collaborating with
-            innovative teams to deliver scalable, user-friendly solutions while continuously sharpening my craft.
+            Over the past 2+ years I've shipped 13+ production-grade apps published on both the App Store and Google
+            Play — across social commerce, beauty, ride-sharing, agri-tech, insurance, education and government sectors.
+            I love collaborating with innovative teams to deliver scalable, user-friendly solutions while continuously
+            sharpening my craft.
           </p>
           <p>
             I hold a B.Sc. in Computer Science & Engineering from <span className="text-primary font-semibold">Dhaka City College</span> (National University, Bangladesh) and have completed

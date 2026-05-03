@@ -16,52 +16,76 @@ export const Route = createFileRoute("/projects")({
 
 const projects = [
   {
-    name: "MyKrishi",
-    tag: "Smart Agriculture · Flutter",
-    desc: "Smart agriculture investment platform with role-based interfaces for investors and agents. Implemented deep linking, real-time chat and secure payment integration using ShurjoPay.",
-    stack: ["Flutter", "Dart", "ShurjoPay", "Socket.IO", "Deep Linking"],
-    company: "Synergy Interface Ltd.",
+    name: "Fouta App",
+    tag: "Social Commerce · Live on App Store",
+    desc: "Engineered a 4-role system (user, seller, driver, admin) with separate onboarding flows and permission-based access. Built real-time messaging, feeds and stories using Socket.IO, and an end-to-end checkout and delivery management pipeline.",
+    stack: ["Flutter", "Firebase", "Socket.IO", "REST API"],
+    company: "Sparktech Agency – Betopia Group",
     accent: "from-primary to-accent",
+    storeLink: true,
   },
   {
-    name: "Distributor Management System",
-    tag: "Enterprise · Logistics",
-    desc: "Built role-based dashboards with real-time logistics tracking using Google Maps. Optimized state management and API handling for high performance across the field force.",
-    stack: ["Flutter", "Google Maps", "REST API", "State Management"],
+    name: "TNP Beauty",
+    tag: "Beauty Marketplace · App Store & Play Store",
+    desc: "Designed a 3-role platform (Customer, Vendor, Beautician) with location-based discovery and appointment booking. Integrated Stripe payments, vendor earnings dashboards and a business verification system.",
+    stack: ["Flutter", "Stripe", "Geolocation", "REST API"],
+    company: "Sparktech Agency – Betopia Group",
+    accent: "from-accent to-primary",
+    storeLink: true,
+  },
+  {
+    name: "Ride Sharing App",
+    tag: "Transport · Dual-role Platform",
+    desc: "Built separate Passenger and Driver onboarding flows with OTP-based authentication and wallet management. Integrated Google Directions API for real-time routing and auto-pricing, with in-trip Socket.IO chat.",
+    stack: ["Flutter", "Socket.IO", "Google Maps", "REST API"],
+    company: "Sparktech Agency – Betopia Group",
+    accent: "from-primary to-accent",
+    storeLink: false,
+  },
+  {
+    name: "MyKrishi",
+    tag: "Agri-Tech · Smart Agriculture Investment",
+    desc: "Developed a role-based platform serving farmers, investors and agents with tailored dashboards per role. Implemented deep linking for campaign sharing, ShurjoPay for investment payments and real-time chat via Socket.IO.",
+    stack: ["Flutter", "ShurjoPay", "Socket.IO", "Deep Linking"],
     company: "Synergy Interface Ltd.",
     accent: "from-accent to-primary",
+    storeLink: false,
   },
   {
     name: "Meghna Life Insurance",
     tag: "Fintech · Customer & Advisor Apps",
-    desc: "Developed policy management, reporting and payment modules for both customers and advisors. Integrated secure digital payments via bKash and Nagad.",
+    desc: "Delivered a dual-app suite for a government-linked insurance provider. Integrated bKash and Nagad for secure digital premium payments, replacing manual collection workflows. Built policy management, reporting and analytics modules.",
     stack: ["Flutter", "bKash", "Nagad", "Clean Architecture"],
     company: "Synergy Interface Ltd.",
     accent: "from-primary to-accent",
+    storeLink: false,
+  },
+  {
+    name: "Distributor Management System",
+    tag: "Enterprise · Logistics & Field Force",
+    desc: "Built panel-based features for Distributors, SRs and TSOs with real-time location tracking and performance monitoring. Optimised state management for high reliability across large field teams.",
+    stack: ["Flutter", "Google Maps", "REST API", "State Management"],
+    company: "Synergy Interface Ltd.",
+    accent: "from-accent to-primary",
+    storeLink: false,
   },
   {
     name: "Edex-365",
     tag: "EdTech · Education Platform",
-    desc: "Engineered an educational application with notification systems and tight backend API synchronization for students and educators.",
+    desc: "Created Flutter interfaces for students and teachers with secure payment modules and real-time notification systems. Collaborated closely with the backend team to maintain smooth API connectivity.",
     stack: ["Flutter", "Push Notifications", "REST API"],
     company: "Synergy Interface Ltd.",
-    accent: "from-accent to-primary",
+    accent: "from-primary to-accent",
+    storeLink: false,
   },
   {
     name: "Nursery Management System",
-    tag: "GovTech · Operations",
-    desc: "Government nursery management application with notification systems and backend synchronization, focused on reliability and accessibility.",
-    stack: ["Flutter", "Notifications", "API Sync"],
+    tag: "GovTech · Government Operations",
+    desc: "Developed a mobile app for streamlining nursery operations including inventory and scheduling. Designed intuitive Flutter UIs, integrated backend APIs and conducted end-to-end testing for quality assurance.",
+    stack: ["Flutter", "REST API", "Notifications"],
     company: "Synergy Interface Ltd.",
-    accent: "from-primary to-accent",
-  },
-  {
-    name: "Real-Time Tracking App",
-    tag: "Current · Sparktech Agency",
-    desc: "Building scalable Flutter applications with real-time data synchronization using Socket.IO and advanced Google Maps tracking and location-based services.",
-    stack: ["Flutter", "Socket.IO", "Google Maps"],
-    company: "Sparktech Agency – Betopia Group",
     accent: "from-accent to-primary",
+    storeLink: false,
   },
 ];
 
@@ -70,7 +94,7 @@ function Projects() {
     <Section
       eyebrow="Selected work"
       title="Apps I've built."
-      description="A handful of Flutter projects I've shipped — from smart agriculture and logistics to insurance, education and government applications."
+      description="13+ Flutter apps shipped on App Store and Google Play — across social commerce, beauty, ride-sharing, agri-tech, fintech, edtech and government sectors."
     >
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((p) => (
@@ -95,9 +119,11 @@ function Projects() {
             </div>
             <div className="mt-6 flex items-center justify-between text-sm">
               <span className="text-xs text-muted-foreground">{p.company}</span>
-              <a href="https://github.com/Nurujjaman329" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-primary transition-smooth hover:gap-2.5">
-                <ExternalLink className="h-4 w-4" /> GitHub
-              </a>
+              {p.storeLink && (
+                <span className="inline-flex items-center gap-1.5 text-primary font-mono text-xs">
+                  <ExternalLink className="h-3 w-3" /> Live on Store
+                </span>
+              )}
             </div>
           </article>
         ))}

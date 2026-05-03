@@ -20,9 +20,10 @@ const roles = [
     period: "Dec 2025 — Present",
     location: "Dhaka, Bangladesh",
     bullets: [
-      "Developing scalable Flutter applications with real-time data synchronization using Socket.IO.",
-      "Integrating Google Maps APIs for advanced tracking and location-based services.",
-      "Collaborating with distributed teams to ensure code quality, maintainability and performance.",
+      "Delivered 7 production apps across social, beauty, transport and utility sectors, published on both App Store and Google Play.",
+      "Architected real-time data sync using Socket.IO, enabling seamless multi-role communication across user bases.",
+      "Integrated Google Maps APIs for live location tracking and geo-based service discovery.",
+      "Collaborated across distributed teams on performance optimisation, code reviews and scalable module design.",
     ],
   },
   {
@@ -31,9 +32,10 @@ const roles = [
     period: "Oct 2023 — Nov 2025",
     location: "Dhaka, Bangladesh",
     bullets: [
-      "Developed and maintained 6+ production-grade Flutter applications for enterprise and government clients.",
-      "Applied clean architecture principles to ensure modular, testable and maintainable codebases.",
-      "Optimized application performance through efficient state management and API handling.",
+      "Developed 6+ production-grade Flutter apps for enterprise and government clients, including insurance and agriculture sectors.",
+      "Applied Clean Architecture (MVVM) to produce modular, testable codebases, reducing onboarding time for new developers.",
+      "Optimised state management and API handling, reducing load times and improving app responsiveness.",
+      "Integrated bKash, Nagad and ShurjoPay gateways, enabling secure digital transactions for government insurance clients.",
     ],
   },
 ];
@@ -73,7 +75,7 @@ function Experience() {
     <Section
       eyebrow="Experience"
       title="My professional journey."
-      description="Two years of shipping Flutter apps for enterprise, government and agency clients — and counting."
+      description="2+ years, 2 companies, 13+ apps on App Store and Google Play — across social commerce, beauty, ride-sharing, insurance, agri-tech and government sectors."
     >
       <div className="relative">
         <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-accent to-transparent md:left-1/2" />
