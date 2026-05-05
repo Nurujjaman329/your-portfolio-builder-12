@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Section } from "@/components/portfolio/Section";
 import { Mail, MapPin, Phone, Github, Linkedin, Send } from "lucide-react";
 
@@ -17,14 +16,19 @@ function Contact() {
     if (!formRef.current) return;
     setStatus("sending");
     try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
-      );
-      setStatus("sent");
-      formRef.current.reset();
+      const form = new FormData(formRef.current);
+      form.append("access_key", "6a917f8c-4db6-4b0a-97ce-7c43f041ee7a");
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: form,
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setStatus("sent");
+        formRef.current.reset();
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }

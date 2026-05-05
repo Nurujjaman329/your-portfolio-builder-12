@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find c:\\\\\\\\Users\\\\\\\\mdnur\\\\\\\\StudioProjects\\\\\\\\your-portfolio-builder-12/src -type f -name \"*api*\" -o -name \"*route*\")",
+      "Bash(find \"c:\\\\\\\\Users\\\\\\\\mdnur\\\\\\\\StudioProjects\\\\\\\\your-portfolio-builder-12\" -type f \\\\\\( -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.json\" \\\\\\) ! -path \"*/node_modules/*\")",
+      "Bash(find \"c:\\\\\\\\Users\\\\\\\\mdnur\\\\\\\\StudioProjects\\\\\\\\your-portfolio-builder-12\" -type f -name \"vite.config.*\" -o -name \"tsconfig.json\")"
+    ]
+  }
+}
