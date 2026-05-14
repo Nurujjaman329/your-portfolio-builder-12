@@ -14,4 +14,13 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          firebase: ["firebase/app", "firebase/firestore", "firebase/storage"],
+        },
+      },
+    },
+  },
 });

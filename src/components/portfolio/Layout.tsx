@@ -1,5 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { Smartphone } from "lucide-react";
+import { useRef } from "react";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -47,10 +48,31 @@ export function Header() {
 }
 
 export function Footer() {
+  const navigate = useNavigate();
+  const clickCount = useRef(0);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function handleSecretClick() {
+    clickCount.current += 1;
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      clickCount.current = 0;
+    }, 3000);
+    if (clickCount.current >= 5) {
+      clickCount.current = 0;
+      navigate({ to: "/admin" });
+    }
+  }
+
   return (
     <footer className="border-t border-border/50 mt-24">
       <div className="mx-auto max-w-6xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} MD. Nurujjaman — Flutter Developer.</p>
+        <p
+          onClick={handleSecretClick}
+          className="select-none cursor-default"
+        >
+          © {new Date().getFullYear()} MD. Nurujjaman — Flutter Developer.
+        </p>
         <p className="font-mono text-xs">Built with React · TypeScript · TanStack</p>
       </div>
     </footer>
