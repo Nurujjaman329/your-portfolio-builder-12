@@ -84,7 +84,7 @@ export const projects: ProjectDetail[] = [
     tag: "Beauty Marketplace",
     tagline: "A 4-role beauty marketplace — Customer, Beautician and Vendor apps plus an Admin web panel — live on App Store & Play Store.",
     company: "Sparktech Agency – Betopia Group",
-    period: "2024",
+    period: "2026",
     status: "Live on App Store & Play Store",
     accent: "from-accent to-primary",
     storeLink: true,
