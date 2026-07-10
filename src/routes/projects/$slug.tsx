@@ -37,9 +37,33 @@ function ProjectDetail() {
             {project.status}
           </span>
           {project.storeLink && (
-            <span className="inline-flex items-center gap-1.5 font-mono text-xs text-primary">
-              <ExternalLink className="h-3 w-3" /> Live on Store
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              {project.appStoreUrl && (
+                <a
+                  href={project.appStoreUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 bg-primary/10 px-3 py-1 font-mono text-xs text-primary transition-colors hover:bg-primary/20"
+                >
+                  <ExternalLink className="h-3 w-3" /> App Store
+                </a>
+              )}
+              {project.playStoreUrl && (
+                <a
+                  href={project.playStoreUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 bg-primary/10 px-3 py-1 font-mono text-xs text-primary transition-colors hover:bg-primary/20"
+                >
+                  <ExternalLink className="h-3 w-3" /> Play Store
+                </a>
+              )}
+              {!project.appStoreUrl && !project.playStoreUrl && (
+                <span className="inline-flex items-center gap-1.5 font-mono text-xs text-primary">
+                  <ExternalLink className="h-3 w-3" /> Live on Store
+                </span>
+              )}
+            </div>
           )}
         </div>
       </header>

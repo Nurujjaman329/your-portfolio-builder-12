@@ -8,6 +8,8 @@ export interface ProjectDetail {
   status: string;
   accent: string;
   storeLink: boolean;
+  playStoreUrl?: string;
+  appStoreUrl?: string;
   overview: string;
   challenge: string;
   solution: string;
@@ -86,6 +88,8 @@ export const projects: ProjectDetail[] = [
     status: "Live on App Store & Play Store",
     accent: "from-accent to-primary",
     storeLink: true,
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.annadat.tnp",
+    appStoreUrl: "https://apps.apple.com/us/app/the-noire-places/id6761523428",
     overview:
       "TNP Beauty connects customers with vendors and beauticians through a location-aware marketplace. Customers discover nearby beauty services, shop products, book appointments and pay via Stripe. Vendors and beauticians manage stores, earnings and business verification from separate Flutter apps. An Admin web panel handles platform oversight — separate from the mobile apps.",
     challenge:
