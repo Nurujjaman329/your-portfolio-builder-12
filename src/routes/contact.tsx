@@ -17,7 +17,7 @@ function Contact() {
     setStatus("sending");
     try {
       const form = new FormData(formRef.current);
-      form.append("access_key", "6a917f8c-4db6-4b0a-97ce-7c43f041ee7a");
+      form.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: form,

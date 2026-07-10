@@ -41,6 +41,15 @@ export async function removeProject(slug: string): Promise<void> {
   await deleteDoc(doc(db, "projects", slug));
 }
 
+/** Re-upload all default projects from src/data/projects.ts into Firestore. */
+export async function seedStaticProjects(): Promise<number> {
+  if (!db) throw new Error("Firebase not configured");
+  for (const project of staticProjects) {
+    await saveProject(project);
+  }
+  return staticProjects.length;
+}
+
 export async function uploadProjectImage(slug: string, file: File): Promise<string> {
   if (!storage) throw new Error("Firebase not configured");
   const path = `projects/${slug}/${Date.now()}-${file.name}`;

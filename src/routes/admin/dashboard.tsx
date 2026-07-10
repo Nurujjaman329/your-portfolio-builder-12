@@ -4,10 +4,11 @@ import { isAdminLoggedIn, adminLogout } from "@/lib/admin-auth";
 import { isFirebaseConfigured } from "@/lib/firebase";
 import {
   fetchProjects, saveProject, removeProject,
-  uploadProjectImage, deleteProjectImage,
+  uploadProjectImage, deleteProjectImage, seedStaticProjects,
 } from "@/lib/firestore-projects";
+import { projects as staticProjects } from "@/data/projects";
 import { type ProjectDetail } from "@/data/projects";
-import { LogOut, Plus, Pencil, Trash2, Upload, X, ChevronDown, ChevronUp, AlertCircle } from "lucide-react";
+import { LogOut, Plus, Pencil, Trash2, Upload, X, AlertCircle, RotateCcw } from "lucide-react";
 
 export const Route = createFileRoute("/admin/dashboard")({
   component: AdminDashboard,
@@ -67,6 +68,7 @@ function AdminDashboard() {
 function ProjectsTab() {
   const [projects, setProjects] = useState<ProjectDetail[]>([]);
   const [loading, setLoading] = useState(true);
+  const [seeding, setSeeding] = useState(false);
   const [editing, setEditing] = useState<ProjectDetail | null>(null);
   const [isNew, setIsNew] = useState(false);
 
@@ -97,6 +99,25 @@ function ProjectsTab() {
     load();
   }
 
+  async function handleRestoreDefaults() {
+    if (
+      !confirm(
+        `Restore all ${staticProjects.length} default projects to Firebase?\n\nExisting projects with the same slug will be overwritten. Projects you added manually with new slugs will be kept.`,
+      )
+    ) {
+      return;
+    }
+    setSeeding(true);
+    try {
+      const count = await seedStaticProjects();
+      await load();
+      alert(`Restored ${count} projects. Refresh /projects to see them on your portfolio.`);
+    } catch {
+      alert("Restore failed. Make sure Firebase is configured in your .env file.");
+    }
+    setSeeding(false);
+  }
+
   if (editing) {
     return (
       <ProjectForm
@@ -110,14 +131,26 @@ function ProjectsTab() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <h2 className="font-display text-xl font-semibold">Projects <span className="ml-2 font-mono text-sm text-muted-foreground">({projects.length})</span></h2>
-        <button
-          onClick={startNew}
-          className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90"
-        >
-          <Plus className="h-4 w-4" /> Add Project
-        </button>
+        <div className="flex flex-wrap gap-2">
+          {isFirebaseConfigured && (
+            <button
+              onClick={handleRestoreDefaults}
+              disabled={seeding}
+              className="inline-flex items-center gap-2 rounded-md border border-border/60 px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-60"
+            >
+              <RotateCcw className="h-4 w-4" />
+              {seeding ? "Restoring…" : `Restore defaults (${staticProjects.length})`}
+            </button>
+          )}
+          <button
+            onClick={startNew}
+            className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90"
+          >
+            <Plus className="h-4 w-4" /> Add Project
+          </button>
+        </div>
       </div>
 
       {loading ? (
