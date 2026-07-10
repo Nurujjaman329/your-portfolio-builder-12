@@ -97,18 +97,19 @@ export const projects: ProjectDetail[] = [
       description:
         "Shared domain models (Booking, Service, Vendor) sit in a common package. Customer, Vendor and Beautician each have isolated Flutter presentation and data layers. Admin is a separate web application consuming the same REST API.",
       layers: [
-        { name: "Presentation", desc: "Flutter apps per role (Customer, Vendor, Beautician) plus Admin web dashboard — each fully isolated." },
+        { name: "Presentation", desc: "Flutter apps per role with GetX controllers and bindings — Customer, Vendor, Beautician plus Admin web dashboard." },
         { name: "Domain", desc: "Shared Booking, Service and User entities — the single source of truth across all roles." },
         { name: "Data", desc: "Role-filtered API calls, Stripe SDK on Customer app, and web admin endpoints for platform management." },
       ],
     },
     stateManagement: {
-      solution: "Bloc + Cubit (flutter_bloc)",
+      solution: "GetX",
       reason:
-        "Bloc used for complex multi-step flows (booking, checkout). Cubit used for simpler UI states (filter selections, map view). This split kept the codebase lean without over-engineering simple interactions.",
+        "GetX handled state, dependency injection and navigation across three Flutter role apps. Reactive `.obs` variables and GetX controllers kept checkout, cart and dashboard flows lightweight without Bloc boilerplate.",
     },
     stack: [
       { name: "Flutter", purpose: "Customer, Vendor and Beautician mobile apps — iOS & Android" },
+      { name: "GetX", purpose: "State management, dependency injection and route navigation" },
       { name: "Web Admin Panel", purpose: "Platform admin dashboard — not built in Flutter" },
       { name: "Stripe", purpose: "Payment processing with server-confirmed intents" },
       { name: "Geolocation", purpose: "Location-based discovery and geohash proximity queries" },
