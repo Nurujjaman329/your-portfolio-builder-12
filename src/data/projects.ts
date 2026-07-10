@@ -27,6 +27,56 @@ export interface ProjectDetail {
 
 export const projects: ProjectDetail[] = [
   {
+    slug: "presentini",
+    name: "Presentini",
+    tag: "City Discovery",
+    tagline: "City discovery platform that helps users find the best local events, exclusive specials, and unforgettable experiences.",
+    company: "Sparktech Agency – Betopia Group",
+    period: "2026",
+    status: "iOS & Android",
+    accent: "from-primary to-accent",
+    storeLink: false,
+    overview:
+      "Presentini is designed to highlight the best events and specials every city has to offer. Whether you live there or are just visiting, Presentini helps you find your most memorable moments, wherever you are.",
+    challenge:
+      "Building a discovery experience that surfaces the right events and specials for both locals and visitors required location-aware content, timely updates and a UI that makes browsing cities feel effortless — without burying users in irrelevant listings.",
+    solution:
+      "Delivered a Flutter app backed by a REST API for events, specials and city content, with Firebase for push notifications and analytics. Location-based discovery and category filters help users explore what's happening nearby, save favorites and stay updated on exclusive offers.",
+    architecture: {
+      pattern: "Clean Architecture (Feature-first)",
+      description:
+        "Discovery, events, specials and profile are isolated feature modules sharing core location and auth infrastructure. Each feature owns its presentation and data layers while reusing shared domain models for events and offers.",
+      layers: [
+        { name: "Presentation", desc: "Browse, event detail, specials and city screens with reactive state tied to user location and filters." },
+        { name: "Domain", desc: "Event, Special and City entities with use cases for discovery, search and favorites — pure Dart." },
+        { name: "Data", desc: "REST API clients, Firebase messaging and local cache for recently viewed events and saved specials." },
+      ],
+    },
+    stateManagement: {
+      solution: "Bloc (flutter_bloc)",
+      reason:
+        "Bloc kept discovery flows — filtering, pagination and favorites — predictable as users switch cities and categories. Clear state separation made it straightforward to refresh feeds and handle async API responses.",
+    },
+    stack: [
+      { name: "Flutter", purpose: "Cross-platform UI for iOS and Android" },
+      { name: "Firebase", purpose: "Push notifications, analytics and remote config" },
+      { name: "REST API", purpose: "Events, specials, cities and user favorites" },
+      { name: "Geolocation", purpose: "Location-based discovery and nearby recommendations" },
+    ],
+    highlights: [
+      { title: "Event Discovery", desc: "Browse local events by city, date and category — from concerts to community gatherings." },
+      { title: "Exclusive Specials", desc: "Surface time-limited offers and deals from local businesses in one curated feed." },
+      { title: "City-aware Browse", desc: "Switch cities instantly whether you're a local or visiting — content adapts to your location." },
+      { title: "Push Notifications", desc: "Firebase alerts for new events, expiring specials and saved favorites." },
+    ],
+    images: [],
+    results: [
+      "Shipped on both iOS and Android.",
+      "Location-based discovery connecting users to events and specials in every city.",
+      "Firebase push notifications keeping users updated on new experiences.",
+    ],
+  },
+  {
     slug: "fouta-app",
     name: "Fouta App",
     tag: "Social Commerce",

@@ -11,7 +11,10 @@ export async function fetchProjects(): Promise<ProjectDetail[]> {
   try {
     const snap = await getDocs(collection(db, "projects"));
     if (snap.empty) return staticProjects;
-    return snap.docs.map((d) => d.data() as ProjectDetail);
+    const order = new Map(staticProjects.map((p, i) => [p.slug, i]));
+    return snap.docs
+      .map((d) => d.data() as ProjectDetail)
+      .sort((a, b) => (order.get(a.slug) ?? 999) - (order.get(b.slug) ?? 999));
   } catch {
     return staticProjects;
   }
