@@ -423,42 +423,55 @@ export const projects: ProjectDetail[] = [
     accent: "from-accent to-primary",
     storeLink: false,
     overview:
-      "A government-commissioned mobile app for managing nursery operations including plant inventory, staff scheduling and reporting. Replaced a manual paper-based workflow used by government nursery staff across multiple locations.",
+      "Nursery Management System (NMS) is a government operations app built for Synergy Interface Ltd. Forest officers — from Beat and Range level up to ACF and DFO — manage nursery raising and sales, track category-wise and seedling-wise stock, submit entries for approval and review rejection comments. A financial-year filter drives all dashboard analytics.",
     challenge:
-      "Working within strict government API constraints — slow, inconsistently documented endpoints with no staging environment. QA testing had to be done against production-like data without affecting live records.",
+      "Digitising a multi-level approval workflow where Beat/Range officers submit raising and sale entries, ACF and DFO reviewers approve or reject with comments, and dashboard stock metrics must stay accurate across financial years — all within strict government API constraints.",
     solution:
-      "Built a local mock layer in the data repository that could be toggled via a build flag. This allowed full UI and flow testing without hitting live government APIs. All API contracts were formalised in the domain layer first, then implemented against the real endpoints.",
+      "Built role-aware dashboards with financial-year filtering for stock analytics. Officers submit sale/raising entries via structured forms; ACF and DFO reviewers act through a dedicated comment section. List and detail views show approval status and rejection feedback, with recent seed collection history and profile access from the app drawer.",
     architecture: {
       pattern: "Clean Architecture",
       description:
-        "Mock/real repository switching via build flags. The domain layer was defined before any API integration, allowing UI development to proceed in parallel with API availability.",
+        "Raising/sale submission, approval workflow and stock analytics are separate feature modules sharing inventory and officer domain entities. Mock/real API switching supports safe QA against government endpoints.",
       layers: [
-        { name: "Presentation", desc: "Inventory, scheduling and reporting screens with clean data tables and forms." },
-        { name: "Domain", desc: "PlantInventory, Staff and Schedule entities with use cases for stock and shift management." },
-        { name: "Data", desc: "Real API client and mock repository — switched by build configuration. No domain changes needed to swap." },
+        { name: "Presentation", desc: "Dashboard charts, sale/raising lists, detail views, approval comments, forms and navigation drawer." },
+        { name: "Domain", desc: "Raising, Sale, Stock, SeedCollection and Officer entities with approval-state use cases." },
+        { name: "Data", desc: "Government REST API client with optional mock repository for staging-free QA." },
       ],
     },
     stateManagement: {
       solution: "Provider",
       reason:
-        "The app's data flows are straightforward CRUD with list/detail patterns. Provider's simplicity was appropriate — using Bloc would have added unnecessary boilerplate for this use case.",
+        "The app follows straightforward list/detail and form submission patterns with CRUD data flows. Provider kept the codebase lean for government officers using the app in the field.",
     },
     stack: [
-      { name: "Flutter", purpose: "Mobile app for nursery staff and supervisors" },
-      { name: "REST API", purpose: "Government-provided backend for inventory and scheduling data" },
-      { name: "Push Notifications", purpose: "Staff scheduling reminders and inventory alerts" },
+      { name: "Flutter", purpose: "Mobile app for Beat, Range, ACF and DFO officers" },
+      { name: "REST API", purpose: "Government backend for raising, sales, stock and approvals" },
+      { name: "Charts", purpose: "Dashboard analytics — raising, sales and category-wise stock" },
     ],
     highlights: [
-      { title: "Mock/Real Toggle", desc: "Repository layer switchable between mock and real API via build flag — safe QA on live systems." },
-      { title: "Inventory Management", desc: "Track plant stock levels, additions and disposals with audit logs." },
-      { title: "Staff Scheduling", desc: "Shift management and assignment for nursery staff across locations." },
-      { title: "Reporting", desc: "Summary reports for supervisors covering stock, activity and staff performance." },
+      { title: "Login", desc: "Officers authenticate with email and password to access their role-specific panel." },
+      { title: "Dashboard", desc: "View total raising, sales, category-wise stock, sales-wise stock and seedling-wise running-year stock — filterable by financial year." },
+      { title: "Sale/Raising List", desc: "Browse the complete list of raisings or sales, check approval status and read rejection comments." },
+      { title: "Sale/Raising Details", desc: "Open any entry to view full raising or sale details in a dedicated detail screen." },
+      { title: "Comment Section", desc: "ACF and DFO officers approve or reject requests and attach comments with their decision." },
+      { title: "Sale/Raising Form", desc: "Beat and Range officers submit new sale or raising entries through a structured form." },
+      { title: "Recent-Year Seed Collection", desc: "Officers view their list of recent seed collections from the dashboard." },
+      { title: "Navigation Drawer", desc: "Access profile information and logout from the app drawer menu." },
     ],
-    images: [],
+    images: [
+      "/projects/nursery-management-system/login.png",
+      "/projects/nursery-management-system/dashboard.png",
+      "/projects/nursery-management-system/sale-raising-list.png",
+      "/projects/nursery-management-system/sale-raising-details.png",
+      "/projects/nursery-management-system/comment-section.png",
+      "/projects/nursery-management-system/sale-raising-form.png",
+      "/projects/nursery-management-system/recent-year-seed.png",
+      "/projects/nursery-management-system/drawer.png",
+    ],
     results: [
       "Delivered and accepted by government client.",
-      "Replaced paper-based workflows across nursery locations.",
-      "End-to-end QA completed without affecting live government data.",
+      "Multi-level approval workflow replacing paper-based raising and sale reporting.",
+      "Financial-year dashboard giving supervisors instant stock visibility.",
     ],
   },
 ];
