@@ -142,24 +142,25 @@ export const projects: ProjectDetail[] = [
     challenge:
       "Synchronising driver location with the passenger map in real time with minimal latency, while managing the complete ride lifecycle (request → accept → pickup → trip → completion) as a reliable state machine that handles edge cases like cancellations and network drops.",
     solution:
-      "The ride lifecycle was modelled as a finite state machine using Bloc. Driver location updates are emitted via Socket.IO at a 2-second interval and consumed directly into the map widget using a StreamBuilder. Google Directions API handles routing and auto-pricing based on distance and estimated time.",
+      "The ride lifecycle was modelled as a finite state machine using GetX controllers and reactive state. Driver location updates are emitted via Socket.IO at a 2-second interval and consumed directly into the map widget. Google Directions API handles routing and auto-pricing based on distance and estimated time.",
     architecture: {
       pattern: "Clean Architecture (Feature-first)",
       description:
-        "The ride flow is isolated as a single feature with its own Bloc, use cases and repository. Map, wallet and auth are separate features that communicate only through domain entities — never direct widget calls.",
+        "The ride flow is isolated as a single feature with its own GetX controllers, use cases and repository. Map, wallet and auth are separate features that communicate only through domain entities — never direct widget calls.",
       layers: [
-        { name: "Presentation", desc: "Passenger and Driver screens are separate widget trees — no shared UI components between roles." },
+        { name: "Presentation", desc: "Passenger and Driver screens are separate widget trees with GetX bindings — no shared UI components between roles." },
         { name: "Domain", desc: "RideState machine, Trip entity and pricing use cases — pure Dart, fully testable." },
         { name: "Data", desc: "Socket.IO location streams, Google Directions API client and local wallet cache." },
       ],
     },
     stateManagement: {
-      solution: "Bloc (flutter_bloc)",
+      solution: "GetX",
       reason:
-        "The ride lifecycle has many discrete states (idle, searching, accepted, in-trip, completed, cancelled). Bloc's explicit state transitions made this safe to model — each state determines exactly what UI and actions are available.",
+        "GetX kept ride lifecycle state, map updates and role-based navigation lightweight. Reactive `.obs` variables and GetX controllers made it straightforward to sync Socket.IO location streams with the UI across Passenger and Driver flows.",
     },
     stack: [
       { name: "Flutter", purpose: "Cross-platform UI for Passenger and Driver apps" },
+      { name: "GetX", purpose: "State management, dependency injection and route navigation" },
       { name: "Socket.IO", purpose: "Real-time driver location streaming and in-trip chat" },
       { name: "Google Maps", purpose: "Live map, route display and pickup navigation" },
       { name: "Google Directions API", purpose: "Route calculation and auto-pricing by distance/time" },
@@ -168,7 +169,7 @@ export const projects: ProjectDetail[] = [
     highlights: [
       { title: "Live Location Tracking", desc: "Driver position updates pushed to passenger map every 2 seconds via Socket.IO." },
       { title: "Auto-pricing", desc: "Google Directions API calculates fare dynamically based on distance and time estimate." },
-      { title: "Ride State Machine", desc: "Bloc-driven lifecycle with explicit states preventing invalid UI/action combinations." },
+      { title: "Ride State Machine", desc: "GetX-driven lifecycle with explicit states preventing invalid UI/action combinations." },
       { title: "OTP Auth + Wallet", desc: "Phone OTP onboarding and in-app wallet for cashless ride payments." },
     ],
     images: [
