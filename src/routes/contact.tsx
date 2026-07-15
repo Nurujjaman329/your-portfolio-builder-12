@@ -14,10 +14,20 @@ function Contact() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!formRef.current) return;
+
+    // Vite inlines this at build time — a missing value means the deploy
+    // environment lacks the var, not that the request failed.
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      console.error("VITE_WEB3FORMS_ACCESS_KEY is not set — add it to the build environment.");
+      setStatus("error");
+      return;
+    }
+
     setStatus("sending");
     try {
       const form = new FormData(formRef.current);
-      form.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+      form.append("access_key", accessKey);
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: form,
