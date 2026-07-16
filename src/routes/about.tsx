@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
 import { Smartphone, Code2, Award, MapPin } from "lucide-react";
+import { experienceStat, experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — MD. Nurujjaman" },
-      { name: "description", content: "Flutter Developer based in Dhaka with 2+ years of experience in clean architecture and cross-platform mobile development." },
+      { name: "description", content: `Flutter Developer based in Dhaka with ${experienceText()} of experience in clean architecture and cross-platform mobile development.` },
       { property: "og:title", content: "About MD. Nurujjaman" },
       { property: "og:description", content: "Flutter Developer based in Dhaka, Bangladesh." },
     ],
@@ -26,7 +27,7 @@ const skills = [
 ];
 
 const facts = [
-  { icon: Code2, label: "Years experience", value: "2+" },
+  { icon: Code2, label: "Years experience", value: experienceStat() },
   { icon: Smartphone, label: "Apps shipped", value: "13+" },
   { icon: Award, label: "Certifications", value: "3" },
   { icon: MapPin, label: "Based in", value: "Dhaka" },
@@ -37,7 +38,7 @@ function About() {
     <Section
       eyebrow="About"
       title="Flutter developer & mobile craftsman."
-      description="Experienced Flutter Developer with 2+ years building high-performance, cross-platform mobile applications. Passionate about clean architecture, responsive UI and shipping scalable, user-friendly products."
+      description={`Experienced Flutter Developer with ${experienceText()} building high-performance, cross-platform mobile applications. Passionate about clean architecture, responsive UI and shipping scalable, user-friendly products.`}
     >
       <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6 text-foreground/90 leading-relaxed">
@@ -48,7 +49,7 @@ function About() {
             secure payment gateways.
           </p>
           <p>
-            Over the past 2+ years I've shipped 13+ production-grade apps published on both the App Store and Google
+            Across {experienceText()} I've shipped 13+ production-grade apps published on both the App Store and Google
             Play — across social commerce, beauty, ride-sharing, agri-tech, insurance, education and government sectors.
             I love collaborating with innovative teams to deliver scalable, user-friendly solutions while continuously
             sharpening my craft.

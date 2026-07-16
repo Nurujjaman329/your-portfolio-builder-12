@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
+import { experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
@@ -71,11 +72,12 @@ const courses = [
 ];
 
 function Experience() {
+  const tenure = experienceText();
   return (
     <Section
       eyebrow="Experience"
       title="My professional journey."
-      description="2+ years, 2 companies, 13+ apps on App Store and Google Play — across social commerce, beauty, ride-sharing, insurance, agri-tech and government sectors."
+      description={`${tenure.charAt(0).toUpperCase()}${tenure.slice(1)}, 2 companies, 13+ apps on App Store and Google Play — across social commerce, beauty, ride-sharing, insurance, agri-tech and government sectors.`}
     >
       <div className="relative">
         <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-accent to-transparent md:left-1/2" />

@@ -1,21 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
+import { experienceStat, experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "MD. Nurujjaman — Flutter Developer" },
-      { name: "description", content: "Flutter Developer with 2+ years of experience building cross-platform mobile apps with clean architecture, Socket.IO, Google Maps and secure payments." },
+      { name: "description", content: `Flutter Developer with ${experienceText()} of experience building cross-platform mobile apps with clean architecture, Socket.IO, Google Maps and secure payments.` },
       { property: "og:title", content: "MD. Nurujjaman — Flutter Developer" },
-      { property: "og:description", content: "Flutter Developer · 2+ years · Cross-platform mobile apps." },
+      { property: "og:description", content: `Flutter Developer · ${experienceText()} · Cross-platform mobile apps.` },
     ],
   }),
   component: Index,
 });
 
 const stats = [
-  { value: "2+", label: "Years experience" },
+  { value: experienceStat(), label: "Years experience" },
   { value: "13+", label: "Production apps" },
   { value: "2", label: "Companies" },
   { value: "5+", label: "Payment gateways" },
@@ -59,7 +60,7 @@ function Index() {
               that <span className="text-gradient">just feel right</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              I'm <span className="text-foreground font-semibold">MD. Nurujjaman</span>, a Flutter Developer with 2+ years of experience building scalable, cross-platform mobile applications with clean architecture, real-time features and secure payments.
+              I'm <span className="text-foreground font-semibold">MD. Nurujjaman</span>, a Flutter Developer with {experienceText()} of experience building scalable, cross-platform mobile applications with clean architecture, real-time features and secure payments.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

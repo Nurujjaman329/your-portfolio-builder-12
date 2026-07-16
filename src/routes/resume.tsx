@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
 import { Download, Mail, MapPin, Phone, Globe } from "lucide-react";
+import { experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
@@ -44,7 +45,7 @@ function Resume() {
 
         <Block title="Career Objective">
           <p className="text-foreground/85 leading-relaxed">
-            Flutter Developer with 2+ years of experience building scalable cross-platform applications across social
+            Flutter Developer with {experienceText()} of experience building scalable cross-platform applications across social
             commerce, beauty, ride-sharing, agri-tech and enterprise sectors. Experienced in clean architecture,
             real-time systems (Socket.IO), map-based services and secure payment integrations (Stripe, bKash, Nagad,
             ShurjoPay). Proven track record of delivering 13+ production apps on the App Store and Google Play.
