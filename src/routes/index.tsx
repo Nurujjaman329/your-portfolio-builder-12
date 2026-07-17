@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
-import portrait from "@/assets/portrait.jpg";
+import { AppShowcase } from "@/components/portfolio/AppShowcase";
 import { experienceStat, experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/")({
@@ -87,18 +87,8 @@ function Index() {
 
           <div className="relative animate-fade-up" style={{ animationDelay: "0.15s" }}>
             <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-primary/30 to-accent/20 blur-3xl" />
-            <div className="relative overflow-hidden rounded-2xl border border-border shadow-elegant animate-float">
-              <img
-                src={portrait}
-                alt="MD. Nurujjaman, Flutter Developer"
-                width={1200}
-                height={1500}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent p-6">
-                <p className="font-mono text-xs text-primary">$ flutter run --release</p>
-                <p className="font-mono text-xs text-muted-foreground mt-1">✓ build complete · 0 issues</p>
-              </div>
+            <div className="relative">
+              <AppShowcase />
             </div>
           </div>
         </div>

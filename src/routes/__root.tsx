@@ -1,6 +1,7 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { Header, Footer } from "@/components/portfolio/Layout";
+import { BottomNav } from "@/components/portfolio/BottomNav";
 
 function NotFoundComponent() {
   return (
@@ -35,6 +36,9 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      {/* Clears the fixed tab bar so the footer isn't trapped under it. */}
+      <div className="h-16 md:hidden print:hidden" aria-hidden />
+      <BottomNav />
     </div>
   );
 }
