@@ -13,7 +13,9 @@ const linkClass =
 export function StoreLinks({ appStoreUrl, playStoreUrl, className }: StoreLinksProps) {
   if (!appStoreUrl && !playStoreUrl) {
     return (
-      <span className={cn("inline-flex items-center gap-1.5 font-mono text-xs text-primary", className)}>
+      <span
+        className={cn("inline-flex items-center gap-1.5 font-mono text-xs text-primary", className)}
+      >
         <ExternalLink className="h-3 w-3" /> Live on Store
       </span>
     );

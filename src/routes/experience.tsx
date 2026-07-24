@@ -6,9 +6,16 @@ export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
       { title: "Experience — MD. Nurujjaman" },
-      { name: "description", content: "Flutter developer experience at Sparktech Agency and Synergy Interface Ltd., plus academic and professional courses." },
+      {
+        name: "description",
+        content:
+          "Flutter developer experience at Sparktech Agency and Synergy Interface Ltd., plus academic and professional courses.",
+      },
       { property: "og:title", content: "Experience — MD. Nurujjaman" },
-      { property: "og:description", content: "Career timeline of MD. Nurujjaman, Flutter Developer." },
+      {
+        property: "og:description",
+        content: "Career timeline of MD. Nurujjaman, Flutter Developer.",
+      },
     ],
   }),
   component: Experience,
@@ -92,7 +99,9 @@ function Experience() {
               <div className="absolute left-4 top-6 h-3 w-3 -translate-x-1/2 rounded-full bg-gradient-to-br from-primary to-accent shadow-glow md:left-1/2" />
               <div className="ml-12 md:ml-0">
                 <div className="rounded-2xl border border-border/60 bg-card-gradient p-6 shadow-card transition-spring hover:shadow-glow">
-                  <p className="font-mono text-xs uppercase tracking-widest text-primary">{r.period}</p>
+                  <p className="font-mono text-xs uppercase tracking-widest text-primary">
+                    {r.period}
+                  </p>
                   <h3 className="mt-1 font-display text-xl font-semibold">{r.role}</h3>
                   <p className="text-muted-foreground">
                     {r.company} <span className="text-foreground/40">·</span> {r.location}
@@ -147,8 +156,14 @@ function Experience() {
       <div className="mt-12">
         <h2 className="font-display text-2xl font-semibold mb-6">Extra-Curricular</h2>
         <ul className="space-y-2 text-foreground/85">
-          <li className="flex gap-2"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /> Participation in DCC CSE Digital Week 2020</li>
-          <li className="flex gap-2"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /> Participation in DCC Inter Dept. Programming Contest 2019</li>
+          <li className="flex gap-2">
+            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /> Participation in DCC
+            CSE Digital Week 2020
+          </li>
+          <li className="flex gap-2">
+            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /> Participation in DCC
+            Inter Dept. Programming Contest 2019
+          </li>
         </ul>
       </div>
     </Section>

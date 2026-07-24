@@ -9,7 +9,10 @@ const featured = projects.filter((p) => p.storeLink && p.images.length > 0).slic
 /** Store listing mockups for the hero phone — separate from project-page screenshots. */
 const showcaseStoreAssets: Record<string, { images: string[]; heroIndex?: number }> = {
   "tnp-beauty": {
-    images: Array.from({ length: 13 }, (_, i) => `/projects/tnp-beauty/store/screenshot-${String(i + 1).padStart(2, "0")}.jpg`),
+    images: Array.from(
+      { length: 13 },
+      (_, i) => `/projects/tnp-beauty/store/screenshot-${String(i + 1).padStart(2, "0")}.jpg`,
+    ),
     heroIndex: 7,
   },
 };

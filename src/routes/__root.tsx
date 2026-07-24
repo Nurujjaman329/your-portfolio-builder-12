@@ -1,5 +1,6 @@
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { HeadContent, Outlet, createRootRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
+import { Analytics } from "@/components/Analytics";
 import { Header, Footer } from "@/components/portfolio/Layout";
 import { BottomNav } from "@/components/portfolio/BottomNav";
 
@@ -30,15 +31,19 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer />
-      {/* Clears the fixed tab bar so the footer isn't trapped under it. */}
-      <div className="h-16 md:hidden print:hidden" aria-hidden />
-      <BottomNav />
-    </div>
+    <>
+      <HeadContent />
+      <Analytics />
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+        {/* Clears the fixed tab bar so the footer isn't trapped under it. */}
+        <div className="h-16 md:hidden print:hidden" aria-hidden />
+        <BottomNav />
+      </div>
+    </>
   );
 }

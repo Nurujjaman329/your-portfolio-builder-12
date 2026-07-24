@@ -2,16 +2,70 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 import { AppShowcase } from "@/components/portfolio/AppShowcase";
 import { experienceStat, experienceText } from "@/data/profile";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "MD. Nurujjaman — Flutter Developer" },
-      { name: "description", content: `Flutter Developer with ${experienceText()} of experience building cross-platform mobile apps with clean architecture, Socket.IO, Google Maps and secure payments.` },
-      { property: "og:title", content: "MD. Nurujjaman — Flutter Developer" },
-      { property: "og:description", content: `Flutter Developer · ${experienceText()} · Cross-platform mobile apps.` },
-    ],
-  }),
+  head: () => {
+    const description = `Flutter Developer with ${experienceText()} of experience building cross-platform mobile apps with clean architecture, Socket.IO, Google Maps and secure payments.`;
+    return {
+      meta: [
+        { title: SITE_NAME },
+        { name: "description", content: description },
+        { property: "og:title", content: SITE_NAME },
+        {
+          property: "og:description",
+          content: `Flutter Developer · ${experienceText()} · Cross-platform mobile apps.`,
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: SITE_URL },
+        { property: "og:image", content: OG_IMAGE },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: SITE_NAME },
+        { name: "twitter:image", content: OG_IMAGE },
+      ],
+      links: [{ rel: "canonical", href: SITE_URL }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "MD. Nurujjaman",
+            jobTitle: "Flutter Developer",
+            url: SITE_URL,
+            email: "mdnurujjaman329@gmail.com",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Dhaka",
+              addressCountry: "BD",
+            },
+            sameAs: [
+              "https://github.com/Nurujjaman329",
+              "https://www.linkedin.com/in/nurujjaman329/",
+            ],
+            knowsAbout: [
+              "Flutter",
+              "Dart",
+              "Mobile Development",
+              "Clean Architecture",
+              "Firebase",
+              "Socket.IO",
+            ],
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: SITE_NAME,
+            url: SITE_URL,
+            description,
+          }),
+        },
+      ],
+    };
+  },
   component: Index,
 });
 
@@ -23,9 +77,20 @@ const stats = [
 ];
 
 const stack = [
-  "Flutter", "Dart", "Bloc", "Riverpod", "Provider",
-  "Socket.IO", "Google Maps", "Firebase", "Stripe", "REST APIs",
-  "Clean Architecture", "Git", "Figma", "Postman",
+  "Flutter",
+  "Dart",
+  "Bloc",
+  "Riverpod",
+  "Provider",
+  "Socket.IO",
+  "Google Maps",
+  "Firebase",
+  "Stripe",
+  "REST APIs",
+  "Clean Architecture",
+  "Git",
+  "Figma",
+  "Postman",
 ];
 
 const highlights = [
@@ -60,7 +125,9 @@ function Index() {
               that <span className="text-gradient">just feel right</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              I'm <span className="text-foreground font-semibold">MD. Nurujjaman</span>, a Flutter Developer with {experienceText()} of experience building scalable, cross-platform mobile applications with clean architecture, real-time features and secure payments.
+              I'm <span className="text-foreground font-semibold">MD. Nurujjaman</span>, a Flutter
+              Developer with {experienceText()} of experience building scalable, cross-platform
+              mobile applications with clean architecture, real-time features and secure payments.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -79,9 +146,28 @@ function Index() {
             </div>
 
             <div className="mt-8 flex items-center gap-4 text-muted-foreground">
-              <a href="https://github.com/Nurujjaman329" target="_blank" rel="noreferrer" className="transition-smooth hover:text-primary"><Github className="h-5 w-5" /></a>
-              <a href="https://www.linkedin.com/in/nurujjaman329/" target="_blank" rel="noreferrer" className="transition-smooth hover:text-primary"><Linkedin className="h-5 w-5" /></a>
-              <a href="mailto:mdnurujjaman329@gmail.com" className="transition-smooth hover:text-primary"><Mail className="h-5 w-5" /></a>
+              <a
+                href="https://github.com/Nurujjaman329"
+                target="_blank"
+                rel="noreferrer"
+                className="transition-smooth hover:text-primary"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nurujjaman329/"
+                target="_blank"
+                rel="noreferrer"
+                className="transition-smooth hover:text-primary"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="mailto:mdnurujjaman329@gmail.com"
+                className="transition-smooth hover:text-primary"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
@@ -99,7 +185,9 @@ function Index() {
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-12 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="text-center md:text-left">
-              <div className="font-display text-4xl md:text-5xl font-bold text-gradient">{s.value}</div>
+              <div className="font-display text-4xl md:text-5xl font-bold text-gradient">
+                {s.value}
+              </div>
               <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
             </div>
           ))}
@@ -110,7 +198,9 @@ function Index() {
       <section className="mx-auto max-w-6xl px-6 py-24">
         <div className="mb-12 max-w-2xl">
           <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">What I do</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">A Flutter developer's toolkit.</h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">
+            A Flutter developer's toolkit.
+          </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {highlights.map((h, i) => (
@@ -133,10 +223,15 @@ function Index() {
         <div className="rounded-2xl border border-border/60 bg-card-gradient p-10 shadow-card">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">Tech I use daily</p>
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">
+                Tech I use daily
+              </p>
               <h2 className="font-display text-3xl md:text-4xl font-bold">My stack</h2>
             </div>
-            <Link to="/about" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
+            <Link
+              to="/about"
+              className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+            >
               More about me <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -158,9 +253,12 @@ function Index() {
         <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-surface to-accent/10 p-12 text-center shadow-elegant">
           <div className="absolute inset-0 grid-bg opacity-30" />
           <div className="relative">
-            <h2 className="font-display text-3xl md:text-5xl font-bold">Have a Flutter project in mind?</h2>
+            <h2 className="font-display text-3xl md:text-5xl font-bold">
+              Have a Flutter project in mind?
+            </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              Open to collaborating on innovative mobile products. Let's build something great together.
+              Open to collaborating on innovative mobile products. Let's build something great
+              together.
             </p>
             <Link
               to="/contact"

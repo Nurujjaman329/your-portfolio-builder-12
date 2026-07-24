@@ -17,9 +17,15 @@ export function PhoneFrame({
       {/* Bezel */}
       <div className="relative rounded-[2.25rem] border border-border/80 bg-[oklch(0.12_0.02_250)] p-2 shadow-elegant">
         {/* Side buttons */}
-        <span className="absolute -left-[3px] top-24 h-12 w-[3px] rounded-l bg-border" aria-hidden />
+        <span
+          className="absolute -left-[3px] top-24 h-12 w-[3px] rounded-l bg-border"
+          aria-hidden
+        />
         <span className="absolute -left-[3px] top-40 h-8 w-[3px] rounded-l bg-border" aria-hidden />
-        <span className="absolute -right-[3px] top-32 h-16 w-[3px] rounded-r bg-border" aria-hidden />
+        <span
+          className="absolute -right-[3px] top-32 h-16 w-[3px] rounded-r bg-border"
+          aria-hidden
+        />
 
         {/* Screen */}
         <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.75rem] bg-background">
@@ -28,7 +34,10 @@ export function PhoneFrame({
         </div>
 
         {/* Dynamic island — over the screen, inside the bezel */}
-        <div className="pointer-events-none absolute left-1/2 top-[14px] h-[22px] w-[76px] -translate-x-1/2 rounded-full bg-black" aria-hidden />
+        <div
+          className="pointer-events-none absolute left-1/2 top-[14px] h-[22px] w-[76px] -translate-x-1/2 rounded-full bg-black"
+          aria-hidden
+        />
       </div>
     </div>
   );

@@ -29,7 +29,9 @@ export function Header() {
               key={item.to}
               to={item.to}
               className="px-3 py-2 text-sm font-medium text-muted-foreground rounded-md transition-smooth hover:text-foreground hover:bg-secondary"
-              activeProps={{ className: "px-3 py-2 text-sm font-medium rounded-md text-primary bg-secondary" }}
+              activeProps={{
+                className: "px-3 py-2 text-sm font-medium rounded-md text-primary bg-secondary",
+              }}
               activeOptions={{ exact: true }}
             >
               {item.label}
@@ -67,10 +69,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border/50 mt-24">
       <div className="mx-auto max-w-6xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <p
-          onClick={handleSecretClick}
-          className="select-none cursor-default"
-        >
+        <p onClick={handleSecretClick} className="select-none cursor-default">
           © {new Date().getFullYear()} MD. Nurujjaman — Flutter Developer.
         </p>
         <p className="font-mono text-xs">Built with React · TypeScript · TanStack</p>

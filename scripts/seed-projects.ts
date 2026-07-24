@@ -1,5 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc, getDocs, collection, serverTimestamp } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDocs,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 import { projects } from "../src/data/projects";
 
 const config = {

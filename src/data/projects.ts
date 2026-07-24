@@ -30,7 +30,8 @@ export const projects: ProjectDetail[] = [
     slug: "presentini",
     name: "Presentini",
     tag: "City Discovery",
-    tagline: "City discovery platform that helps users find the best local events, exclusive specials, and unforgettable experiences — live on App Store & Play Store.",
+    tagline:
+      "City discovery platform that helps users find the best local events, exclusive specials, and unforgettable experiences — live on App Store & Play Store.",
     company: "Sparktech Agency – Betopia Group",
     period: "2026",
     status: "Live on App Store & Play Store",
@@ -49,9 +50,18 @@ export const projects: ProjectDetail[] = [
       description:
         "Discovery, events, specials and profile are isolated feature modules sharing core location and auth infrastructure. Each feature owns its presentation and data layers while reusing shared domain models for events and offers.",
       layers: [
-        { name: "Presentation", desc: "Browse, event detail, specials and city screens with reactive state tied to user location and filters." },
-        { name: "Domain", desc: "Event, Special and City entities with use cases for discovery, search and favorites — pure Dart." },
-        { name: "Data", desc: "REST API clients, Firebase messaging and local cache for recently viewed events and saved specials." },
+        {
+          name: "Presentation",
+          desc: "Browse, event detail, specials and city screens with reactive state tied to user location and filters.",
+        },
+        {
+          name: "Domain",
+          desc: "Event, Special and City entities with use cases for discovery, search and favorites — pure Dart.",
+        },
+        {
+          name: "Data",
+          desc: "REST API clients, Firebase messaging and local cache for recently viewed events and saved specials.",
+        },
       ],
     },
     stateManagement: {
@@ -66,10 +76,22 @@ export const projects: ProjectDetail[] = [
       { name: "Geolocation", purpose: "Location-based discovery and nearby recommendations" },
     ],
     highlights: [
-      { title: "Event Discovery", desc: "Browse local events by city, date and category — from concerts to community gatherings." },
-      { title: "Exclusive Specials", desc: "Surface time-limited offers and deals from local businesses in one curated feed." },
-      { title: "City-aware Browse", desc: "Switch cities instantly whether you're a local or visiting — content adapts to your location." },
-      { title: "Push Notifications", desc: "Firebase alerts for new events, expiring specials and saved favorites." },
+      {
+        title: "Event Discovery",
+        desc: "Browse local events by city, date and category — from concerts to community gatherings.",
+      },
+      {
+        title: "Exclusive Specials",
+        desc: "Surface time-limited offers and deals from local businesses in one curated feed.",
+      },
+      {
+        title: "City-aware Browse",
+        desc: "Switch cities instantly whether you're a local or visiting — content adapts to your location.",
+      },
+      {
+        title: "Push Notifications",
+        desc: "Firebase alerts for new events, expiring specials and saved favorites.",
+      },
     ],
     images: [
       "/projects/presentini/screenshot-01.jpg",
@@ -96,7 +118,8 @@ export const projects: ProjectDetail[] = [
     slug: "fouta-app",
     name: "Fouta App",
     tag: "Social Commerce",
-    tagline: "A 4-role social commerce platform with real-time marketplace features — live on App Store & Play Store.",
+    tagline:
+      "A 4-role social commerce platform with real-time marketplace features — live on App Store & Play Store.",
     company: "Sparktech Agency – Betopia Group",
     period: "2024",
     status: "Live on App Store & Play Store",
@@ -115,9 +138,18 @@ export const projects: ProjectDetail[] = [
       description:
         "Each feature (auth, feed, orders, chat) is structured into its own folder with three layers. Features are kept independent — no cross-feature imports, only shared domain entities.",
       layers: [
-        { name: "Presentation", desc: "Widgets, pages, Bloc/Cubit — handles only UI logic and dispatches events." },
-        { name: "Domain", desc: "Use cases and entity models — pure Dart, zero Flutter dependency." },
-        { name: "Data", desc: "Repository implementations, API clients, local cache (Hive/SharedPrefs)." },
+        {
+          name: "Presentation",
+          desc: "Widgets, pages, Bloc/Cubit — handles only UI logic and dispatches events.",
+        },
+        {
+          name: "Domain",
+          desc: "Use cases and entity models — pure Dart, zero Flutter dependency.",
+        },
+        {
+          name: "Data",
+          desc: "Repository implementations, API clients, local cache (Hive/SharedPrefs).",
+        },
       ],
     },
     stateManagement: {
@@ -134,10 +166,22 @@ export const projects: ProjectDetail[] = [
       { name: "Google Maps", purpose: "Delivery tracking & driver location" },
     ],
     highlights: [
-      { title: "4-Role System", desc: "User, Seller, Driver and Admin — each with isolated onboarding, dashboard and permission logic." },
-      { title: "Real-time Feed", desc: "Live social feed, stories and messaging powered by Socket.IO with room-based event scoping." },
-      { title: "End-to-end Checkout", desc: "Cart → payment → order assignment → live delivery tracking in one seamless pipeline." },
-      { title: "Role-based Routing", desc: "App startup resolves the correct module per role — zero UI leakage between roles." },
+      {
+        title: "4-Role System",
+        desc: "User, Seller, Driver and Admin — each with isolated onboarding, dashboard and permission logic.",
+      },
+      {
+        title: "Real-time Feed",
+        desc: "Live social feed, stories and messaging powered by Socket.IO with room-based event scoping.",
+      },
+      {
+        title: "End-to-end Checkout",
+        desc: "Cart → payment → order assignment → live delivery tracking in one seamless pipeline.",
+      },
+      {
+        title: "Role-based Routing",
+        desc: "App startup resolves the correct module per role — zero UI leakage between roles.",
+      },
     ],
     images: [
       "/projects/fouta-app/feed.jpg",
@@ -157,7 +201,8 @@ export const projects: ProjectDetail[] = [
     slug: "tnp-beauty",
     name: "TNP Beauty",
     tag: "Beauty Marketplace",
-    tagline: "A 4-role beauty marketplace — Customer, Beautician and Vendor apps plus an Admin web panel — live on App Store & Play Store.",
+    tagline:
+      "A 4-role beauty marketplace — Customer, Beautician and Vendor apps plus an Admin web panel — live on App Store & Play Store.",
     company: "Sparktech Agency – Betopia Group",
     period: "2026",
     status: "Live on App Store & Play Store",
@@ -176,9 +221,18 @@ export const projects: ProjectDetail[] = [
       description:
         "Shared domain models (Booking, Service, Vendor) sit in a common package. Customer, Vendor and Beautician each have isolated Flutter presentation and data layers. Admin is a separate web application consuming the same REST API.",
       layers: [
-        { name: "Presentation", desc: "Flutter apps per role with GetX controllers and bindings — Customer, Vendor, Beautician plus Admin web dashboard." },
-        { name: "Domain", desc: "Shared Booking, Service and User entities — the single source of truth across all roles." },
-        { name: "Data", desc: "Role-filtered API calls, Stripe SDK on Customer app, and web admin endpoints for platform management." },
+        {
+          name: "Presentation",
+          desc: "Flutter apps per role with GetX controllers and bindings — Customer, Vendor, Beautician plus Admin web dashboard.",
+        },
+        {
+          name: "Domain",
+          desc: "Shared Booking, Service and User entities — the single source of truth across all roles.",
+        },
+        {
+          name: "Data",
+          desc: "Role-filtered API calls, Stripe SDK on Customer app, and web admin endpoints for platform management.",
+        },
       ],
     },
     stateManagement: {
@@ -196,10 +250,22 @@ export const projects: ProjectDetail[] = [
       { name: "Firebase", purpose: "Push notifications for booking confirmations and reminders" },
     ],
     highlights: [
-      { title: "4-Role Platform", desc: "Customer, Vendor and Beautician Flutter apps plus a separate Admin web panel." },
-      { title: "Customer Commerce", desc: "Browse stylist stores, view products, cart, checkout, ratings and promo codes." },
-      { title: "Beautician & Vendor Apps", desc: "Dashboards, business verification, earnings tracking and order fulfillment." },
-      { title: "Stripe Payments", desc: "Server-confirmed payment intents ensure secure, tamper-proof transaction processing." },
+      {
+        title: "4-Role Platform",
+        desc: "Customer, Vendor and Beautician Flutter apps plus a separate Admin web panel.",
+      },
+      {
+        title: "Customer Commerce",
+        desc: "Browse stylist stores, view products, cart, checkout, ratings and promo codes.",
+      },
+      {
+        title: "Beautician & Vendor Apps",
+        desc: "Dashboards, business verification, earnings tracking and order fulfillment.",
+      },
+      {
+        title: "Stripe Payments",
+        desc: "Server-confirmed payment intents ensure secure, tamper-proof transaction processing.",
+      },
     ],
     images: [
       "/projects/tnp-beauty/customer-view-stylist-store.png",
@@ -242,9 +308,18 @@ export const projects: ProjectDetail[] = [
       description:
         "The ride flow is isolated as a single feature with its own GetX controllers, use cases and repository. Map, wallet and auth are separate features that communicate only through domain entities — never direct widget calls.",
       layers: [
-        { name: "Presentation", desc: "Passenger and Driver screens are separate widget trees with GetX bindings — no shared UI components between roles." },
-        { name: "Domain", desc: "RideState machine, Trip entity and pricing use cases — pure Dart, fully testable." },
-        { name: "Data", desc: "Socket.IO location streams, Google Directions API client and local wallet cache." },
+        {
+          name: "Presentation",
+          desc: "Passenger and Driver screens are separate widget trees with GetX bindings — no shared UI components between roles.",
+        },
+        {
+          name: "Domain",
+          desc: "RideState machine, Trip entity and pricing use cases — pure Dart, fully testable.",
+        },
+        {
+          name: "Data",
+          desc: "Socket.IO location streams, Google Directions API client and local wallet cache.",
+        },
       ],
     },
     stateManagement: {
@@ -257,14 +332,29 @@ export const projects: ProjectDetail[] = [
       { name: "GetX", purpose: "State management, dependency injection and route navigation" },
       { name: "Socket.IO", purpose: "Real-time driver location streaming and in-trip chat" },
       { name: "Google Maps", purpose: "Live map, route display and pickup navigation" },
-      { name: "Google Directions API", purpose: "Route calculation and auto-pricing by distance/time" },
+      {
+        name: "Google Directions API",
+        purpose: "Route calculation and auto-pricing by distance/time",
+      },
       { name: "REST API", purpose: "User accounts, ride history, wallet and driver management" },
     ],
     highlights: [
-      { title: "Live Location Tracking", desc: "Driver position updates pushed to passenger map every 2 seconds via Socket.IO." },
-      { title: "Auto-pricing", desc: "Google Directions API calculates fare dynamically based on distance and time estimate." },
-      { title: "Ride State Machine", desc: "GetX-driven lifecycle with explicit states preventing invalid UI/action combinations." },
-      { title: "OTP Auth + Wallet", desc: "Phone OTP onboarding and in-app wallet for cashless ride payments." },
+      {
+        title: "Live Location Tracking",
+        desc: "Driver position updates pushed to passenger map every 2 seconds via Socket.IO.",
+      },
+      {
+        title: "Auto-pricing",
+        desc: "Google Directions API calculates fare dynamically based on distance and time estimate.",
+      },
+      {
+        title: "Ride State Machine",
+        desc: "GetX-driven lifecycle with explicit states preventing invalid UI/action combinations.",
+      },
+      {
+        title: "OTP Auth + Wallet",
+        desc: "Phone OTP onboarding and in-app wallet for cashless ride payments.",
+      },
     ],
     images: [
       "/projects/ride-sharing-app/driver-home.png",
@@ -311,9 +401,18 @@ export const projects: ProjectDetail[] = [
       description:
         "Each role's dashboard is a self-contained module. Shared infrastructure (auth, deep linking, payment) sits in a core layer that modules depend on — never the reverse.",
       layers: [
-        { name: "Presentation", desc: "Role dashboards (Farmer, Investor, Agent) are separate route branches with their own ViewModels." },
-        { name: "Domain", desc: "Campaign, Investment and Agent entities with use cases for funding, reporting and commission calculation." },
-        { name: "Data", desc: "REST repositories, ShurjoPay SDK wrapper, deep link handler and local session cache." },
+        {
+          name: "Presentation",
+          desc: "Role dashboards (Farmer, Investor, Agent) are separate route branches with their own ViewModels.",
+        },
+        {
+          name: "Domain",
+          desc: "Campaign, Investment and Agent entities with use cases for funding, reporting and commission calculation.",
+        },
+        {
+          name: "Data",
+          desc: "REST repositories, ShurjoPay SDK wrapper, deep link handler and local session cache.",
+        },
       ],
     },
     stateManagement: {
@@ -325,14 +424,32 @@ export const projects: ProjectDetail[] = [
       { name: "Flutter", purpose: "Cross-platform mobile app for all three roles" },
       { name: "ShurjoPay", purpose: "Investment payment processing for Bangladeshi users" },
       { name: "Socket.IO", purpose: "Real-time farmer–investor chat within active campaigns" },
-      { name: "Deep Linking", purpose: "Campaign sharing via links that work in and out of the app" },
-      { name: "REST API", purpose: "Campaign management, investment records and agent commission tracking" },
+      {
+        name: "Deep Linking",
+        purpose: "Campaign sharing via links that work in and out of the app",
+      },
+      {
+        name: "REST API",
+        purpose: "Campaign management, investment records and agent commission tracking",
+      },
     ],
     highlights: [
-      { title: "3-Role Platform", desc: "Farmer, Investor and Agent — each with separate dashboards and action sets." },
-      { title: "Deep Linking", desc: "Campaign links resolve correctly whether the user is logged in or not." },
-      { title: "ShurjoPay Integration", desc: "Local payment gateway for investment funding — supports Bangladeshi banks and MFS." },
-      { title: "Real-time Chat", desc: "Farmer–investor messaging within campaigns for deal negotiation and updates." },
+      {
+        title: "3-Role Platform",
+        desc: "Farmer, Investor and Agent — each with separate dashboards and action sets.",
+      },
+      {
+        title: "Deep Linking",
+        desc: "Campaign links resolve correctly whether the user is logged in or not.",
+      },
+      {
+        title: "ShurjoPay Integration",
+        desc: "Local payment gateway for investment funding — supports Bangladeshi banks and MFS.",
+      },
+      {
+        title: "Real-time Chat",
+        desc: "Farmer–investor messaging within campaigns for deal negotiation and updates.",
+      },
     ],
     images: [
       "/projects/mykrishi/homepage.png",
@@ -351,7 +468,8 @@ export const projects: ProjectDetail[] = [
     slug: "meghna-life-insurance",
     name: "Meghna Life Insurance",
     tag: "Fintech / GovTech",
-    tagline: "A dual-app suite replacing manual insurance collection for a government-linked provider.",
+    tagline:
+      "A dual-app suite replacing manual insurance collection for a government-linked provider.",
     company: "Synergy Interface Ltd.",
     period: "2023",
     status: "Production",
@@ -368,9 +486,18 @@ export const projects: ProjectDetail[] = [
       description:
         "Payment gateway integrations are fully abstracted in the data layer. The domain layer only knows about a PaymentGateway interface — not bKash or Nagad specifically. This made adding Nagad after bKash a 2-day task.",
       layers: [
-        { name: "Presentation", desc: "Customer app and Advisor app are separate Flutter projects sharing a common domain package." },
-        { name: "Domain", desc: "Policy, Premium and PaymentGateway abstractions — the core business rules in pure Dart." },
-        { name: "Data", desc: "bKash SDK, Nagad SDK and REST client all implement PaymentGateway. Session persistence via SharedPreferences." },
+        {
+          name: "Presentation",
+          desc: "Customer app and Advisor app are separate Flutter projects sharing a common domain package.",
+        },
+        {
+          name: "Domain",
+          desc: "Policy, Premium and PaymentGateway abstractions — the core business rules in pure Dart.",
+        },
+        {
+          name: "Data",
+          desc: "bKash SDK, Nagad SDK and REST client all implement PaymentGateway. Session persistence via SharedPreferences.",
+        },
       ],
     },
     stateManagement: {
@@ -383,13 +510,28 @@ export const projects: ProjectDetail[] = [
       { name: "bKash", purpose: "Mobile financial services payment gateway" },
       { name: "Nagad", purpose: "Government-backed MFS payment gateway" },
       { name: "REST API", purpose: "Policy management, premium records and advisor portfolio" },
-      { name: "SharedPreferences", purpose: "Payment session persistence for mid-transaction recovery" },
+      {
+        name: "SharedPreferences",
+        purpose: "Payment session persistence for mid-transaction recovery",
+      },
     ],
     highlights: [
-      { title: "Dual-app Suite", desc: "Customer-facing and Advisor-facing apps sharing a single domain package." },
-      { title: "bKash & Nagad", desc: "Both gateways abstracted behind one interface — adding Nagad after bKash took 2 days." },
-      { title: "Payment Recovery", desc: "Session persisted locally before any redirect — reconciled on app resume." },
-      { title: "Paperless Workflow", desc: "Replaced manual premium collection — field advisors now manage everything digitally." },
+      {
+        title: "Dual-app Suite",
+        desc: "Customer-facing and Advisor-facing apps sharing a single domain package.",
+      },
+      {
+        title: "bKash & Nagad",
+        desc: "Both gateways abstracted behind one interface — adding Nagad after bKash took 2 days.",
+      },
+      {
+        title: "Payment Recovery",
+        desc: "Session persisted locally before any redirect — reconciled on app resume.",
+      },
+      {
+        title: "Paperless Workflow",
+        desc: "Replaced manual premium collection — field advisors now manage everything digitally.",
+      },
     ],
     images: [],
     results: [
@@ -402,7 +544,8 @@ export const projects: ProjectDetail[] = [
     slug: "distributor-management-system",
     name: "Distributor Management System",
     tag: "Enterprise",
-    tagline: "A field force management app with real-time location tracking for distributors and sales reps.",
+    tagline:
+      "A field force management app with real-time location tracking for distributors and sales reps.",
     company: "Synergy Interface Ltd.",
     period: "2023",
     status: "Production",
@@ -419,9 +562,18 @@ export const projects: ProjectDetail[] = [
       description:
         "Role panels (Distributor, SR) are feature modules sharing order, schedule and location domains. Scanner, map and background location services are isolated to keep the UI responsive on field devices.",
       layers: [
-        { name: "Presentation", desc: "Role-specific dashboards, order flows, map views and scanner screens." },
-        { name: "Domain", desc: "Order, Schedule, Retailer, Return and LocationUpdate entities with role-scoped use cases." },
-        { name: "Data", desc: "REST API client, Google Maps integration, IMEI scanner and background location service." },
+        {
+          name: "Presentation",
+          desc: "Role-specific dashboards, order flows, map views and scanner screens.",
+        },
+        {
+          name: "Domain",
+          desc: "Order, Schedule, Retailer, Return and LocationUpdate entities with role-scoped use cases.",
+        },
+        {
+          name: "Data",
+          desc: "REST API client, Google Maps integration, IMEI scanner and background location service.",
+        },
       ],
     },
     stateManagement: {
@@ -433,19 +585,49 @@ export const projects: ProjectDetail[] = [
       { name: "Flutter", purpose: "Cross-platform app for distributor and SR roles" },
       { name: "Google Maps", purpose: "Live SR location tracking and field visit map" },
       { name: "REST API", purpose: "Orders, schedules, retailers, returns and attendance" },
-      { name: "Barcode/IMEI Scanner", purpose: "Secondary sales and ST1 returns via scan or manual entry" },
+      {
+        name: "Barcode/IMEI Scanner",
+        purpose: "Secondary sales and ST1 returns via scan or manual entry",
+      },
       { name: "Background Location", purpose: "SR attendance and map tracking in the field" },
     ],
     highlights: [
-      { title: "Login & Dashboard", desc: "Email/password login with a tile-based dashboard surfacing every distributor feature in one place." },
-      { title: "Order List & Create Order", desc: "View all orders from the dashboard and place new orders through a dedicated create-order flow." },
-      { title: "Daily Purchase Approval", desc: "Product receive module lets distributors review and approve daily purchase requests." },
-      { title: "Retail List & Secondary Sales", desc: "Browse retailers and complete secondary sales with IMEI scanner or manual entry — supports multiple sales in one session." },
-      { title: "Schedule Management", desc: "Create, edit and delete SR schedules with name-based search to find reps quickly." },
-      { title: "ST1 Return Apply", desc: "Process ST1 returns using barcode scanner or manual IMEI entry from the distributor dashboard." },
-      { title: "Track SR on Map", desc: "Live map view showing where each sales rep has visited across their territory." },
-      { title: "SR Attendance", desc: "SRs post daily attendance with GPS location, retailer selection and photo proof." },
-      { title: "SR Schedule List", desc: "SRs view their assigned schedules and filter by specific days." },
+      {
+        title: "Login & Dashboard",
+        desc: "Email/password login with a tile-based dashboard surfacing every distributor feature in one place.",
+      },
+      {
+        title: "Order List & Create Order",
+        desc: "View all orders from the dashboard and place new orders through a dedicated create-order flow.",
+      },
+      {
+        title: "Daily Purchase Approval",
+        desc: "Product receive module lets distributors review and approve daily purchase requests.",
+      },
+      {
+        title: "Retail List & Secondary Sales",
+        desc: "Browse retailers and complete secondary sales with IMEI scanner or manual entry — supports multiple sales in one session.",
+      },
+      {
+        title: "Schedule Management",
+        desc: "Create, edit and delete SR schedules with name-based search to find reps quickly.",
+      },
+      {
+        title: "ST1 Return Apply",
+        desc: "Process ST1 returns using barcode scanner or manual IMEI entry from the distributor dashboard.",
+      },
+      {
+        title: "Track SR on Map",
+        desc: "Live map view showing where each sales rep has visited across their territory.",
+      },
+      {
+        title: "SR Attendance",
+        desc: "SRs post daily attendance with GPS location, retailer selection and photo proof.",
+      },
+      {
+        title: "SR Schedule List",
+        desc: "SRs view their assigned schedules and filter by specific days.",
+      },
     ],
     images: [
       "/projects/distributor-management-system/login.jpg",
@@ -471,7 +653,8 @@ export const projects: ProjectDetail[] = [
     slug: "edex-365",
     name: "Edex-365",
     tag: "EdTech",
-    tagline: "An education platform for students and teachers with payments and real-time notifications.",
+    tagline:
+      "An education platform for students and teachers with payments and real-time notifications.",
     company: "Synergy Interface Ltd.",
     period: "2023",
     status: "Production",
@@ -488,9 +671,18 @@ export const projects: ProjectDetail[] = [
       description:
         "Problem submission, wallet/payments, profile and skill management are isolated features sharing user and problem domain entities. Payment gateway integration lives in the data layer with server-confirmed transactions.",
       layers: [
-        { name: "Presentation", desc: "Student and teacher dashboards, problem forms, charts, checkout and profile screens." },
-        { name: "Domain", desc: "Problem, Wallet, Transaction and Skill entities with role-scoped use cases." },
-        { name: "Data", desc: "REST API client, payment gateway SDK and local session cache for user profile." },
+        {
+          name: "Presentation",
+          desc: "Student and teacher dashboards, problem forms, charts, checkout and profile screens.",
+        },
+        {
+          name: "Domain",
+          desc: "Problem, Wallet, Transaction and Skill entities with role-scoped use cases.",
+        },
+        {
+          name: "Data",
+          desc: "REST API client, payment gateway SDK and local session cache for user profile.",
+        },
       ],
     },
     stateManagement: {
@@ -506,13 +698,34 @@ export const projects: ProjectDetail[] = [
     ],
     highlights: [
       { title: "Login", desc: "Email and password authentication for students and teachers." },
-      { title: "Homepage Dashboard", desc: "Chart view of total, pending and solved problems — tap each card to open the detailed problem list." },
-      { title: "Post Problem", desc: "Students submit problems by selecting version, subject, class and entering problem details." },
-      { title: "User Profile", desc: "View wallet balance, access transaction history and logout from a dedicated profile screen." },
-      { title: "Checkout", desc: "Use wallet balance for payments when submitting or solving problems." },
-      { title: "Payment Gateway", desc: "Recharge wallet through the integrated payment gateway when balance is insufficient." },
-      { title: "Change Password", desc: "Students and teachers securely update their account password from settings." },
-      { title: "Update Skill", desc: "Teachers modify their skills and subjects — changes require admin approval before going live." },
+      {
+        title: "Homepage Dashboard",
+        desc: "Chart view of total, pending and solved problems — tap each card to open the detailed problem list.",
+      },
+      {
+        title: "Post Problem",
+        desc: "Students submit problems by selecting version, subject, class and entering problem details.",
+      },
+      {
+        title: "User Profile",
+        desc: "View wallet balance, access transaction history and logout from a dedicated profile screen.",
+      },
+      {
+        title: "Checkout",
+        desc: "Use wallet balance for payments when submitting or solving problems.",
+      },
+      {
+        title: "Payment Gateway",
+        desc: "Recharge wallet through the integrated payment gateway when balance is insufficient.",
+      },
+      {
+        title: "Change Password",
+        desc: "Students and teachers securely update their account password from settings.",
+      },
+      {
+        title: "Update Skill",
+        desc: "Teachers modify their skills and subjects — changes require admin approval before going live.",
+      },
     ],
     images: [
       "/projects/edex-365/login.png",
@@ -551,9 +764,18 @@ export const projects: ProjectDetail[] = [
       description:
         "Raising/sale submission, approval workflow and stock analytics are separate feature modules sharing inventory and officer domain entities. Mock/real API switching supports safe QA against government endpoints.",
       layers: [
-        { name: "Presentation", desc: "Dashboard charts, sale/raising lists, detail views, approval comments, forms and navigation drawer." },
-        { name: "Domain", desc: "Raising, Sale, Stock, SeedCollection and Officer entities with approval-state use cases." },
-        { name: "Data", desc: "Government REST API client with optional mock repository for staging-free QA." },
+        {
+          name: "Presentation",
+          desc: "Dashboard charts, sale/raising lists, detail views, approval comments, forms and navigation drawer.",
+        },
+        {
+          name: "Domain",
+          desc: "Raising, Sale, Stock, SeedCollection and Officer entities with approval-state use cases.",
+        },
+        {
+          name: "Data",
+          desc: "Government REST API client with optional mock repository for staging-free QA.",
+        },
       ],
     },
     stateManagement: {
@@ -567,14 +789,38 @@ export const projects: ProjectDetail[] = [
       { name: "Charts", purpose: "Dashboard analytics — raising, sales and category-wise stock" },
     ],
     highlights: [
-      { title: "Login", desc: "Officers authenticate with email and password to access their role-specific panel." },
-      { title: "Dashboard", desc: "View total raising, sales, category-wise stock, sales-wise stock and seedling-wise running-year stock — filterable by financial year." },
-      { title: "Sale/Raising List", desc: "Browse the complete list of raisings or sales, check approval status and read rejection comments." },
-      { title: "Sale/Raising Details", desc: "Open any entry to view full raising or sale details in a dedicated detail screen." },
-      { title: "Comment Section", desc: "ACF and DFO officers approve or reject requests and attach comments with their decision." },
-      { title: "Sale/Raising Form", desc: "Beat and Range officers submit new sale or raising entries through a structured form." },
-      { title: "Recent-Year Seed Collection", desc: "Officers view their list of recent seed collections from the dashboard." },
-      { title: "Navigation Drawer", desc: "Access profile information and logout from the app drawer menu." },
+      {
+        title: "Login",
+        desc: "Officers authenticate with email and password to access their role-specific panel.",
+      },
+      {
+        title: "Dashboard",
+        desc: "View total raising, sales, category-wise stock, sales-wise stock and seedling-wise running-year stock — filterable by financial year.",
+      },
+      {
+        title: "Sale/Raising List",
+        desc: "Browse the complete list of raisings or sales, check approval status and read rejection comments.",
+      },
+      {
+        title: "Sale/Raising Details",
+        desc: "Open any entry to view full raising or sale details in a dedicated detail screen.",
+      },
+      {
+        title: "Comment Section",
+        desc: "ACF and DFO officers approve or reject requests and attach comments with their decision.",
+      },
+      {
+        title: "Sale/Raising Form",
+        desc: "Beat and Range officers submit new sale or raising entries through a structured form.",
+      },
+      {
+        title: "Recent-Year Seed Collection",
+        desc: "Officers view their list of recent seed collections from the dashboard.",
+      },
+      {
+        title: "Navigation Drawer",
+        desc: "Access profile information and logout from the app drawer menu.",
+      },
     ],
     images: [
       "/projects/nursery-management-system/login.png",

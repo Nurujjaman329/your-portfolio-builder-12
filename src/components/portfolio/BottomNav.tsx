@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Home, User, LayoutGrid, FileText, Mail } from "lucide-react";
+import { Home, User, LayoutGrid, FileText, Mail, Briefcase } from "lucide-react";
 
 /**
  * App-style tab bar. Mobile only — desktop keeps the header nav.
- * Before this, small screens had no navigation at all.
+ * Six tabs — labels kept short so they fit on narrow screens.
  */
 const tabs = [
   { to: "/", label: "Home", icon: Home, exact: true },
   { to: "/projects", label: "Work", icon: LayoutGrid, exact: false },
+  { to: "/experience", label: "Career", icon: Briefcase, exact: false },
   { to: "/about", label: "About", icon: User, exact: false },
   { to: "/resume", label: "Resume", icon: FileText, exact: false },
   { to: "/contact", label: "Contact", icon: Mail, exact: false },

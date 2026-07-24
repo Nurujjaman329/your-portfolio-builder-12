@@ -39,12 +39,17 @@ function AdminLogin() {
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary">
             <Lock className="h-5 w-5 text-muted-foreground" />
           </div>
-          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Access Required</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            Access Required
+          </p>
         </div>
         <input
           type="password"
           value={password}
-          onChange={(e) => { setPassword(e.target.value); setError(false); }}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setError(false);
+          }}
           placeholder="Password"
           autoFocus
           className="w-full rounded-md border border-input bg-background/60 px-4 py-2.5 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30"
