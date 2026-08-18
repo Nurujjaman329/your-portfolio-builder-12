@@ -86,7 +86,7 @@ function Resume() {
         <Block title="Experience">
           <Job
             role="Software Engineer (Flutter)"
-            company="Sparktech Agency – Betopia Group"
+            company="Sparktech Agency"
             period="Dec 2025 — Present"
             bullets={[
               "Delivered 7 production apps across social, beauty, transport and utility sectors, published on both App Store and Google Play.",
@@ -184,8 +184,28 @@ function Resume() {
 
         <Block title="Professional Courses">
           <ul className="space-y-2 text-foreground/85">
-            <li>• Mobile Application Development — Flutter · BASIS SEIP (Sep 2022 – Dec 2022)</li>
-            <li>• Professional English Communication Skill · WSDA New Zealand (Nov 2022)</li>
+            <li>
+              • Mobile Application Development — Flutter · BASIS SEIP (Sep 2022 – Dec 2022) ·{" "}
+              <a
+                href="https://drive.google.com/file/d/1kibfkA2Zp4aV6Iq5OpP_sz6bsdx-phOD/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary hover:underline"
+              >
+                Verify
+              </a>
+            </li>
+            <li>
+              • Professional English Communication Skill · WSDA New Zealand (Nov 2022) ·{" "}
+              <a
+                href="https://drive.google.com/file/d/1kj_M8FgAZO76zJlQAXMFT1vmK5s7-t2n/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary hover:underline"
+              >
+                Verify
+              </a>
+            </li>
             <li>• CSE Fundamentals · Phitron</li>
           </ul>
         </Block>

@@ -32,7 +32,7 @@ export const projects: ProjectDetail[] = [
     tag: "City Discovery",
     tagline:
       "City discovery platform that helps users find the best local events, exclusive specials, and unforgettable experiences — live on App Store & Play Store.",
-    company: "Sparktech Agency – Betopia Group",
+    company: "Sparktech Agency",
     period: "2026",
     status: "Live on App Store & Play Store",
     accent: "from-primary to-accent",
@@ -120,7 +120,7 @@ export const projects: ProjectDetail[] = [
     tag: "Social Commerce",
     tagline:
       "A 4-role social commerce platform with real-time marketplace features — live on App Store & Play Store.",
-    company: "Sparktech Agency – Betopia Group",
+    company: "Sparktech Agency",
     period: "2024",
     status: "Live on App Store & Play Store",
     accent: "from-primary to-accent",
@@ -203,7 +203,7 @@ export const projects: ProjectDetail[] = [
     tag: "Beauty Marketplace",
     tagline:
       "A 4-role beauty marketplace — Customer, Beautician and Vendor apps plus an Admin web panel — live on App Store & Play Store.",
-    company: "Sparktech Agency – Betopia Group",
+    company: "Sparktech Agency",
     period: "2026",
     status: "Live on App Store & Play Store",
     accent: "from-accent to-primary",
@@ -292,7 +292,7 @@ export const projects: ProjectDetail[] = [
     name: "Ride Sharing App",
     tag: "Transport",
     tagline: "A dual-role ride platform with live tracking, wallet management and auto-pricing.",
-    company: "Sparktech Agency – Betopia Group",
+    company: "Sparktech Agency",
     period: "2024",
     status: "Internal / Client Delivery",
     accent: "from-primary to-accent",

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
+import { ExternalLink } from "lucide-react";
 import { experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/experience")({
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/experience")({
 
 const roles = [
   {
-    company: "Sparktech Agency – Betopia Group",
+    company: "Sparktech Agency",
     role: "Software Engineer (Flutter)",
     period: "Dec 2025 — Present",
     location: "Dhaka, Bangladesh",
@@ -63,12 +64,14 @@ const courses = [
     degree: "Mobile Application Development — Flutter",
     period: "Sep 2022 — Dec 2022",
     note: "Certificate",
+    verifyUrl: "https://drive.google.com/file/d/1kibfkA2Zp4aV6Iq5OpP_sz6bsdx-phOD/view?usp=sharing",
   },
   {
     school: "WSDA New Zealand",
     degree: "Professional English Communication Skill",
     period: "Nov 2022",
     note: "Certificate",
+    verifyUrl: "https://drive.google.com/file/d/1kj_M8FgAZO76zJlQAXMFT1vmK5s7-t2n/view?usp=sharing",
   },
   {
     school: "Phitron",
@@ -147,6 +150,16 @@ function Experience() {
               <h3 className="mt-1 font-display text-base font-semibold">{e.degree}</h3>
               <p className="text-sm text-muted-foreground">{e.school}</p>
               {e.note && <p className="mt-2 text-xs text-foreground/70">{e.note}</p>}
+              {e.verifyUrl && (
+                <a
+                  href={e.verifyUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 inline-flex items-center gap-1 text-xs text-primary hover:underline"
+                >
+                  Verify certificate <ExternalLink className="h-3 w-3" />
+                </a>
+              )}
             </div>
           ))}
         </div>
