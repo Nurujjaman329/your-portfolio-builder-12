@@ -6,5 +6,5 @@ export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? "https://nurujjaman.de
 
 export const SITE_NAME = "MD. Nurujjaman — Flutter Developer";
 
-/** Default Open Graph image (project hero screenshot). Replace with a dedicated 1200×630 asset when ready. */
-export const OG_IMAGE = `${SITE_URL}/projects/presentini/screenshot-01.jpg`;
+/** Default Open Graph image. Not cropped to the ideal 1200×630 ratio yet — replace with a dedicated banner when ready. */
+export const OG_IMAGE = `${SITE_URL}/portrait.jpg`;

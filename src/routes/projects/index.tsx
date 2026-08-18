@@ -67,6 +67,9 @@ function Projects() {
           </div>
         ))}
       </div>
+      <p className="mt-8 text-center text-sm text-muted-foreground">
+        A few additional shipped apps aren't listed here due to client NDAs.
+      </p>
     </Section>
   );
 }

@@ -3,6 +3,7 @@ import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-r
 import { AppShowcase } from "@/components/portfolio/AppShowcase";
 import { experienceStat, experienceText } from "@/data/profile";
 import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
+import portrait from "@/assets/portrait.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -116,10 +117,17 @@ function Index() {
         <div className="absolute inset-0 grid-bg opacity-40" />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-24 md:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="animate-fade-up">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-primary">
-              <Sparkles className="h-3 w-3" />
-              Flutter Developer · Dhaka, Bangladesh
-            </p>
+            <div className="mb-5 flex items-center gap-4">
+              <img
+                src={portrait}
+                alt="MD. Nurujjaman"
+                className="h-16 w-16 shrink-0 rounded-full border-2 border-primary/40 object-cover shadow-glow md:h-20 md:w-20"
+              />
+              <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-primary">
+                <Sparkles className="h-3 w-3" />
+                Flutter Developer · Dhaka, Bangladesh
+              </p>
+            </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
               Crafting mobile apps <br />
               that <span className="text-gradient">just feel right</span>.

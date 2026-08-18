@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
-import { Printer, Mail, MapPin, Phone, Globe } from "lucide-react";
+import { Printer, Download, Mail, MapPin, Phone, Globe } from "lucide-react";
 import { experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/resume")({
@@ -24,17 +24,27 @@ function Resume() {
     <Section
       eyebrow="Curriculum Vitae"
       title="Resume."
-      description="Print-friendly CV — use Save as PDF in your browser's print dialog to download a copy."
+      description="Download a PDF copy, or use your browser's print dialog for a live-formatted version."
     >
       <div className="mb-6 flex flex-col items-end gap-2 print:hidden">
-        <button
-          onClick={() => window.print()}
-          className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-primary to-accent px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-spring hover:scale-105"
-        >
-          <Printer className="h-4 w-4" /> Save as PDF
-        </button>
+        <div className="flex flex-wrap justify-end gap-3">
+          <a
+            href="/resume.pdf"
+            download
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-primary to-accent px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-spring hover:scale-105"
+          >
+            <Download className="h-4 w-4" /> Download PDF
+          </a>
+          <button
+            onClick={() => window.print()}
+            className="inline-flex items-center gap-2 rounded-md border border-border bg-secondary/60 px-4 py-2 text-sm font-semibold transition-smooth hover:bg-secondary"
+          >
+            <Printer className="h-4 w-4" /> Save as PDF
+          </button>
+        </div>
         <p className="text-xs text-muted-foreground">
-          Opens print dialog → choose &quot;Save as PDF&quot; as the destination.
+          Download for a quick copy, or print to save a live-formatted PDF from this page.
         </p>
       </div>
 

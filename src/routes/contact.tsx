@@ -82,7 +82,7 @@ function Contact() {
             <p className="font-mono text-xs uppercase tracking-widest text-primary">Status</p>
             <p className="mt-1 text-sm text-foreground/90">
               Currently <span className="font-semibold text-primary">working</span> at Sparktech
-              Agency — open to freelance Flutter projects.
+              Agency — open to new full-time opportunities and freelance Flutter projects.
             </p>
           </div>
         </div>
