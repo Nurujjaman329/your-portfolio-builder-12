@@ -97,7 +97,7 @@ const stack = [
 const highlights = [
   {
     title: "Cross-Platform Apps",
-    desc: "Shipped 13+ Flutter apps on both App Store and Google Play — from social commerce and beauty marketplaces to ride-sharing and government platforms.",
+    desc: "Shipped 13+ Flutter apps — 4 live on the App Store and Google Play — from social commerce and beauty marketplaces to ride-sharing and government platforms.",
   },
   {
     title: "Real-Time & Maps",

@@ -87,7 +87,7 @@ function Experience() {
     <Section
       eyebrow="Experience"
       title="My professional journey."
-      description={`${tenure.charAt(0).toUpperCase()}${tenure.slice(1)}, 2 companies, 13+ apps on App Store and Google Play — across social commerce, beauty, ride-sharing, insurance, agri-tech and government sectors.`}
+      description={`${tenure.charAt(0).toUpperCase()}${tenure.slice(1)}, 2 companies, 13+ production apps — across social commerce, beauty, ride-sharing, insurance, agri-tech and government sectors.`}
     >
       <div className="relative">
         <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-accent to-transparent md:left-1/2" />
