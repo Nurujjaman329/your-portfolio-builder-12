@@ -472,9 +472,10 @@ export const projects: ProjectDetail[] = [
       "A dual-app suite replacing manual insurance collection for a government-linked provider.",
     company: "Synergy Interface Ltd.",
     period: "2023",
-    status: "Production",
+    status: "Live on Google Play",
     accent: "from-primary to-accent",
-    storeLink: false,
+    storeLink: true,
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.meghnalife.app.fa&hl=en",
     overview:
       "Two separate Flutter apps — one for customers to manage policies and pay premiums, and one for field advisors to manage their client portfolios. Before this, advisors collected premiums manually with paper records. The apps digitised the entire workflow from policy issuance to payment confirmation.",
     challenge:
@@ -533,7 +534,15 @@ export const projects: ProjectDetail[] = [
         desc: "Replaced manual premium collection — field advisors now manage everything digitally.",
       },
     ],
-    images: [],
+    images: [
+      "/projects/meghna-life-insurance/screenshot-01.jpg",
+      "/projects/meghna-life-insurance/screenshot-02.jpg",
+      "/projects/meghna-life-insurance/screenshot-03.jpg",
+      "/projects/meghna-life-insurance/screenshot-04.jpg",
+      "/projects/meghna-life-insurance/screenshot-05.jpg",
+      "/projects/meghna-life-insurance/screenshot-06.jpg",
+      "/projects/meghna-life-insurance/screenshot-07.jpg",
+    ],
     results: [
       "Live in production, used by field advisors and policyholders.",
       "Manual premium collection workflows fully replaced.",
