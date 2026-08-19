@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
-import { Printer, Mail, MapPin, Phone, Globe } from "lucide-react";
+import { Printer, Download, Mail, MapPin, Phone, Globe } from "lucide-react";
 import { experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/resume")({
@@ -24,17 +24,27 @@ function Resume() {
     <Section
       eyebrow="Curriculum Vitae"
       title="Resume."
-      description="Print-friendly CV — use Save as PDF in your browser's print dialog to download a copy."
+      description="Download a PDF copy, or use your browser's print dialog for a live-formatted version."
     >
       <div className="mb-6 flex flex-col items-end gap-2 print:hidden">
-        <button
-          onClick={() => window.print()}
-          className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-primary to-accent px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-spring hover:scale-105"
-        >
-          <Printer className="h-4 w-4" /> Save as PDF
-        </button>
+        <div className="flex flex-wrap justify-end gap-3">
+          <a
+            href="/resume.pdf"
+            download
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-primary to-accent px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-spring hover:scale-105"
+          >
+            <Download className="h-4 w-4" /> Download PDF
+          </a>
+          <button
+            onClick={() => window.print()}
+            className="inline-flex items-center gap-2 rounded-md border border-border bg-secondary/60 px-4 py-2 text-sm font-semibold transition-smooth hover:bg-secondary"
+          >
+            <Printer className="h-4 w-4" /> Save as PDF
+          </button>
+        </div>
         <p className="text-xs text-muted-foreground">
-          Opens print dialog → choose &quot;Save as PDF&quot; as the destination.
+          Download for a quick copy, or print to save a live-formatted PDF from this page.
         </p>
       </div>
 
@@ -69,14 +79,14 @@ function Resume() {
             applications across social commerce, beauty, ride-sharing, agri-tech and enterprise
             sectors. Experienced in clean architecture, real-time systems (Socket.IO), map-based
             services and secure payment integrations (Stripe, bKash, Nagad, ShurjoPay). Proven track
-            record of delivering 13+ production apps on the App Store and Google Play.
+            record of delivering 13+ production apps, 4 live on the App Store and Google Play.
           </p>
         </Block>
 
         <Block title="Experience">
           <Job
             role="Software Engineer (Flutter)"
-            company="Sparktech Agency – Betopia Group"
+            company="Sparktech Agency"
             period="Dec 2025 — Present"
             bullets={[
               "Delivered 7 production apps across social, beauty, transport and utility sectors, published on both App Store and Google Play.",
@@ -91,7 +101,7 @@ function Resume() {
             period="Oct 2023 — Nov 2025"
             bullets={[
               "Developed 6+ production-grade Flutter apps for enterprise and government clients, including insurance and agriculture sectors.",
-              "Applied Clean Architecture (MVVM) to produce modular, testable codebases, reducing onboarding time for new developers.",
+              "Applied Clean Architecture to produce modular, testable codebases, reducing onboarding time for new developers.",
               "Optimised state management and API handling, reducing load times and improving app responsiveness.",
               "Integrated bKash, Nagad and ShurjoPay gateways, enabling secure digital transactions for government insurance clients.",
             ]}
@@ -151,8 +161,8 @@ function Resume() {
           <div className="grid gap-3 sm:grid-cols-2">
             <SkillRow label="Languages" items={["Dart", "C", "C++"]} />
             <SkillRow label="Framework" items={["Flutter"]} />
-            <SkillRow label="State Management" items={["Bloc", "Provider", "Riverpod"]} />
-            <SkillRow label="Architecture" items={["Clean Architecture (MVVM)"]} />
+            <SkillRow label="State Management" items={["Bloc", "GetX", "Provider", "Riverpod"]} />
+            <SkillRow label="Architecture" items={["Clean Architecture"]} />
             <SkillRow label="Backend & APIs" items={["REST API", "Firebase", "Socket.IO"]} />
             <SkillRow label="Payments" items={["Stripe", "bKash", "Nagad", "ShurjoPay"]} />
             <SkillRow
@@ -174,8 +184,28 @@ function Resume() {
 
         <Block title="Professional Courses">
           <ul className="space-y-2 text-foreground/85">
-            <li>• Mobile Application Development — Flutter · BASIS SEIP (Sep 2022 – Dec 2022)</li>
-            <li>• Professional English Communication Skill · WSDA New Zealand (Nov 2022)</li>
+            <li>
+              • Mobile Application Development — Flutter · BASIS SEIP (Sep 2022 – Dec 2022) ·{" "}
+              <a
+                href="https://drive.google.com/file/d/1kibfkA2Zp4aV6Iq5OpP_sz6bsdx-phOD/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary hover:underline"
+              >
+                Verify
+              </a>
+            </li>
+            <li>
+              • Professional English Communication Skill · WSDA New Zealand (Nov 2022) ·{" "}
+              <a
+                href="https://drive.google.com/file/d/1kj_M8FgAZO76zJlQAXMFT1vmK5s7-t2n/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary hover:underline"
+              >
+                Verify
+              </a>
+            </li>
             <li>• CSE Fundamentals · Phitron</li>
           </ul>
         </Block>

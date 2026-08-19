@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
 import { Smartphone, Code2, Award, MapPin } from "lucide-react";
 import { experienceStat, experienceText } from "@/data/profile";
+import portrait from "@/assets/portrait.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -21,8 +22,8 @@ export const Route = createFileRoute("/about")({
 const skills = [
   { group: "Languages", items: ["Dart", "C", "C++"] },
   { group: "Framework", items: ["Flutter"] },
-  { group: "State Management", items: ["Bloc", "Provider", "Riverpod"] },
-  { group: "Architecture", items: ["Clean Architecture (MVVM)"] },
+  { group: "State Management", items: ["Bloc", "GetX", "Provider", "Riverpod"] },
+  { group: "Architecture", items: ["Clean Architecture"] },
   { group: "Backend & APIs", items: ["REST API", "Firebase", "Socket.IO"] },
   { group: "Payments", items: ["Stripe", "bKash", "Nagad", "ShurjoPay"] },
   {
@@ -54,15 +55,22 @@ function About() {
     >
       <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6 text-foreground/90 leading-relaxed">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+            <img
+              src={portrait}
+              alt="MD. Nurujjaman"
+              className="mx-auto h-40 w-40 shrink-0 rounded-2xl border border-border/60 object-cover shadow-card sm:mx-0 sm:h-44 sm:w-44"
+            />
+            <p>
+              I'm <span className="text-primary font-semibold">MD. Nurujjaman</span>, a Flutter
+              Developer based in Mohakhali, Dhaka. I specialize in building cross-platform mobile
+              applications with clean architecture, responsive UI, and integrations like push
+              notifications, Google Maps, Socket.IO, deep linking and secure payment gateways.
+            </p>
+          </div>
           <p>
-            I'm <span className="text-primary font-semibold">MD. Nurujjaman</span>, a Flutter
-            Developer based in Mohakhali, Dhaka. I specialize in building cross-platform mobile
-            applications with clean architecture, responsive UI, and integrations like push
-            notifications, Google Maps, Socket.IO, deep linking and secure payment gateways.
-          </p>
-          <p>
-            Across {experienceText()} I've shipped 13+ production-grade apps published on both the
-            App Store and Google Play — across social commerce, beauty, ride-sharing, agri-tech,
+            Across {experienceText()} I've shipped 13+ production-grade apps — 4 live on the App
+            Store and Google Play — across social commerce, beauty, ride-sharing, agri-tech,
             insurance, education and government sectors. I love collaborating with innovative teams
             to deliver scalable, user-friendly solutions while continuously sharpening my craft.
           </p>

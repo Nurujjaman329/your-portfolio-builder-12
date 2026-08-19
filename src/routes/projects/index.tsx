@@ -18,7 +18,7 @@ function Projects() {
     <Section
       eyebrow="Selected work"
       title="Apps I've built."
-      description="13+ Flutter apps shipped on App Store and Google Play — across social commerce, beauty, ride-sharing, agri-tech, fintech, edtech and government sectors."
+      description="13+ Flutter apps shipped — 4 live on the App Store and Google Play — across social commerce, beauty, ride-sharing, agri-tech, fintech, edtech and government sectors."
     >
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((p) => (
@@ -67,6 +67,9 @@ function Projects() {
           </div>
         ))}
       </div>
+      <p className="mt-8 text-center text-sm text-muted-foreground">
+        A few additional shipped apps aren't listed here due to client NDAs.
+      </p>
     </Section>
   );
 }

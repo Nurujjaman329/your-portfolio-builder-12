@@ -54,7 +54,7 @@ function ProjectDetail() {
                 alt={`${project.name} screenshot ${i + 1}`}
                 loading={i < 3 ? "eager" : "lazy"}
                 decoding="async"
-                className="rounded-xl border border-border/60 object-cover shadow-card"
+                className="aspect-[9/19] w-full rounded-xl border border-border/60 object-cover shadow-card"
               />
             ))}
           </div>
