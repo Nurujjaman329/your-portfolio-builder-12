@@ -42,7 +42,7 @@ const roles = [
     location: "Dhaka, Bangladesh",
     bullets: [
       "Developed 6+ production-grade Flutter apps for enterprise and government clients, including insurance and agriculture sectors.",
-      "Applied Clean Architecture (MVVM) to produce modular, testable codebases, reducing onboarding time for new developers.",
+      "Applied Clean Architecture to produce modular, testable codebases, reducing onboarding time for new developers.",
       "Optimised state management and API handling, reducing load times and improving app responsiveness.",
       "Integrated bKash, Nagad and ShurjoPay gateways, enabling secure digital transactions for government insurance clients.",
     ],

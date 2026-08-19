@@ -101,7 +101,7 @@ function Resume() {
             period="Oct 2023 — Nov 2025"
             bullets={[
               "Developed 6+ production-grade Flutter apps for enterprise and government clients, including insurance and agriculture sectors.",
-              "Applied Clean Architecture (MVVM) to produce modular, testable codebases, reducing onboarding time for new developers.",
+              "Applied Clean Architecture to produce modular, testable codebases, reducing onboarding time for new developers.",
               "Optimised state management and API handling, reducing load times and improving app responsiveness.",
               "Integrated bKash, Nagad and ShurjoPay gateways, enabling secure digital transactions for government insurance clients.",
             ]}
@@ -161,8 +161,8 @@ function Resume() {
           <div className="grid gap-3 sm:grid-cols-2">
             <SkillRow label="Languages" items={["Dart", "C", "C++"]} />
             <SkillRow label="Framework" items={["Flutter"]} />
-            <SkillRow label="State Management" items={["Bloc", "Provider", "Riverpod"]} />
-            <SkillRow label="Architecture" items={["Clean Architecture (MVVM)"]} />
+            <SkillRow label="State Management" items={["Bloc", "GetX", "Provider", "Riverpod"]} />
+            <SkillRow label="Architecture" items={["Clean Architecture"]} />
             <SkillRow label="Backend & APIs" items={["REST API", "Firebase", "Socket.IO"]} />
             <SkillRow label="Payments" items={["Stripe", "bKash", "Nagad", "ShurjoPay"]} />
             <SkillRow

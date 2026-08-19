@@ -22,8 +22,8 @@ export const Route = createFileRoute("/about")({
 const skills = [
   { group: "Languages", items: ["Dart", "C", "C++"] },
   { group: "Framework", items: ["Flutter"] },
-  { group: "State Management", items: ["Bloc", "Provider", "Riverpod"] },
-  { group: "Architecture", items: ["Clean Architecture (MVVM)"] },
+  { group: "State Management", items: ["Bloc", "GetX", "Provider", "Riverpod"] },
+  { group: "Architecture", items: ["Clean Architecture"] },
   { group: "Backend & APIs", items: ["REST API", "Firebase", "Socket.IO"] },
   { group: "Payments", items: ["Stripe", "bKash", "Nagad", "ShurjoPay"] },
   {

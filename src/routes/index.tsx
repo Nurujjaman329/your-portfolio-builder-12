@@ -81,6 +81,7 @@ const stack = [
   "Flutter",
   "Dart",
   "Bloc",
+  "GetX",
   "Riverpod",
   "Provider",
   "Socket.IO",
