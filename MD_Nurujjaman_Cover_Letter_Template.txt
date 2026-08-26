@@ -1,0 +1,30 @@
+MD. NURUJJAMAN
+Flutter Developer | Cross-Platform Mobile Engineer
+mdnurujjaman329@gmail.com | +880 1957 073942 | Mohakhali, Dhaka, Bangladesh
+Portfolio: https://nurujjaman-portfolio-site.vercel.app/
+LinkedIn: https://www.linkedin.com/in/nurujjaman329/
+GitHub: https://github.com/Nurujjaman329
+
+[Date]
+
+[Hiring Manager Name / "Hiring Team"]
+[Company Name]
+
+Dear [Hiring Manager Name / Hiring Team],
+
+I'm writing to apply for the [Position Title] role at [Company Name]. I'm a Flutter Developer with nearly 3 years of experience building scalable, cross-platform mobile applications across social commerce, beauty, ride-sharing, agri-tech and enterprise sectors, and I'd welcome the opportunity to bring that experience to your team.
+
+Over the past 3 years at Sparktech Agency and Synergy Interface Ltd., I've delivered 13+ production apps, 4 of them live on the App Store and Google Play. My work spans real-time systems (Socket.IO), location-based services (Google Maps), and secure payment integrations (Stripe, bKash, Nagad, ShurjoPay), all built on Clean Architecture for maintainable, testable codebases. A few examples:
+
+- Presentini — a city discovery app with location-based browsing and push notifications, live on both the App Store and Google Play.
+- Fouta App — a 4-role social commerce platform with real-time messaging and an end-to-end checkout and delivery pipeline.
+- TNP Beauty — a 3-role marketplace with Stripe payments, business verification and location-based discovery.
+
+[Optional: 1-2 sentences here on why this company/role specifically interests you — customize per application.]
+
+My technical toolkit includes Flutter, Dart, Bloc, GetX, Provider, Riverpod, REST APIs, Firebase, and Clean Architecture, along with hands-on experience shipping apps for both startups and government-linked enterprise clients. I'm currently employed at Sparktech Agency and open to new full-time opportunities as well as freelance projects.
+
+I'd welcome the chance to discuss how my experience could contribute to [Company Name]. Full case studies of my work are available at nurujjaman-portfolio-site.vercel.app/projects, and my resume is attached. Thank you for your time and consideration.
+
+Best regards,
+MD. Nurujjaman

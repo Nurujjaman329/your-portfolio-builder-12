@@ -147,6 +147,14 @@
     transition: var(--transition-spring);
   }
 
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   .glass {
     background: oklch(0.2 0.02 250 / 0.6);
     backdrop-filter: blur(12px);

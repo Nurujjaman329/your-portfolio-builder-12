@@ -7,7 +7,24 @@
       "Bash(npm run *)",
       "Bash(npm install *)",
       "Bash(npm list *)",
-      "Bash(date -v+1y \"+%Y, %-m, %-d\")"
+      "Bash(date -v+1y \"+%Y, %-m, %-d\")",
+      "Bash(npx playwright *)",
+      "Bash(node .tmp-pdf.cjs)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Bash(npm uninstall *)",
+      "Bash(node .tmp-check.cjs)",
+      "Bash(ls -la \"C:\\\\Users\\\\swapo\\\\StudioProjects\\\\blood_fit\" 2>&1 | head -60)",
+      "Read(//c/Users/swapo/StudioProjects/blood_fit/**)",
+      "Bash(node .tmp-shot.cjs)",
+      "Bash(node .tmp-extract.cjs)",
+      "Bash(node .tmp-download.cjs)",
+      "Bash(npx tsc *)",
+      "Bash(nohup npm run dev -- --port 5191)",
+      "Bash(disown)",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:5191 >/dev/null 2>&1; do sleep 1; done')",
+      "Bash(node .tmp-shot2.cjs)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //F //PID 17084)"
     ]
   }
 }

@@ -289,6 +289,92 @@ export const projects: ProjectDetail[] = [
     ],
   },
   {
+    slug: "blood-fit",
+    name: "BloodFit",
+    tag: "Health & Fitness",
+    tagline:
+      "AI-powered, blood-type-based meal plans, workouts and health tracking — live on Google Play.",
+    company: "Sparktech Agency",
+    period: "2025–2026",
+    status: "Live on Google Play",
+    accent: "from-accent to-primary",
+    storeLink: true,
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.bloodfitltd.bloodfit",
+    overview:
+      "BloodFit personalizes fitness and nutrition around the Blood Type Diet — generating AI-powered meal plans, workout regimens and health tracking tailored to each user's blood type (O, A, B, AB), goals, activity level and food preferences.",
+    challenge:
+      "Meal suggestions are generated asynchronously by a backend AI service, which can take anywhere from seconds to minutes. The app needed to feel responsive throughout that wait, without leaving users staring at a blank loading screen or losing their in-progress selections if the connection dropped mid-generation.",
+    solution:
+      "Built a dual-fetch mechanism for AI meal generation: Socket.IO delivers real-time updates the moment a job completes, with an HTTP polling fallback (3s intervals, 3-minute timeout) if the socket connection is unreliable. Each generation job is tracked by a JobId cached per day, with meals cached per tab (breakfast/lunch/dinner) to avoid redundant API calls, backed by shimmer loading states and automatic retry/timeout handling.",
+    architecture: {
+      pattern: "Clean Architecture (Feature-first)",
+      description:
+        "Each feature module — auth, home, meal plan, workout, progress, subscription — is self-contained with its own GetX binding, controllers, models and repository, isolated behind dependency injection so features never reach into each other directly.",
+      layers: [
+        {
+          name: "Presentation",
+          desc: "Feature-scoped GetX controllers and widgets — onboarding flow, AI meal selection tabs, workout calendar, progress charts.",
+        },
+        {
+          name: "Domain",
+          desc: "Repository interfaces abstract meal, workout and subscription data — pure Dart, independent of the transport used.",
+        },
+        {
+          name: "Data",
+          desc: "Firebase Auth, Socket.IO client with polling fallback, Dio REST client and Get Storage for local job/meal caching.",
+        },
+      ],
+    },
+    stateManagement: {
+      solution: "GetX",
+      reason:
+        "GetX handled state, routing and dependency injection across onboarding, meal selection and workout flows, with GetIt as a service locator for repositories. Reactive Obx bindings kept the AI meal-selection UI — three tabs with real-time toggle states — responsive without manual rebuild logic.",
+    },
+    stack: [
+      { name: "Flutter", purpose: "Cross-platform UI for iOS and Android" },
+      { name: "GetX", purpose: "State management, routing and dependency injection" },
+      { name: "Firebase Auth", purpose: "Email/password, Google Sign-In and OTP-based authentication" },
+      { name: "Socket.IO", purpose: "Real-time AI meal-generation updates with polling fallback" },
+      { name: "Dio / REST API", purpose: "Meal plans, workouts, progress and subscription data" },
+      { name: "In-App Purchases", purpose: "6-tier subscription model — Starter/Pro/Elite, monthly and yearly" },
+    ],
+    highlights: [
+      {
+        title: "AI Meal Engine",
+        desc: "Dual Socket.IO + polling fetch with job-ID tracking, per-tab caching and shimmer loading states for AI-generated meal suggestions.",
+      },
+      {
+        title: "Blood-Type Personalization",
+        desc: "Meal plans and workout regimens tailored to each of the 4 blood types, with allergy and dislike filtering.",
+      },
+      {
+        title: "Progress Tracking",
+        desc: "Weight history, calorie tracking and workout consistency visualized with FL Chart.",
+      },
+      {
+        title: "Subscription Tiers",
+        desc: "6-tier in-app purchase model (Starter/Pro/Elite × monthly/yearly) with promo code redemption.",
+      },
+    ],
+    images: [
+      "/projects/blood-fit/screenshot-01.webp",
+      "/projects/blood-fit/screenshot-02.webp",
+      "/projects/blood-fit/screenshot-03.webp",
+      "/projects/blood-fit/screenshot-04.webp",
+      "/projects/blood-fit/screenshot-05.webp",
+      "/projects/blood-fit/screenshot-06.webp",
+      "/projects/blood-fit/screenshot-07.webp",
+      "/projects/blood-fit/screenshot-08.webp",
+      "/projects/blood-fit/screenshot-09.webp",
+      "/projects/blood-fit/screenshot-10.webp",
+    ],
+    results: [
+      "Live on Google Play, with the iOS release currently in Apple review.",
+      "AI meal-generation flow stays responsive under unreliable connections via Socket.IO + polling fallback.",
+      "6-tier subscription model rebuilt and resubmitted for App Store review after resolving prior in-app-purchase rejection issues.",
+    ],
+  },
+  {
     slug: "ride-sharing-app",
     name: "Ride Sharing App",
     tag: "Transport",
