@@ -79,7 +79,7 @@ function Resume() {
             applications across social commerce, beauty, ride-sharing, agri-tech and enterprise
             sectors. Experienced in clean architecture, real-time systems (Socket.IO), map-based
             services and secure payment integrations (Stripe, bKash, Nagad, ShurjoPay). Proven track
-            record of delivering 13+ production apps, 4 live on the App Store and Google Play.
+            record of delivering 13+ production apps, 5 live on the App Store and Google Play.
           </p>
         </Block>
 

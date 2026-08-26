@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Layers, Zap, Package } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Layers, Zap, Package, X } from "lucide-react";
 import { StoreLinks } from "@/components/portfolio/StoreLinks";
 import { fetchProject } from "@/lib/firestore-projects";
 
@@ -46,18 +47,7 @@ function ProjectDetail() {
       {/* Screenshots */}
       <section className="mb-12">
         {project.images.length > 0 ? (
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-            {project.images.map((src, i) => (
-              <img
-                key={src}
-                src={src}
-                alt={`${project.name} screenshot ${i + 1}`}
-                loading={i < 3 ? "eager" : "lazy"}
-                decoding="async"
-                className="aspect-[9/19] w-full rounded-xl border border-border/60 object-cover shadow-card"
-              />
-            ))}
-          </div>
+          <ScreenshotGallery images={project.images} projectName={project.name} />
         ) : (
           <div className="grid grid-cols-3 gap-4">
             {[1, 2, 3].map((n) => (
@@ -203,5 +193,181 @@ function Block({
       </div>
       {children}
     </section>
+  );
+}
+
+function ScreenshotGallery({
+  images,
+  projectName,
+}: {
+  images: string[];
+  projectName: string;
+}) {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const updateScrollState = () => {
+      setCanScrollLeft(el.scrollLeft > 4);
+      setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+    };
+    updateScrollState();
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+    return () => {
+      el.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [images]);
+
+  function scrollByPage(direction: 1 | -1) {
+    scrollerRef.current?.scrollBy({
+      left: direction * scrollerRef.current.clientWidth * 0.8,
+      behavior: "smooth",
+    });
+  }
+
+  return (
+    <div className="relative">
+      <div
+        ref={scrollerRef}
+        className="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0"
+      >
+        {images.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => setLightboxIndex(i)}
+            aria-label={`View ${projectName} screenshot ${i + 1} full size`}
+            className="group shrink-0 snap-start cursor-zoom-in"
+          >
+            <img
+              src={src}
+              alt={`${projectName} screenshot ${i + 1}`}
+              loading={i < 3 ? "eager" : "lazy"}
+              decoding="async"
+              className="aspect-[9/19] w-[160px] rounded-xl border border-border/60 object-cover shadow-card transition-spring group-hover:scale-[1.02] sm:w-[200px]"
+            />
+          </button>
+        ))}
+      </div>
+
+      {canScrollLeft && (
+        <button
+          type="button"
+          onClick={() => scrollByPage(-1)}
+          aria-label="Scroll screenshots left"
+          className="absolute left-1 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border/60 bg-background/90 p-2 shadow-elegant backdrop-blur transition-smooth hover:bg-secondary sm:flex"
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </button>
+      )}
+      {canScrollRight && (
+        <button
+          type="button"
+          onClick={() => scrollByPage(1)}
+          aria-label="Scroll screenshots right"
+          className="absolute right-1 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border/60 bg-background/90 p-2 shadow-elegant backdrop-blur transition-smooth hover:bg-secondary sm:flex"
+        >
+          <ChevronRight className="h-4 w-4" />
+        </button>
+      )}
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={images}
+          index={lightboxIndex}
+          projectName={projectName}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={setLightboxIndex}
+        />
+      )}
+    </div>
+  );
+}
+
+function Lightbox({
+  images,
+  index,
+  projectName,
+  onClose,
+  onNavigate,
+}: {
+  images: string[];
+  index: number;
+  projectName: string;
+  onClose: () => void;
+  onNavigate: (i: number) => void;
+}) {
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") onNavigate((index - 1 + images.length) % images.length);
+      if (e.key === "ArrowRight") onNavigate((index + 1) % images.length);
+    }
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [index, images.length, onClose, onNavigate]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        className="absolute right-4 top-4 rounded-full border border-white/20 bg-white/10 p-2 text-white transition-smooth hover:bg-white/20"
+      >
+        <X className="h-5 w-5" />
+      </button>
+
+      {images.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onNavigate((index - 1 + images.length) % images.length);
+            }}
+            aria-label="Previous screenshot"
+            className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-2 text-white transition-smooth hover:bg-white/20 sm:left-6"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onNavigate((index + 1) % images.length);
+            }}
+            aria-label="Next screenshot"
+            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-2 text-white transition-smooth hover:bg-white/20 sm:right-6"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        </>
+      )}
+
+      <img
+        src={images[index]}
+        alt={`${projectName} screenshot ${index + 1}`}
+        onClick={(e) => e.stopPropagation()}
+        className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+      />
+
+      <p className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs text-white/60">
+        {index + 1} / {images.length}
+      </p>
+    </div>
   );
 }
