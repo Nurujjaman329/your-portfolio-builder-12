@@ -29,9 +29,9 @@ const roles = [
     period: "Dec 2025 — Present",
     location: "Dhaka, Bangladesh",
     bullets: [
-      "Delivered 7 production apps across social, beauty, transport and utility sectors, published on both App Store and Google Play.",
-      "Architected real-time data sync using Socket.IO, enabling seamless multi-role communication across user bases.",
-      "Integrated Google Maps APIs for live location tracking and geo-based service discovery.",
+      "Shipped production Flutter apps across social commerce, beauty, city discovery and fitness — published on App Store and Google Play.",
+      "Built Socket.IO real-time features for multi-role communication (feeds, messaging and live order updates) in production apps.",
+      "Owned Google Maps and geolocation flows for live tracking and location-based service discovery.",
       "Collaborated across distributed teams on performance optimisation, code reviews and scalable module design.",
     ],
   },
@@ -53,8 +53,7 @@ const education = [
   {
     school: "Dhaka City College (National University, Bangladesh)",
     degree: "B.Sc. in Computer Science and Engineering",
-    period: "2018 — 2021 (Held in 2023)",
-    note: "CGPA 3.18 / 4.00",
+    period: "Graduated 2023",
   },
 ];
 
@@ -134,7 +133,6 @@ function Experience() {
               <p className="font-mono text-xs uppercase tracking-widest text-primary">{e.period}</p>
               <h3 className="mt-1 font-display text-lg font-semibold">{e.degree}</h3>
               <p className="text-muted-foreground">{e.school}</p>
-              {e.note && <p className="mt-2 text-sm text-foreground/70">{e.note}</p>}
             </div>
           ))}
         </div>

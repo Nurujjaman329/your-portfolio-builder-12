@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MD. Nurujjaman - Resume</title>
+<style>
+  /* ATS-safe print resume. Single column, no tables, no images, no text boxes,
+     no headers/footers. Everything is real text in linear DOM order, so a parser
+     reading the PDF text layer top-to-bottom gets the document verbatim. */
+
+  /* Type scale and palette match the original PDF: Arial throughout, 10.2pt
+     body, #1A4D8F on hyperlinks and #333 on secondary/meta lines. Colour is
+     invisible to an ATS (it reads the text layer only), so this is purely for
+     the human reader. */
+  @page { size: A4; margin: 9mm 11mm; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.2pt;
+    line-height: 1.15;
+    color: #000000;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a { color: #1A4D8F; text-decoration: none; }
+
+  /* ---------- header ---------- */
+  .name {
+    font-size: 18pt;
+    font-weight: bold;
+    letter-spacing: 0.6pt;
+    line-height: 1.1;
+  }
+  .tagline { font-size: 10.6pt; margin-top: 0.5pt; }
+  .contact { margin-top: 2.5pt; font-size: 9.3pt; color: #333333; }
+  .contact div + div { margin-top: 1pt; }
+
+  /* ---------- sections ---------- */
+  h2 {
+    font-size: 10.4pt;
+    font-weight: bold;
+    letter-spacing: 1.1pt;
+    text-transform: uppercase;
+    border-bottom: 0.8pt solid #000000;
+    padding-bottom: 1.2pt;
+    margin: 5pt 0 2.5pt;
+  }
+
+  .section-note { font-size: 9.1pt; font-style: italic; color: #333333; margin: -0.5pt 0 3pt; }
+
+  /* ---------- entries ---------- */
+  .entry { margin-bottom: 3pt; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8pt;
+  }
+  .role { font-size: 10.4pt; font-weight: bold; }
+  .dates { font-size: 9.5pt; color: #333333; white-space: nowrap; }
+  .org { font-size: 9.5pt; font-style: italic; color: #333333; margin-top: 0.3pt; }
+  .stack { font-size: 9.4pt; color: #333333; margin-top: 0.3pt; }
+
+  /* Real <ul>/<li>, so the bullet glyph lands in the PDF text layer and each
+     responsibility parses as its own line rather than one run-on block.
+     The marker MUST stay in normal inline flow: an absolutely positioned
+     ::before paints in a later layer, which makes Chromium emit every bullet
+     at the very end of the PDF text stream and destroys ATS reading order.
+     inline-block + hanging indent gets the same look with correct order. */
+  ul { list-style: none; margin-top: 1pt; }
+  li { padding-left: 9pt; text-indent: -9pt; margin-bottom: 0.4pt; }
+  li::before { content: "\2022"; display: inline-block; width: 9pt; text-indent: 0; }
+
+  .links { font-size: 9.3pt; color: #1A4D8F; white-space: nowrap; }
+  .links a { text-decoration: underline; }
+
+  /* ---------- skills ---------- */
+  .skill { display: flex; gap: 6pt; margin-bottom: 0.5pt; }
+  .skill-label { font-weight: bold; width: 100pt; flex-shrink: 0; }
+
+  /* ---------- certifications ---------- */
+  .certs li { margin-bottom: 0.5pt; }
+  .certs a { text-decoration: underline; }
+
+  /* Keep hyphenated keywords whole: a line break inside "ride-sharing" would
+     split the term in the PDF text layer and weaken ATS keyword matching. */
+  .nb { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="name">MD. NURUJJAMAN</div>
+    <div class="tagline">Flutter Developer &middot; Cross-Platform Mobile Engineer</div>
+    <div class="contact">
+      <div>mdnurujjaman329@gmail.com | +880 1957 073942 | Mohakhali, Dhaka, Bangladesh</div>
+      <div>
+        <a href="https://nurujjaman-portfolio-site.vercel.app/">nurujjaman-portfolio-site.vercel.app</a>
+        | <a href="https://www.linkedin.com/in/nurujjaman329/">linkedin.com/in/nurujjaman329</a>
+        | <a href="https://github.com/Nurujjaman329">github.com/Nurujjaman329</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Professional Summary</h2>
+    <p>
+      Flutter Developer with 3 years building scalable, cross-platform mobile apps across
+      social commerce, beauty, fitness, <span class="nb">ride-sharing</span>, <span class="nb">agri-tech</span> and enterprise.
+      Delivered 13+ production apps, with 5 live on App Store and Google Play (Presentini, Fouta,
+      BloodFit, Meghna). Expertise in clean architecture, Socket.IO real-time systems,
+      and payments (Stripe, bKash, Nagad, ShurjoPay). Open to new full-time opportunities.
+    </p>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">Software Engineer (Flutter)</span>
+        <span class="dates">Dec 2025 &ndash; Present</span>
+      </div>
+      <div class="org">Sparktech Agency &middot; Dhaka, Bangladesh</div>
+      <ul>
+        <li>Shipped production Flutter apps across social commerce, beauty, city discovery and fitness — published on App Store and Google Play.</li>
+        <li>Built Socket.IO real-time features for multi-role communication (feeds, messaging and live order updates) in production apps.</li>
+        <li>Owned Google Maps and geolocation flows for live tracking and location-based service discovery.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">Software Developer (Flutter)</span>
+        <span class="dates">Oct 2023 &ndash; Nov 2025</span>
+      </div>
+      <div class="org">Synergy Interface Ltd. &middot; Dhaka, Bangladesh</div>
+      <ul>
+        <li>Delivered 6+ production Flutter apps for enterprise and government clients across insurance, agriculture and edtech.</li>
+        <li>Applied Clean Architecture to keep feature modules modular and testable across multi-role codebases.</li>
+        <li>Integrated bKash, Nagad and ShurjoPay payment gateways for digital premium and investment transactions in production.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <p class="section-note">Full case studies at nurujjaman-portfolio-site.vercel.app/projects</p>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">Presentini &mdash; City Discovery</span>
+        <span class="links">
+          [<a href="https://apps.apple.com/us/app/presentini/id6770782530">App Store</a>]
+          [<a href="https://play.google.com/store/apps/details?id=com.savvymyles.involved.involved">Play Store</a>]
+        </span>
+      </div>
+      <div class="stack">Flutter &middot; Firebase &middot; REST API &middot; Geolocation</div>
+      <p>City discovery platform surfacing local events and specials, with location-based browsing, favorites and push notifications.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">Fouta App &mdash; Social Commerce Platform</span>
+        <span class="links">
+          [<a href="https://apps.apple.com/us/app/fouta-app/id6749207732">App Store</a>]
+          [<a href="https://play.google.com/store/apps/details?id=com.fouta.foutaapp">Play Store</a>]
+        </span>
+      </div>
+      <div class="stack">Flutter &middot; Firebase &middot; Socket.IO &middot; REST API</div>
+      <p>4-role system (user, seller, driver, admin) with real-time feeds, messaging and an end-to-end checkout &amp; delivery pipeline.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">BloodFit &mdash; AI Health &amp; Fitness</span>
+        <span class="links">
+          [<a href="https://play.google.com/store/apps/details?id=com.bloodfitltd.bloodfit">Play Store</a>]
+        </span>
+      </div>
+      <div class="stack">Flutter &middot; GetX &middot; Firebase Auth &middot; Socket.IO &middot; In-App Purchases</div>
+      <p>Blood-type personalized meal plans and workouts with AI generation, Socket.IO + polling fetch, and multi-tier in-app subscriptions.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">Meghna Life Insurance &mdash; Advisor App</span>
+        <span class="links">
+          [<a href="https://play.google.com/store/apps/details?id=com.meghnalife.app.fa&amp;hl=en">Play Store</a>]
+        </span>
+      </div>
+      <div class="stack">Flutter &middot; bKash &middot; Nagad &middot; REST API</div>
+      <p>Dual-app suite for a government-linked insurer, replacing manual premium collection with a digital advisor workflow.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skill"><span class="skill-label">Languages</span><span>Dart</span></div>
+    <div class="skill"><span class="skill-label">Framework</span><span>Flutter</span></div>
+    <div class="skill"><span class="skill-label">State Management</span><span>Bloc, GetX, Provider, Riverpod</span></div>
+    <div class="skill"><span class="skill-label">Architecture</span><span>Clean Architecture</span></div>
+    <div class="skill"><span class="skill-label">Backend &amp; APIs</span><span>REST API, Dio, Firebase, Socket.IO</span></div>
+    <div class="skill"><span class="skill-label">Payments</span><span>Stripe, bKash, Nagad, ShurjoPay, In-App Purchases</span></div>
+    <div class="skill"><span class="skill-label">Core Features</span><span>Google Maps, Push Notifications, Deep Linking, Biometric Auth, Hive, Get Storage</span></div>
+    <div class="skill"><span class="skill-label">Tools</span><span>Git, GitHub, VS Code, Figma, Postman, Play Console, App Store Connect</span></div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">B.Sc. in Computer Science and Engineering</span>
+        <span class="dates">Graduated 2023</span>
+      </div>
+      <div class="org">Dhaka City College, National University, Bangladesh</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <ul class="certs">
+      <li>Mobile Application Development &mdash; Flutter, BASIS SEIP (Sep&ndash;Dec 2022)
+        <a href="https://drive.google.com/file/d/1kibfkA2Zp4aV6Iq5OpP_sz6bsdx-phOD/view?usp=sharing">Verify</a></li>
+      <li>Professional English Communication Skill, WSDA New Zealand (Nov 2022)
+        <a href="https://drive.google.com/file/d/1kj_M8FgAZO76zJlQAXMFT1vmK5s7-t2n/view?usp=sharing">Verify</a></li>
+      <li>CSE Fundamentals, Phitron</li>
+    </ul>
+  </section>
+
+</body>
+</html>

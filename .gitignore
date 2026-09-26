@@ -34,3 +34,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# build output of resume-print/build.sh (the committed copies live at
+# ./MD_Nurujjaman_Resume.pdf and public/resume.pdf)
+resume-print/MD_Nurujjaman_Resume.pdf

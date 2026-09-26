@@ -1,8 +1,7 @@
-/** Canonical site URL — set VITE_SITE_URL in production (e.g. https://nurujjaman.dev). */
-export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? "https://nurujjaman.dev").replace(
-  /\/$/,
-  "",
-);
+/** Canonical site URL — set VITE_SITE_URL when a custom domain is live (e.g. https://nurujjaman.dev). */
+export const SITE_URL = (
+  import.meta.env.VITE_SITE_URL ?? "https://nurujjaman-portfolio-site.vercel.app"
+).replace(/\/$/, "");
 
 export const SITE_NAME = "MD. Nurujjaman — Flutter Developer";
 
