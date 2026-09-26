@@ -29,7 +29,7 @@ const roles = [
     period: "Dec 2025 — Present",
     location: "Dhaka, Bangladesh",
     bullets: [
-      "Shipped production Flutter apps across social commerce, beauty, city discovery and fitness — published on App Store and Google Play.",
+      "Shipped production Flutter apps across social commerce, beauty, ride-sharing and fitness — published on App Store and Google Play.",
       "Built Socket.IO real-time features for multi-role communication (feeds, messaging and live order updates) in production apps.",
       "Owned Google Maps and geolocation flows for live tracking and location-based service discovery.",
       "Collaborated across distributed teams on performance optimisation, code reviews and scalable module design.",

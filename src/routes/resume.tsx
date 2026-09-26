@@ -78,8 +78,8 @@ function Resume() {
             mobile apps across social commerce, beauty, fitness, ride-sharing, agri-tech and enterprise
             sectors. Experienced in clean architecture, real-time systems (Socket.IO), map-based
             services and secure payment integrations (Stripe, bKash, Nagad, ShurjoPay). Proven track
-            record of delivering 13+ production apps, with 5 currently live on the App Store and
-            Google Play (Presentini, Fouta, BloodFit, Meghna). Open to new full-time
+            record of delivering 13+ production apps, with 6 currently live on the App Store and
+            Google Play (Lyfuber, Fouta, BloodFit, Meghna). Open to new full-time
             opportunities.
           </p>
         </Block>
@@ -90,7 +90,7 @@ function Resume() {
             company="Sparktech Agency"
             period="Dec 2025 — Present"
             bullets={[
-              "Shipped production Flutter apps across social commerce, beauty, city discovery and fitness — published on App Store and Google Play.",
+              "Shipped production Flutter apps across social commerce, beauty, ride-sharing and fitness — published on App Store and Google Play.",
               "Built Socket.IO real-time features for multi-role communication (feeds, messaging and live order updates) in production apps.",
               "Owned Google Maps and geolocation flows for live tracking and location-based service discovery.",
               "Collaborated across distributed teams on performance optimisation, code reviews and scalable module design.",
@@ -111,12 +111,12 @@ function Resume() {
 
         <Block title="Key Projects">
           <Job
-            role="Presentini — City Discovery"
-            company="Sparktech Agency · App Store & Play Store"
+            role="Lyfuber — Ride Sharing"
+            company="Sparktech Agency · Live on Google Play"
             period=""
             bullets={[
-              "Built a city discovery platform for local events and specials with location-based browsing, favorites and push notifications.",
-              "Shipped live on both App Store and Google Play with Firebase-backed alerts and geolocation discovery.",
+              "Built a dual-role passenger and driver platform with live Google Maps tracking, Socket.IO trip updates and Stripe payments.",
+              "Shipped live on Google Play with smoothed map motion and an explicit ride lifecycle state machine.",
             ]}
           />
           <Job
