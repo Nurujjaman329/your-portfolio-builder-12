@@ -66,6 +66,28 @@ describe("fetchProjects", () => {
 
     expect(result.map((p) => p.slug)).toEqual(staticProjects.map((p) => p.slug));
   });
+
+  it("restores static screenshots when Firestore leaves images empty", async () => {
+    const meghna = staticProjects.find((p) => p.slug === "meghna-life-insurance");
+    expect(meghna?.images.length).toBeGreaterThan(0);
+
+    firestoreMocks.getDocs.mockResolvedValue({
+      empty: false,
+      docs: [
+        {
+          data: () => ({
+            ...meghna!,
+            images: [],
+          }),
+        },
+      ],
+    });
+
+    const result = await fetchProjects();
+    const merged = result.find((p) => p.slug === "meghna-life-insurance");
+
+    expect(merged?.images).toEqual(meghna!.images);
+  });
 });
 
 describe("fetchProject", () => {

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ChevronLeft, ChevronRight, Layers, Zap, Package, X } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Layers, Zap, Package, X, Images } from "lucide-react";
 import { StoreLinks } from "@/components/portfolio/StoreLinks";
 import { fetchProject } from "@/lib/firestore-projects";
 
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/projects/$slug")({
 
 function ProjectDetail() {
   const project = Route.useLoaderData();
+  const images = project.images ?? [];
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
@@ -44,23 +45,24 @@ function ProjectDetail() {
         </div>
       </header>
 
-      {/* Screenshots */}
-      <section className="mb-12">
-        {project.images.length > 0 ? (
-          <ScreenshotGallery images={project.images} projectName={project.name} />
-        ) : (
-          <div className="grid grid-cols-3 gap-4">
-            {[1, 2, 3].map((n) => (
-              <div
-                key={n}
-                className="flex h-48 items-center justify-center rounded-xl border border-dashed border-border/60 bg-secondary/30"
-              >
-                <p className="font-mono text-xs text-muted-foreground/50">Screenshot {n}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+      <div className="mb-12">
+        <Block title="Screenshots" icon={<Images className="h-4 w-4" />}>
+          {images.length > 0 ? (
+            <ScreenshotGallery images={images} projectName={project.name} />
+          ) : (
+            <div className="grid grid-cols-3 gap-4">
+              {[1, 2, 3].map((n) => (
+                <div
+                  key={n}
+                  className="flex h-48 items-center justify-center rounded-xl border border-dashed border-border/60 bg-secondary/30"
+                >
+                  <p className="font-mono text-xs text-muted-foreground/50">Screenshot {n}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </Block>
+      </div>
 
       <div className="space-y-10">
         <Block title="Overview" icon={<Layers className="h-4 w-4" />}>
