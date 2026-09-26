@@ -375,13 +375,13 @@ export const projects: ProjectDetail[] = [
     ],
   },
   {
-    slug: "ride-sharing-app",
+    slug: "lyfuber",
     name: "Lyfuber",
     tag: "Ride Sharing",
     tagline:
       "Production ride-sharing platform for passengers and drivers — live map tracking, real-time trip state, and Stripe payments. Live on Google Play.",
     company: "Sparktech Agency",
-    period: "2024–2026",
+    period: "2025–2026",
     status: "Live on Google Play",
     accent: "from-primary to-accent",
     storeLink: true,
@@ -448,6 +448,93 @@ export const projects: ProjectDetail[] = [
       },
     ],
     images: [
+      "/projects/lyfuber/screenshot-01.png",
+      "/projects/lyfuber/screenshot-02.png",
+      "/projects/lyfuber/screenshot-03.png",
+      "/projects/lyfuber/screenshot-04.png",
+      "/projects/lyfuber/screenshot-05.png",
+      "/projects/lyfuber/screenshot-06.png",
+      "/projects/lyfuber/screenshot-07.png",
+      "/projects/lyfuber/screenshot-08.png",
+    ],
+    results: [
+      "Live on Google Play as Lyfuber (com.lyfuber.app).",
+      "Passenger and Driver flows shipping in production with live map tracking and real-time trip updates.",
+      "Map motion hardened for production GPS noise — smoother tracking, clearer routes and more reliable in-trip follow.",
+      "Stripe-backed payments integrated into the completed-ride path.",
+    ],
+  },
+
+  {
+    slug: "ride-sharing-app",
+    name: "Ride Sharing App",
+    tag: "Transport",
+    tagline: "A dual-role ride platform with live tracking, wallet management and auto-pricing.",
+    company: "Sparktech Agency",
+    period: "2024",
+    status: "Internal / Client Delivery",
+    accent: "from-primary to-accent",
+    storeLink: false,
+    overview:
+      "A full-featured ride sharing app with separate Passenger and Driver experiences. Passengers request rides, track drivers in real time and pay via wallet. Drivers receive ride requests, navigate to pickups and manage their earnings — all with in-trip chat for coordination.",
+    challenge:
+      "Synchronising driver location with the passenger map in real time with minimal latency, while managing the complete ride lifecycle (request → accept → pickup → trip → completion) as a reliable state machine that handles edge cases like cancellations and network drops.",
+    solution:
+      "The ride lifecycle was modelled as a finite state machine using GetX controllers and reactive state. Driver location updates are emitted via Socket.IO at a 2-second interval and consumed directly into the map widget. Google Directions API handles routing and auto-pricing based on distance and estimated time.",
+    architecture: {
+      pattern: "Clean Architecture (Feature-first)",
+      description:
+        "The ride flow is isolated as a single feature with its own GetX controllers, use cases and repository. Map, wallet and auth are separate features that communicate only through domain entities — never direct widget calls.",
+      layers: [
+        {
+          name: "Presentation",
+          desc: "Passenger and Driver screens are separate widget trees with GetX bindings — no shared UI components between roles.",
+        },
+        {
+          name: "Domain",
+          desc: "RideState machine, Trip entity and pricing use cases — pure Dart, fully testable.",
+        },
+        {
+          name: "Data",
+          desc: "Socket.IO location streams, Google Directions API client and local wallet cache.",
+        },
+      ],
+    },
+    stateManagement: {
+      solution: "GetX",
+      reason:
+        "GetX kept ride lifecycle state, map updates and role-based navigation lightweight. Reactive `.obs` variables and GetX controllers made it straightforward to sync Socket.IO location streams with the UI across Passenger and Driver flows.",
+    },
+    stack: [
+      { name: "Flutter", purpose: "Cross-platform UI for Passenger and Driver apps" },
+      { name: "GetX", purpose: "State management, dependency injection and route navigation" },
+      { name: "Socket.IO", purpose: "Real-time driver location streaming and in-trip chat" },
+      { name: "Google Maps", purpose: "Live map, route display and pickup navigation" },
+      {
+        name: "Google Directions API",
+        purpose: "Route calculation and auto-pricing by distance/time",
+      },
+      { name: "REST API", purpose: "User accounts, ride history, wallet and driver management" },
+    ],
+    highlights: [
+      {
+        title: "Live Location Tracking",
+        desc: "Driver position updates pushed to passenger map every 2 seconds via Socket.IO.",
+      },
+      {
+        title: "Auto-pricing",
+        desc: "Google Directions API calculates fare dynamically based on distance and time estimate.",
+      },
+      {
+        title: "Ride State Machine",
+        desc: "GetX-driven lifecycle with explicit states preventing invalid UI/action combinations.",
+      },
+      {
+        title: "OTP Auth + Wallet",
+        desc: "Phone OTP onboarding and in-app wallet for cashless ride payments.",
+      },
+    ],
+    images: [
       "/projects/ride-sharing-app/driver-home.png",
       "/projects/ride-sharing-app/driver-active-orders.png",
       "/projects/ride-sharing-app/driver-trip-details.png",
@@ -466,10 +553,9 @@ export const projects: ProjectDetail[] = [
       "/projects/ride-sharing-app/chats.png",
     ],
     results: [
-      "Live on Google Play as Lyfuber (com.lyfuber.app).",
-      "Passenger and Driver flows shipping in production with live map tracking and real-time trip updates.",
-      "Map motion hardened for production GPS noise — smoother tracking, clearer routes and more reliable in-trip follow.",
-      "Stripe-backed payments integrated into the completed-ride path.",
+      "Delivered to client with full Passenger and Driver flows operational.",
+      "Real-time location tracking running reliably in QA at 2s update intervals.",
+      "Auto-pricing integrated with Google Directions API.",
     ],
   },
   {

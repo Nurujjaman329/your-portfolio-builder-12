@@ -67,6 +67,49 @@ describe("fetchProjects", () => {
     expect(result.map((p) => p.slug)).toEqual(staticProjects.map((p) => p.slug));
   });
 
+  it("keeps static name/status when Firestore has stale Lyfuber copy", async () => {
+    const local = staticProjects.find((p) => p.slug === "lyfuber")!;
+    expect(local.name).toBe("Lyfuber");
+
+    firestoreMocks.getDocs.mockResolvedValue({
+      empty: false,
+      docs: [
+        {
+          data: () => ({
+            ...local,
+            name: "Ride Share Client",
+            status: "Internal / Client Delivery",
+            storeLink: false,
+            playStoreUrl: undefined,
+          }),
+        },
+        ...staticProjects.filter((p) => p.slug !== "lyfuber").map((p) => ({ data: () => p })),
+      ],
+    });
+
+    const result = await fetchProjects();
+    const ride = result.find((p) => p.slug === "lyfuber");
+
+    expect(ride?.name).toBe("Lyfuber");
+    expect(ride?.status).toBe("Live on Google Play");
+    expect(ride?.storeLink).toBe(true);
+    expect(ride?.playStoreUrl).toContain("lyfuber");
+  });
+
+  it("includes static projects missing from Firestore", async () => {
+    const withoutLyfuber = staticProjects.filter((p) => p.slug !== "lyfuber");
+    firestoreMocks.getDocs.mockResolvedValue({
+      empty: false,
+      docs: withoutLyfuber.map((p) => ({ data: () => p })),
+    });
+
+    const result = await fetchProjects();
+
+    expect(result.map((p) => p.slug)).toContain("lyfuber");
+    expect(result.find((p) => p.slug === "lyfuber")?.name).toBe("Lyfuber");
+    expect(result.map((p) => p.slug)).toContain("ride-sharing-app");
+  });
+
   it("restores static screenshots when Firestore leaves images empty", async () => {
     const meghna = staticProjects.find((p) => p.slug === "meghna-life-insurance");
     expect(meghna?.images.length).toBeGreaterThan(0);

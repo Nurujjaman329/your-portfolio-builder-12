@@ -12,13 +12,13 @@ import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage
 import { db, storage, isFirebaseConfigured } from "./firebase";
 import { projects as staticProjects, type ProjectDetail } from "@/data/projects";
 
-/** Prefer Firestore fields, but keep static screenshots if CMS left images empty. */
+/** Prefer code (static) for project copy; Firestore may only override images when set. */
 function mergeWithStatic(remote: ProjectDetail): ProjectDetail {
   const local = staticProjects.find((p) => p.slug === remote.slug);
   if (!local) return { ...remote, images: remote.images ?? [] };
   return {
-    ...local,
     ...remote,
+    ...local,
     images: remote.images?.length ? remote.images : local.images,
   };
 }
@@ -28,10 +28,19 @@ export async function fetchProjects(): Promise<ProjectDetail[]> {
   try {
     const snap = await getDocs(collection(db, "projects"));
     if (snap.empty) return staticProjects;
-    const order = new Map(staticProjects.map((p, i) => [p.slug, i]));
-    return snap.docs
-      .map((d) => mergeWithStatic(d.data() as ProjectDetail))
-      .sort((a, b) => (order.get(a.slug) ?? 999) - (order.get(b.slug) ?? 999));
+
+    const fromFs = new Map<string, ProjectDetail>();
+    for (const d of snap.docs) {
+      const merged = mergeWithStatic(d.data() as ProjectDetail);
+      fromFs.set(merged.slug, merged);
+    }
+
+    // Always show every static project (e.g. Lyfuber), even if CMS is stale/missing.
+    const ordered = staticProjects.map((p) => fromFs.get(p.slug) ?? p);
+    const extras = [...fromFs.values()].filter(
+      (p) => !staticProjects.some((s) => s.slug === p.slug),
+    );
+    return [...ordered, ...extras];
   } catch {
     return staticProjects;
   }
