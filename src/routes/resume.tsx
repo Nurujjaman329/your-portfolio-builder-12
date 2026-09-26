@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/portfolio/Section";
 import { Printer, Download, Mail, MapPin, Phone, Globe } from "lucide-react";
-import { experienceText } from "@/data/profile";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
@@ -75,11 +74,13 @@ function Resume() {
 
         <Block title="Career Objective">
           <p className="text-foreground/85 leading-relaxed">
-            Flutter Developer with {experienceText()} of experience building scalable cross-platform
-            applications across social commerce, beauty, ride-sharing, agri-tech and enterprise
+            Flutter Developer with 3 years of experience building scalable cross-platform
+            mobile apps across social commerce, beauty, fitness, ride-sharing, agri-tech and enterprise
             sectors. Experienced in clean architecture, real-time systems (Socket.IO), map-based
             services and secure payment integrations (Stripe, bKash, Nagad, ShurjoPay). Proven track
-            record of delivering 13+ production apps, 5 live on the App Store and Google Play.
+            record of delivering 13+ production apps, with 5 currently live on the App Store and
+            Google Play (Presentini, Fouta, BloodFit, Meghna). Open to new full-time
+            opportunities.
           </p>
         </Block>
 
@@ -89,9 +90,9 @@ function Resume() {
             company="Sparktech Agency"
             period="Dec 2025 — Present"
             bullets={[
-              "Delivered 7 production apps across social, beauty, transport and utility sectors, published on both App Store and Google Play.",
-              "Architected real-time data sync using Socket.IO, enabling seamless multi-role communication across user bases.",
-              "Integrated Google Maps APIs for live location tracking and geo-based service discovery.",
+              "Shipped production Flutter apps across social commerce, beauty, city discovery and fitness — published on App Store and Google Play.",
+              "Built Socket.IO real-time features for multi-role communication (feeds, messaging and live order updates) in production apps.",
+              "Owned Google Maps and geolocation flows for live tracking and location-based service discovery.",
               "Collaborated across distributed teams on performance optimisation, code reviews and scalable module design.",
             ]}
           />
@@ -100,18 +101,27 @@ function Resume() {
             company="Synergy Interface Ltd."
             period="Oct 2023 — Nov 2025"
             bullets={[
-              "Developed 6+ production-grade Flutter apps for enterprise and government clients, including insurance and agriculture sectors.",
-              "Applied Clean Architecture to produce modular, testable codebases, reducing onboarding time for new developers.",
+              "Delivered 6+ production Flutter apps for enterprise and government clients across insurance, agriculture and edtech.",
+              "Applied Clean Architecture to keep feature modules modular and testable across multi-role codebases.",
               "Optimised state management and API handling, reducing load times and improving app responsiveness.",
-              "Integrated bKash, Nagad and ShurjoPay gateways, enabling secure digital transactions for government insurance clients.",
+              "Integrated bKash, Nagad and ShurjoPay payment gateways for digital premium and investment transactions in production.",
             ]}
           />
         </Block>
 
         <Block title="Key Projects">
           <Job
+            role="Presentini — City Discovery"
+            company="Sparktech Agency · App Store & Play Store"
+            period=""
+            bullets={[
+              "Built a city discovery platform for local events and specials with location-based browsing, favorites and push notifications.",
+              "Shipped live on both App Store and Google Play with Firebase-backed alerts and geolocation discovery.",
+            ]}
+          />
+          <Job
             role="Fouta App — Social Commerce Platform"
-            company="Sparktech Agency · Live on App Store"
+            company="Sparktech Agency · App Store & Play Store"
             period=""
             bullets={[
               "Engineered a 4-role system (user, seller, driver, admin) with separate onboarding flows and permission-based access control.",
@@ -120,35 +130,17 @@ function Resume() {
             ]}
           />
           <Job
-            role="TNP Beauty — Multi-role Beauty Marketplace"
-            company="Sparktech Agency · App Store & Play Store"
+            role="BloodFit — AI Health & Fitness"
+            company="Sparktech Agency · Live on Google Play"
             period=""
             bullets={[
-              "Designed a 3-role platform (Customer, Vendor, Beautician) with location-based discovery and appointment booking.",
-              "Integrated Stripe payments, vendor earnings dashboards and a business verification system.",
-            ]}
-          />
-          <Job
-            role="Ride Sharing App — Dual-role Ride Platform"
-            company="Sparktech Agency"
-            period=""
-            bullets={[
-              "Built Passenger and Driver onboarding with OTP auth, wallet management and auto-pricing via Google Directions API.",
-              "Implemented real-time driver-passenger chat via Socket.IO for in-trip coordination.",
-            ]}
-          />
-          <Job
-            role="MyKrishi — Smart Agriculture Investment Platform"
-            company="Synergy Interface Ltd."
-            period=""
-            bullets={[
-              "Developed a role-based platform for farmers, investors and agents with tailored dashboards per role.",
-              "Implemented deep linking for campaign sharing and ShurjoPay integration for investment payments.",
+              "Built blood-type personalized meal plans and workouts with AI generation and dual Socket.IO + polling fetch.",
+              "Implemented multi-tier in-app purchases (Starter/Pro/Elite) with Firebase Auth and GetX state management.",
             ]}
           />
           <Job
             role="Meghna Life Insurance — Customer & Advisor Apps"
-            company="Synergy Interface Ltd."
+            company="Synergy Interface Ltd. · Live on Google Play"
             period=""
             bullets={[
               "Delivered dual-app suite for a government-linked insurance provider.",
@@ -159,17 +151,38 @@ function Resume() {
 
         <Block title="Skills">
           <div className="grid gap-3 sm:grid-cols-2">
-            <SkillRow label="Languages" items={["Dart", "C", "C++"]} />
+            <SkillRow label="Languages" items={["Dart"]} />
             <SkillRow label="Framework" items={["Flutter"]} />
             <SkillRow label="State Management" items={["Bloc", "GetX", "Provider", "Riverpod"]} />
             <SkillRow label="Architecture" items={["Clean Architecture"]} />
-            <SkillRow label="Backend & APIs" items={["REST API", "Firebase", "Socket.IO"]} />
-            <SkillRow label="Payments" items={["Stripe", "bKash", "Nagad", "ShurjoPay"]} />
+            <SkillRow label="Backend & APIs" items={["REST API", "Dio", "Firebase", "Socket.IO"]} />
+            <SkillRow
+              label="Payments"
+              items={["Stripe", "bKash", "Nagad", "ShurjoPay", "In-App Purchases"]}
+            />
             <SkillRow
               label="Core Features"
-              items={["Google Maps", "Push Notifications", "Deep Linking", "Biometric Auth"]}
+              items={[
+                "Google Maps",
+                "Push Notifications",
+                "Deep Linking",
+                "Biometric Auth",
+                "Hive",
+                "Get Storage",
+              ]}
             />
-            <SkillRow label="Tools" items={["Git", "GitHub", "VS Code", "Figma", "Postman"]} />
+            <SkillRow
+              label="Tools"
+              items={[
+                "Git",
+                "GitHub",
+                "VS Code",
+                "Figma",
+                "Postman",
+                "Play Console",
+                "App Store Connect",
+              ]}
+            />
           </div>
         </Block>
 
@@ -177,8 +190,8 @@ function Resume() {
           <Job
             role="B.Sc. in Computer Science and Engineering"
             company="Dhaka City College (National University, Bangladesh)"
-            period="2018 — 2021 (Held in 2023)"
-            bullets={["CGPA 3.18 / 4.00"]}
+            period="Graduated 2023"
+            bullets={[]}
           />
         </Block>
 
