@@ -12,6 +12,17 @@ import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage
 import { db, storage, isFirebaseConfigured } from "./firebase";
 import { projects as staticProjects, type ProjectDetail } from "@/data/projects";
 
+/** Prefer Firestore fields, but keep static screenshots if CMS left images empty. */
+function mergeWithStatic(remote: ProjectDetail): ProjectDetail {
+  const local = staticProjects.find((p) => p.slug === remote.slug);
+  if (!local) return { ...remote, images: remote.images ?? [] };
+  return {
+    ...local,
+    ...remote,
+    images: remote.images?.length ? remote.images : local.images,
+  };
+}
+
 export async function fetchProjects(): Promise<ProjectDetail[]> {
   if (!isFirebaseConfigured || !db) return staticProjects;
   try {
@@ -19,7 +30,7 @@ export async function fetchProjects(): Promise<ProjectDetail[]> {
     if (snap.empty) return staticProjects;
     const order = new Map(staticProjects.map((p, i) => [p.slug, i]));
     return snap.docs
-      .map((d) => d.data() as ProjectDetail)
+      .map((d) => mergeWithStatic(d.data() as ProjectDetail))
       .sort((a, b) => (order.get(a.slug) ?? 999) - (order.get(b.slug) ?? 999));
   } catch {
     return staticProjects;
@@ -31,7 +42,7 @@ export async function fetchProject(slug: string): Promise<ProjectDetail | undefi
   try {
     const snap = await getDoc(doc(db, "projects", slug));
     if (!snap.exists()) return staticProjects.find((p) => p.slug === slug);
-    return snap.data() as ProjectDetail;
+    return mergeWithStatic(snap.data() as ProjectDetail);
   } catch {
     return staticProjects.find((p) => p.slug === slug);
   }

@@ -376,71 +376,75 @@ export const projects: ProjectDetail[] = [
   },
   {
     slug: "ride-sharing-app",
-    name: "Ride Sharing App",
-    tag: "Transport",
-    tagline: "A dual-role ride platform with live tracking, wallet management and auto-pricing.",
+    name: "Lyfuber",
+    tag: "Ride Sharing",
+    tagline:
+      "Production ride-sharing platform for passengers and drivers — live map tracking, real-time trip state, and Stripe payments. Live on Google Play.",
     company: "Sparktech Agency",
-    period: "2024",
-    status: "Internal / Client Delivery",
+    period: "2024–2026",
+    status: "Live on Google Play",
     accent: "from-primary to-accent",
-    storeLink: false,
+    storeLink: true,
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.lyfuber.app&hl=en",
     overview:
-      "A full-featured ride sharing app with separate Passenger and Driver experiences. Passengers request rides, track drivers in real time and pay via wallet. Drivers receive ride requests, navigate to pickups and manage their earnings — all with in-trip chat for coordination.",
+      "Lyfuber is a dual-role ride-sharing product built for Lyfuber LLC. Passengers book rides, follow the driver on a live map, chat in-trip and pay digitally. Drivers manage availability, accept requests, navigate pickups and complete trips — with the full ride lifecycle enforced as an explicit state machine rather than ad-hoc UI flags.",
     challenge:
-      "Synchronising driver location with the passenger map in real time with minimal latency, while managing the complete ride lifecycle (request → accept → pickup → trip → completion) as a reliable state machine that handles edge cases like cancellations and network drops.",
+      "Ride-sharing fails in the details: driver markers that jump or freeze, race conditions across request → accept → pickup → trip → complete, and map UX that feels laggy under real GPS noise. The product needed Uber-like motion on the map while staying correct when sockets drop, rides cancel mid-flow or location packets arrive late.",
     solution:
-      "The ride lifecycle was modelled as a finite state machine using GetX controllers and reactive state. Driver location updates are emitted via Socket.IO at a 2-second interval and consumed directly into the map widget. Google Directions API handles routing and auto-pricing based on distance and estimated time.",
+      "Modelled the trip as a finite state machine in GetX so invalid transitions never reach the UI. Streamed driver location over Socket.IO and rendered it on Google Maps with smoothing (EMA position/heading, speed-aware animation, short dead-reckoning coast) so motion stays continuous between packets. Google Directions API drives routing and distance/time-based fare; Stripe handles secure ride payments.",
     architecture: {
       pattern: "Clean Architecture (Feature-first)",
       description:
-        "The ride flow is isolated as a single feature with its own GetX controllers, use cases and repository. Map, wallet and auth are separate features that communicate only through domain entities — never direct widget calls.",
+        "Ride, map, chat, wallet/payments and auth are isolated features. Controllers never reach across feature folders — they share only domain entities (Trip, RideState, LocationUpdate) through repositories.",
       layers: [
         {
           name: "Presentation",
-          desc: "Passenger and Driver screens are separate widget trees with GetX bindings — no shared UI components between roles.",
+          desc: "Separate Passenger and Driver widget trees with GetX bindings — role UI never leaks across modules.",
         },
         {
           name: "Domain",
-          desc: "RideState machine, Trip entity and pricing use cases — pure Dart, fully testable.",
+          desc: "RideState machine, Trip entity and pricing use cases — pure Dart, independent of Socket.IO or Maps SDKs.",
         },
         {
           name: "Data",
-          desc: "Socket.IO location streams, Google Directions API client and local wallet cache.",
+          desc: "Socket.IO location and trip events, Google Maps / Directions clients, Stripe payment flows and REST repositories.",
         },
       ],
     },
     stateManagement: {
       solution: "GetX",
       reason:
-        "GetX kept ride lifecycle state, map updates and role-based navigation lightweight. Reactive `.obs` variables and GetX controllers made it straightforward to sync Socket.IO location streams with the UI across Passenger and Driver flows.",
+        "GetX kept the ride lifecycle, map follow/rotate behaviour and role routing in one lightweight reactive layer. Explicit RideState transitions made cancellation and network-drop recovery predictable under production load.",
     },
     stack: [
-      { name: "Flutter", purpose: "Cross-platform UI for Passenger and Driver apps" },
-      { name: "GetX", purpose: "State management, dependency injection and route navigation" },
-      { name: "Socket.IO", purpose: "Real-time driver location streaming and in-trip chat" },
-      { name: "Google Maps", purpose: "Live map, route display and pickup navigation" },
+      { name: "Flutter", purpose: "Cross-platform Passenger and Driver experiences" },
+      { name: "GetX", purpose: "State, DI and navigation across dual-role flows" },
+      { name: "Socket.IO", purpose: "Live location, trip events and in-trip messaging" },
+      { name: "Google Maps", purpose: "Live map, follow camera, route polyline and pickup navigation" },
       {
         name: "Google Directions API",
-        purpose: "Route calculation and auto-pricing by distance/time",
+        purpose: "Route geometry and distance/time-based auto-pricing",
       },
-      { name: "REST API", purpose: "User accounts, ride history, wallet and driver management" },
+      { name: "Stripe", purpose: "Secure ride payments and fare settlement" },
+      { name: "Firebase", purpose: "Push notifications for ride and arrival alerts" },
+      { name: "REST API", purpose: "Accounts, ride history, driver ops and trip records" },
     ],
     highlights: [
       {
-        title: "Live Location Tracking",
-        desc: "Driver position updates pushed to passenger map every 2 seconds via Socket.IO.",
-      },
-      {
-        title: "Auto-pricing",
-        desc: "Google Directions API calculates fare dynamically based on distance and time estimate.",
+        title: "Live Map Tracking",
+        desc: "Socket.IO location stream rendered on Google Maps with smoothed motion, heading and camera follow during active trips.",
       },
       {
         title: "Ride State Machine",
-        desc: "GetX-driven lifecycle with explicit states preventing invalid UI/action combinations.",
+        desc: "Explicit GetX-driven lifecycle from request through completion — blocks invalid actions when rides cancel or the network drops.",
       },
       {
-        title: "OTP Auth + Wallet",
-        desc: "Phone OTP onboarding and in-app wallet for cashless ride payments.",
+        title: "Auto-pricing & Routing",
+        desc: "Google Directions API supplies route geometry and distance/time inputs for dynamic fare calculation.",
+      },
+      {
+        title: "Stripe Payments",
+        desc: "Production payment flow for ride fares with server-backed confirmation — not client-only charge logic.",
       },
     ],
     images: [
@@ -462,9 +466,10 @@ export const projects: ProjectDetail[] = [
       "/projects/ride-sharing-app/chats.png",
     ],
     results: [
-      "Delivered to client with full Passenger and Driver flows operational.",
-      "Real-time location tracking running reliably in QA at 2s update intervals.",
-      "Auto-pricing integrated with Google Directions API.",
+      "Live on Google Play as Lyfuber (com.lyfuber.app).",
+      "Passenger and Driver flows shipping in production with live map tracking and real-time trip updates.",
+      "Map motion hardened for production GPS noise — smoother tracking, clearer routes and more reliable in-trip follow.",
+      "Stripe-backed payments integrated into the completed-ride path.",
     ],
   },
   {
